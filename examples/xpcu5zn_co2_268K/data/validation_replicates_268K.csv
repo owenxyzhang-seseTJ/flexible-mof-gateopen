@@ -1,0 +1,7 @@
+phase,temperature_K,pressure_bar,absolute_loading_molecules_per_cell,absolute_loading_error_molecules_per_cell,excess_loading_molecules_per_cell,excess_loading_error_molecules_per_cell,raspa_version,seed,directory
+open_alpha,268.0,15.0,14.32767,0.8327118,13.97318,0.8327118,3.1.0,3977581497,raspa_output/validation_replicates_268K/open_alpha/P_15bar
+open_alpha,268.0,19.0,15.12267,0.8003342,14.65407,0.8003342,3.1.0,3637652653,raspa_output/validation_replicates_268K/open_alpha/P_19bar
+open_alpha,268.0,20.0,15.591,0.5120549,15.09207,0.5120549,3.1.0,2207477638,raspa_output/validation_replicates_268K/open_alpha/P_20bar
+closed_gamma,268.0,15.0,0.0,0.0,-0.4712051,0.0,3.1.0,1549124197,raspa_output/validation_replicates_268K/closed_gamma/P_15bar
+closed_gamma,268.0,19.0,0.0,0.0,-0.6228917,0.0,3.1.0,1657617797,raspa_output/validation_replicates_268K/closed_gamma/P_19bar
+closed_gamma,268.0,20.0,0.0,0.0,-0.6632139,0.0,3.1.0,1872075449,raspa_output/validation_replicates_268K/closed_gamma/P_20bar

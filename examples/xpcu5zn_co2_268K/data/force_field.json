@@ -1,0 +1,27 @@
+{
+  "PseudoAtoms" :
+  [
+    {"name":"Zn", "framework":true, "print_to_output":true, "element":"Zn", "print_as":"Zn", "mass":65.38, "charge":0.0, "source":"UFF-like generic framework placeholder; PACMOF charge is read from CIF"},
+    {"name":"S",  "framework":true, "print_to_output":true, "element":"S",  "print_as":"S",  "mass":32.06, "charge":0.0, "source":"UFF-like generic framework placeholder; PACMOF charge is read from CIF"},
+    {"name":"C",  "framework":true, "print_to_output":true, "element":"C",  "print_as":"C",  "mass":12.011, "charge":0.0, "source":"UFF-like generic framework placeholder; PACMOF charge is read from CIF"},
+    {"name":"H",  "framework":true, "print_to_output":true, "element":"H",  "print_as":"H",  "mass":1.008, "charge":0.0, "source":"UFF-like generic framework placeholder; PACMOF charge is read from CIF"},
+    {"name":"N",  "framework":true, "print_to_output":true, "element":"N",  "print_as":"N",  "mass":14.007, "charge":0.0, "source":"UFF-like generic framework placeholder; PACMOF charge is read from CIF"},
+    {"name":"O",  "framework":true,  "print_to_output":true, "element":"O",  "print_as":"O",  "mass":15.999, "charge":0.0, "source":"UFF-like generic framework placeholder; PACMOF charge is read from CIF"},
+    {"name":"C_co2", "framework":false, "print_to_output":true, "element":"C", "print_as":"C", "mass":12.0, "charge":0.6512, "source":"Garcia-Sanchez et al., J. Phys. Chem. C 2009, 113, 8814-8820"},
+    {"name":"O_co2", "framework":false, "print_to_output":true, "element":"O", "print_as":"O", "mass":15.999, "charge":-0.3256, "source":"Garcia-Sanchez et al., J. Phys. Chem. C 2009, 113, 8814-8820"}
+  ],
+  "SelfInteractions" :
+  [
+    {"name":"Zn", "type":"lennard-jones", "parameters":[62.39,2.46], "source":"UFF-like placeholder"},
+    {"name":"S",  "type":"lennard-jones", "parameters":[167.0,3.59], "source":"UFF-like placeholder"},
+    {"name":"C",  "type":"lennard-jones", "parameters":[52.84,3.431], "source":"UFF-like placeholder"},
+    {"name":"H",  "type":"lennard-jones", "parameters":[22.14,2.57], "source":"UFF-like placeholder"},
+    {"name":"N",  "type":"lennard-jones", "parameters":[34.72,3.26], "source":"UFF-like placeholder"},
+    {"name":"O",  "type":"lennard-jones", "parameters":[30.19,3.118], "source":"UFF-like placeholder"},
+    {"name":"C_co2", "type":"lennard-jones", "parameters":[29.933,2.745], "source":"Garcia-Sanchez et al., J. Phys. Chem. C 2009, 113, 8814-8820"},
+    {"name":"O_co2", "type":"lennard-jones", "parameters":[85.671,3.017], "source":"Garcia-Sanchez et al., J. Phys. Chem. C 2009, 113, 8814-8820"}
+  ],
+  "MixingRule":"Lorentz-Berthelot",
+  "TruncationMethod":"shifted",
+  "TailCorrections":false
+}

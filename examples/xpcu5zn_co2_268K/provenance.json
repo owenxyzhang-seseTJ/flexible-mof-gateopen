@@ -1,0 +1,33 @@
+{
+  "material": "X-pcu-5-Zn",
+  "source_doi": "10.1021/jacs.8b08642",
+  "source_url": "https://ndownloader.figshare.com/files/13528844",
+  "source_file": "structures/source_ja8b08642_si_001.cif",
+  "source_sha256": "89de29e6eddedc5f482be2937a557b999375c7f415bfe59df40cb0df82aa4c8c",
+  "retrieved_utc": "2026-09-13",
+  "ordered_structure_policy": "alpha/gamma major disorder component, explicit P1, full occupancy; derived representative, not a new refinement",
+  "charge_method": "PACMOF RF-DDEC; charged CIFs are separate derived files",
+  "pacmof_source_repository": "https://github.com/arung-northwestern/pacmof",
+  "pacmof_source_commit": "28b0aae",
+  "pacmof_rebuild_audit": "reports/pacmof_rebuild_audit.json",
+  "gas": "CO2",
+  "temperature_K": 268.0,
+  "literature_switching_pressures_bar": {
+    "beta_to_open": 16.0,
+    "gamma_to_open": 19.0,
+    "closing": 11.0
+  },
+  "limitations": [
+    "fixed-host GCMC only",
+    "framework LJ parameters are UFF-like placeholders",
+    "empty-host free-energy difference is calibrated rather than independently computed",
+    "no intermediate q-grid, spinodal, saddle, or barrier",
+    "gamma closed endpoint has zero constructed guest moves and requires accessibility audit"
+  ],
+  "derived_sha256": {
+    "alpha_ordered_P1.cif": "1e6c7477346c109d9e94fb24aa6681578a91bf0dd9ff510f8ed2d8545809c5b9",
+    "gamma_ordered_P1.cif": "904024ae00b2925496a66640228722adbf92fcbbf109b74e0130d258302d1f1e",
+    "alpha_pacmof_charged.cif": "0066d2a309013f70514238fa5824dcdce528287136e18102ba1cec3fdc1cd542",
+    "gamma_pacmof_charged.cif": "e98b34264caa1adfff9fa690f1ef254ddb76adb277b9a17acba9454f93e1c82c"
+  }
+}

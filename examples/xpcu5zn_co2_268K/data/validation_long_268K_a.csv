@@ -1,0 +1,3 @@
+phase,temperature_K,pressure_bar,absolute_loading_molecules_per_cell,absolute_loading_error_molecules_per_cell,excess_loading_molecules_per_cell,excess_loading_error_molecules_per_cell,raspa_version,seed,directory
+open_alpha,268.0,19.0,15.51803,0.09993061,15.04943,0.09993061,3.1.0,3850092073,raspa_output/validation_long_268K_a/open_alpha/P_19bar
+closed_gamma,268.0,19.0,0.0,0.0,-0.6228917,0.0,3.1.0,1479887836,raspa_output/validation_long_268K_a/closed_gamma/P_19bar

@@ -1,0 +1,11 @@
+temperature_K,assumed_empty_host_penalty_kJ_per_formula_unit,scenario_gate_pressure_bar,interpretation
+268.0,10.0,0.24234659204790115,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,20.0,0.7203258378833952,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,30.0,1.6725716238956172,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,40.0,3.490629448657044,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,50.0,6.571848612518682,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,60.0,11.992006364207576,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,67.9,18.96117617287749,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,75.0,28.225515429879053,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,85.0,48.40207677117603,fixed-host sensitivity only; not a direct flexible-framework prediction
+268.0,100.0,,fixed-host sensitivity only; not a direct flexible-framework prediction

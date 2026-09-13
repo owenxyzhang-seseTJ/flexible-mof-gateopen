@@ -1,0 +1,5 @@
+# Core library uses only the Python standard library.
+# Optional reproducibility tools:
+# gemmi>=0.6
+# ase>=3.22
+# pytest>=8

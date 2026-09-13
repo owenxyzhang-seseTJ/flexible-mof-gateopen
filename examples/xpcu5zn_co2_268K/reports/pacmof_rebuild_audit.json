@@ -1,0 +1,26 @@
+{
+  "tool": "PACMOF RF-DDEC",
+  "source_repository": "https://github.com/arung-northwestern/pacmof",
+  "source_commit": "28b0aae",
+  "model_rebuilt_from_public_training_tables": true,
+  "model_binary_published": false,
+  "checks": {
+    "alpha": {
+      "atom_count": 140,
+      "coordinates_preserved": true,
+      "charge_neutral": true,
+      "rebuilt_charge_sum_e": -7.840950111415168e-16,
+      "max_absolute_charge_difference_from_archived_file_e": 0.0035096144500550153,
+      "mean_absolute_charge_difference_from_archived_file_e": 0.0005022100809522765
+    },
+    "gamma": {
+      "atom_count": 280,
+      "coordinates_preserved": true,
+      "charge_neutral": true,
+      "rebuilt_charge_sum_e": 2.4702462297909733e-15,
+      "max_absolute_charge_difference_from_archived_file_e": 0.011108468715603004,
+      "mean_absolute_charge_difference_from_archived_file_e": 0.0011907052411403432
+    }
+  },
+  "interpretation": "The public PACMOF feature/model pipeline reproduced charged CIFs with unchanged coordinates and neutral cells. Small charge differences are expected because the model was retrained without the original serialized estimator and are not used to claim identical RASPA energies."
+}

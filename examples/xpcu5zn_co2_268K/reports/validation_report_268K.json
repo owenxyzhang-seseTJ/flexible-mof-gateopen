@@ -1,0 +1,1677 @@
+{
+  "material": "X-pcu-5-Zn",
+  "gas": "CO2",
+  "temperature_K": 268.0,
+  "checks": [
+    {
+      "name": "source CIF has alpha/beta/gamma blocks",
+      "status": "pass",
+      "evidence": {
+        "alpha": {
+          "formula_units_Z": 2.0,
+          "lengths": [
+            12.5991,
+            12.6108,
+            16.3357
+          ],
+          "angles": [
+            88.513,
+            87.106,
+            81.009
+          ]
+        },
+        "beta": {
+          "formula_units_Z": 4.0,
+          "lengths": [
+            16.408,
+            9.176,
+            22.573
+          ],
+          "angles": [
+            90.0,
+            90.0,
+            90.0
+          ]
+        },
+        "gamma": {
+          "formula_units_Z": 4.0,
+          "lengths": [
+            8.7483,
+            16.381,
+            23.7451
+          ],
+          "angles": [
+            90.0,
+            90.0,
+            90.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "source formula-unit Z agrees with normalization",
+      "status": "pass",
+      "evidence": {
+        "alpha_Z": 2.0,
+        "gamma_Z": 4.0
+      }
+    },
+    {
+      "name": "open_alpha charged CIF formula and atom count",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "1e6c7477346c109d9e94fb24aa6681578a91bf0dd9ff510f8ed2d8545809c5b9",
+        "charged_sha256": "0066d2a309013f70514238fa5824dcdce528287136e18102ba1cec3fdc1cd542",
+        "gemmi_counts": {
+          "C": 64,
+          "H": 44,
+          "N": 4,
+          "O": 16,
+          "S": 8,
+          "Zn": 4
+        },
+        "gemmi_atoms": 140,
+        "gemmi_volume_A3": 2559.9035958286913,
+        "gemmi_charge_sum_e": -2.1874863032067537e-15,
+        "ase_atoms": 140,
+        "ase_volume_A3": 2559.9035958286922,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "open_alpha charged CIF neutral",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "1e6c7477346c109d9e94fb24aa6681578a91bf0dd9ff510f8ed2d8545809c5b9",
+        "charged_sha256": "0066d2a309013f70514238fa5824dcdce528287136e18102ba1cec3fdc1cd542",
+        "gemmi_counts": {
+          "C": 64,
+          "H": 44,
+          "N": 4,
+          "O": 16,
+          "S": 8,
+          "Zn": 4
+        },
+        "gemmi_atoms": 140,
+        "gemmi_volume_A3": 2559.9035958286913,
+        "gemmi_charge_sum_e": -2.1874863032067537e-15,
+        "ase_atoms": 140,
+        "ase_volume_A3": 2559.9035958286922,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "open_alpha charge assignment preserves coordinates",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "1e6c7477346c109d9e94fb24aa6681578a91bf0dd9ff510f8ed2d8545809c5b9",
+        "charged_sha256": "0066d2a309013f70514238fa5824dcdce528287136e18102ba1cec3fdc1cd542",
+        "gemmi_counts": {
+          "C": 64,
+          "H": 44,
+          "N": 4,
+          "O": 16,
+          "S": 8,
+          "Zn": 4
+        },
+        "gemmi_atoms": 140,
+        "gemmi_volume_A3": 2559.9035958286913,
+        "gemmi_charge_sum_e": -2.1874863032067537e-15,
+        "ase_atoms": 140,
+        "ase_volume_A3": 2559.9035958286922,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "open_alpha Gemmi/ASE atom and volume agreement",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "1e6c7477346c109d9e94fb24aa6681578a91bf0dd9ff510f8ed2d8545809c5b9",
+        "charged_sha256": "0066d2a309013f70514238fa5824dcdce528287136e18102ba1cec3fdc1cd542",
+        "gemmi_counts": {
+          "C": 64,
+          "H": 44,
+          "N": 4,
+          "O": 16,
+          "S": 8,
+          "Zn": 4
+        },
+        "gemmi_atoms": 140,
+        "gemmi_volume_A3": 2559.9035958286913,
+        "gemmi_charge_sum_e": -2.1874863032067537e-15,
+        "ase_atoms": 140,
+        "ase_volume_A3": 2559.9035958286922,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "closed_gamma charged CIF formula and atom count",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "904024ae00b2925496a66640228722adbf92fcbbf109b74e0130d258302d1f1e",
+        "charged_sha256": "e98b34264caa1adfff9fa690f1ef254ddb76adb277b9a17acba9454f93e1c82c",
+        "gemmi_counts": {
+          "C": 128,
+          "H": 88,
+          "N": 8,
+          "O": 32,
+          "S": 16,
+          "Zn": 8
+        },
+        "gemmi_atoms": 280,
+        "gemmi_volume_A3": 3402.8129807037303,
+        "gemmi_charge_sum_e": 1.2212453270876722e-15,
+        "ase_atoms": 280,
+        "ase_volume_A3": 3402.8129807037335,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "closed_gamma charged CIF neutral",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "904024ae00b2925496a66640228722adbf92fcbbf109b74e0130d258302d1f1e",
+        "charged_sha256": "e98b34264caa1adfff9fa690f1ef254ddb76adb277b9a17acba9454f93e1c82c",
+        "gemmi_counts": {
+          "C": 128,
+          "H": 88,
+          "N": 8,
+          "O": 32,
+          "S": 16,
+          "Zn": 8
+        },
+        "gemmi_atoms": 280,
+        "gemmi_volume_A3": 3402.8129807037303,
+        "gemmi_charge_sum_e": 1.2212453270876722e-15,
+        "ase_atoms": 280,
+        "ase_volume_A3": 3402.8129807037335,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "closed_gamma charge assignment preserves coordinates",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "904024ae00b2925496a66640228722adbf92fcbbf109b74e0130d258302d1f1e",
+        "charged_sha256": "e98b34264caa1adfff9fa690f1ef254ddb76adb277b9a17acba9454f93e1c82c",
+        "gemmi_counts": {
+          "C": 128,
+          "H": 88,
+          "N": 8,
+          "O": 32,
+          "S": 16,
+          "Zn": 8
+        },
+        "gemmi_atoms": 280,
+        "gemmi_volume_A3": 3402.8129807037303,
+        "gemmi_charge_sum_e": 1.2212453270876722e-15,
+        "ase_atoms": 280,
+        "ase_volume_A3": 3402.8129807037335,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "closed_gamma Gemmi/ASE atom and volume agreement",
+      "status": "pass",
+      "evidence": {
+        "ordered_sha256": "904024ae00b2925496a66640228722adbf92fcbbf109b74e0130d258302d1f1e",
+        "charged_sha256": "e98b34264caa1adfff9fa690f1ef254ddb76adb277b9a17acba9454f93e1c82c",
+        "gemmi_counts": {
+          "C": 128,
+          "H": 88,
+          "N": 8,
+          "O": 32,
+          "S": 16,
+          "Zn": 8
+        },
+        "gemmi_atoms": 280,
+        "gemmi_volume_A3": 3402.8129807037303,
+        "gemmi_charge_sum_e": 1.2212453270876722e-15,
+        "ase_atoms": 280,
+        "ase_volume_A3": 3402.8129807037335,
+        "coordinate_records_equal_after_charge_assignment": true,
+        "max_occupancy_deviation": 0.0
+      }
+    },
+    {
+      "name": "main CSV has 22 phase-pressure points",
+      "status": "pass",
+      "evidence": {
+        "rows": 22
+      }
+    },
+    {
+      "name": "main CSV pressure grid is paired",
+      "status": "pass",
+      "evidence": [
+        0.1,
+        0.3,
+        1.0,
+        3.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0,
+        80.0
+      ]
+    },
+    {
+      "name": "every main output re-parses to the archived CSV",
+      "status": "pass",
+      "evidence": [
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.1,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.1,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 1619089363,
+          "translation_acceptance": 0.7684941904595084,
+          "rotation_acceptance": 0.6549054373522458,
+          "swap_cbmc_acceptance": 0.27594531704479347,
+          "reinsertion_acceptance": 0.16061174264619713,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.3,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.3,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3251012897,
+          "translation_acceptance": 0.6093575501087404,
+          "rotation_acceptance": 0.6501079913606912,
+          "swap_cbmc_acceptance": 0.18113684458029627,
+          "reinsertion_acceptance": 0.08956264157518731,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 1.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 1.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 2490913566,
+          "translation_acceptance": 0.6061701755409109,
+          "rotation_acceptance": 0.6406368020452037,
+          "swap_cbmc_acceptance": 0.07076495615177564,
+          "reinsertion_acceptance": 0.038914819136522755,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 3.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 3.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3322548656,
+          "translation_acceptance": 0.6153216852685093,
+          "rotation_acceptance": 0.6575247352890123,
+          "swap_cbmc_acceptance": 0.022932166301969367,
+          "reinsertion_acceptance": 0.015284227852565987,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 5.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 5.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3541299084,
+          "translation_acceptance": 0.6324580940100809,
+          "rotation_acceptance": 0.5576338555061959,
+          "swap_cbmc_acceptance": 0.011109172337579248,
+          "reinsertion_acceptance": 0.008470120918277937,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 10.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 10.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 322794555,
+          "translation_acceptance": 0.6339519460119845,
+          "rotation_acceptance": 0.6676958928051268,
+          "swap_cbmc_acceptance": 0.007351872838752797,
+          "reinsertion_acceptance": 0.004993537774644578,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 15.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 15.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 179805423,
+          "translation_acceptance": 0.5874125874125874,
+          "rotation_acceptance": 0.4834186641843146,
+          "swap_cbmc_acceptance": 0.005026731752673175,
+          "reinsertion_acceptance": 0.005691486240685326,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 20.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 20.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 4135714515,
+          "translation_acceptance": 0.6260814027753585,
+          "rotation_acceptance": 0.6688922433813284,
+          "swap_cbmc_acceptance": 0.0044059248094147655,
+          "reinsertion_acceptance": 0.00520864160994377,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 30.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 30.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3601862639,
+          "translation_acceptance": 0.6723077823973765,
+          "rotation_acceptance": 0.669051465497346,
+          "swap_cbmc_acceptance": 0.0029643407248103695,
+          "reinsertion_acceptance": 0.003054331864904552,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 50.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 50.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 162307866,
+          "translation_acceptance": 0.6317809174952033,
+          "rotation_acceptance": 0.6184776292852993,
+          "swap_cbmc_acceptance": 0.002340686991632044,
+          "reinsertion_acceptance": 0.00291154719618005,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 80.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 80.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 1040467290,
+          "translation_acceptance": 0.6252615670774239,
+          "rotation_acceptance": 0.6667831353365945,
+          "swap_cbmc_acceptance": 0.002351301924584168,
+          "reinsertion_acceptance": 0.003585282708357823,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 0.1,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.1,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3842656824,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 0.3,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.3,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 2756510192,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 1.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 1.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3763553968,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 3.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 3.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 2884311413,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 5.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 5.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 297632070,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 10.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 10.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 4139916311,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 15.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 15.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3495221232,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 20.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 20.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3219486668,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 30.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 30.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 2793231311,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 50.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 50.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 1530614401,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "closed_gamma",
+          "pressure_bar": 80.0,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 80.0,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 2307184190,
+          "translation_acceptance": null,
+          "rotation_acceptance": null,
+          "swap_cbmc_acceptance": 0.0,
+          "reinsertion_acceptance": null,
+          "copied_cif_sha_matches": true
+        }
+      ]
+    },
+    {
+      "name": "main inputs use CIF charges and Ewald",
+      "status": "pass",
+      "evidence": [
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.1,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.1,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 1619089363,
+          "translation_acceptance": 0.7684941904595084,
+          "rotation_acceptance": 0.6549054373522458,
+          "swap_cbmc_acceptance": 0.27594531704479347,
+          "reinsertion_acceptance": 0.16061174264619713,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.3,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.3,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3251012897,
+          "translation_acceptance": 0.6093575501087404,
+          "rotation_acceptance": 0.6501079913606912,
+          "swap_cbmc_acceptance": 0.18113684458029627,
+          "reinsertion_acceptance": 0.08956264157518731,
+          "copied_cif_sha_matches": true
+        }
+      ]
+    },
+    {
+      "name": "main input pressure and temperature match CSV",
+      "status": "pass",
+      "evidence": [
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.1,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.1,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 1619089363,
+          "translation_acceptance": 0.7684941904595084,
+          "rotation_acceptance": 0.6549054373522458,
+          "swap_cbmc_acceptance": 0.27594531704479347,
+          "reinsertion_acceptance": 0.16061174264619713,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.3,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.3,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3251012897,
+          "translation_acceptance": 0.6093575501087404,
+          "rotation_acceptance": 0.6501079913606912,
+          "swap_cbmc_acceptance": 0.18113684458029627,
+          "reinsertion_acceptance": 0.08956264157518731,
+          "copied_cif_sha_matches": true
+        }
+      ]
+    },
+    {
+      "name": "main RASPA outputs are version 3.1.0 with unique seeds",
+      "status": "pass",
+      "evidence": {
+        "versions": [
+          "3.1.0"
+        ],
+        "unique_seeds": 22,
+        "points": 22
+      }
+    },
+    {
+      "name": "copied production CIFs match charged source files",
+      "status": "pass",
+      "evidence": [
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.1,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.1,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 1619089363,
+          "translation_acceptance": 0.7684941904595084,
+          "rotation_acceptance": 0.6549054373522458,
+          "swap_cbmc_acceptance": 0.27594531704479347,
+          "reinsertion_acceptance": 0.16061174264619713,
+          "copied_cif_sha_matches": true
+        },
+        {
+          "phase": "open_alpha",
+          "pressure_bar": 0.3,
+          "csv_vs_text_abs_maxdiff": 0.0,
+          "csv_vs_text_excess_maxdiff": 0.0,
+          "temperature_input_K": 268.0,
+          "pressure_input_bar": 0.3,
+          "use_charges_from": "CIF_File",
+          "charge_method": "Ewald",
+          "raspa_version": "3.1.0",
+          "seed": 3251012897,
+          "translation_acceptance": 0.6093575501087404,
+          "rotation_acceptance": 0.6501079913606912,
+          "swap_cbmc_acceptance": 0.18113684458029627,
+          "reinsertion_acceptance": 0.08956264157518731,
+          "copied_cif_sha_matches": true
+        }
+      ]
+    },
+    {
+      "name": "formula-unit integral independently reproduces analysis CSV",
+      "status": "pass",
+      "evidence": {
+        "max_abs_kJ": 0.0,
+        "rows": 12
+      }
+    },
+    {
+      "name": "19-bar ideal-fugacity integral is the reported value",
+      "status": "pass",
+      "evidence": {
+        "required_host_kJ_per_formula_unit": 67.93558048062826,
+        "error_kJ_per_formula_unit": 0.9402299128119954
+      }
+    },
+    {
+      "name": "independent low-pressure grid is present",
+      "status": "pass",
+      "evidence": {
+        "exists": true,
+        "rows": 20,
+        "merged_points": 38,
+        "required_host_at_19_bar_kJ_per_formula_unit": 69.2370291336926,
+        "statistical_error_kJ_per_formula_unit": 0.929665278485461,
+        "difference_from_main_kJ_per_formula_unit": 1.301448653064341,
+        "combined_statistical_error_kJ_per_formula_unit": 1.3222366728267305,
+        "agreement_within_combined_2sigma": true,
+        "calibrated_67_9_kJ_scenario_root_bar": 17.59431572907455
+      }
+    },
+    {
+      "name": "low-pressure grid agrees within combined 2-sigma",
+      "status": "pass",
+      "evidence": {
+        "exists": true,
+        "rows": 20,
+        "merged_points": 38,
+        "required_host_at_19_bar_kJ_per_formula_unit": 69.2370291336926,
+        "statistical_error_kJ_per_formula_unit": 0.929665278485461,
+        "difference_from_main_kJ_per_formula_unit": 1.301448653064341,
+        "combined_statistical_error_kJ_per_formula_unit": 1.3222366728267305,
+        "agreement_within_combined_2sigma": true,
+        "calibrated_67_9_kJ_scenario_root_bar": 17.59431572907455
+      }
+    },
+    {
+      "name": "integration/quadrature sensitivity is quantified",
+      "status": "warn",
+      "evidence": {
+        "ideal_trapezoid_with_1e-4_bar_anchor": 67.93558048062826,
+        "without_low_pressure_anchor": 63.517854461957164,
+        "log_p_pchip": 73.55463818063234,
+        "absolute_vs_excess_kJ_per_formula_unit": {
+          "absolute": 67.93558048062826,
+          "excess": 67.76849280064806
+        },
+        "low_pressure_anchor_contribution_kJ": 4.417726018671097,
+        "pchip_minus_trapezoid_kJ": 5.619057700004078
+      }
+    },
+    {
+      "name": "independent 19-bar repeats exist",
+      "status": "pass",
+      "evidence": {
+        "open_alpha": {
+          "15.0": {
+            "n": 2,
+            "values": [
+              14.32767,
+              15.23
+            ],
+            "mean": 14.778835,
+            "sd": 0.6380436618680582
+          },
+          "19.0": {
+            "n": 4,
+            "values": [
+              15.12267,
+              16.35217,
+              15.51803,
+              15.69544
+            ],
+            "mean": 15.672077499999999,
+            "sd": 0.5127217725937405
+          },
+          "20.0": {
+            "n": 2,
+            "values": [
+              15.591,
+              15.50533
+            ],
+            "mean": 15.548165000000001,
+            "sd": 0.06057783794425052
+          }
+        },
+        "closed_gamma": {
+          "15.0": {
+            "n": 2,
+            "values": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "19.0": {
+            "n": 4,
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "20.0": {
+            "n": 2,
+            "values": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "sd": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "long repeat uses 100000 cycles",
+      "status": "pass",
+      "evidence": {
+        "long_repeat_count": 4
+      }
+    },
+    {
+      "name": "closed-gamma zero loading has an explicit accessibility audit flag",
+      "status": "pass",
+      "evidence": {
+        "open_alpha": {
+          "point": "validation_long_268K_a/open_alpha/P_19bar",
+          "absolute_loading_molecules_per_cell": 15.51803,
+          "absolute_loading_error_molecules_per_cell": 0.09993061,
+          "move_counts": {
+            "translation_total": [
+              94821,
+              95060,
+              95145
+            ],
+            "swap_constructed": [
+              155292,
+              284513,
+              0
+            ],
+            "swap_accepted": [
+              1323,
+              1324,
+              0
+            ]
+          },
+          "zero_loading_no_constructed_guest_moves_flag": false,
+          "interpretation": "guest moves were constructed or accepted"
+        },
+        "closed_gamma": {
+          "point": "validation_long_268K_a/closed_gamma/P_19bar",
+          "absolute_loading_molecules_per_cell": 0.0,
+          "absolute_loading_error_molecules_per_cell": 0.0,
+          "move_counts": {
+            "translation_total": [
+              0,
+              0,
+              0
+            ],
+            "swap_constructed": [
+              131020,
+              0,
+              0
+            ],
+            "swap_accepted": [
+              0,
+              0,
+              0
+            ]
+          },
+          "zero_loading_no_constructed_guest_moves_flag": true,
+          "interpretation": "accessibility/setup audit flag; not a zero-uncertainty thermodynamic measurement"
+        }
+      }
+    },
+    {
+      "name": "open-alpha long repeat constructed guest moves",
+      "status": "pass",
+      "evidence": {
+        "open_alpha": {
+          "point": "validation_long_268K_a/open_alpha/P_19bar",
+          "absolute_loading_molecules_per_cell": 15.51803,
+          "absolute_loading_error_molecules_per_cell": 0.09993061,
+          "move_counts": {
+            "translation_total": [
+              94821,
+              95060,
+              95145
+            ],
+            "swap_constructed": [
+              155292,
+              284513,
+              0
+            ],
+            "swap_accepted": [
+              1323,
+              1324,
+              0
+            ]
+          },
+          "zero_loading_no_constructed_guest_moves_flag": false,
+          "interpretation": "guest moves were constructed or accepted"
+        },
+        "closed_gamma": {
+          "point": "validation_long_268K_a/closed_gamma/P_19bar",
+          "absolute_loading_molecules_per_cell": 0.0,
+          "absolute_loading_error_molecules_per_cell": 0.0,
+          "move_counts": {
+            "translation_total": [
+              0,
+              0,
+              0
+            ],
+            "swap_constructed": [
+              131020,
+              0,
+              0
+            ],
+            "swap_accepted": [
+              0,
+              0,
+              0
+            ]
+          },
+          "zero_loading_no_constructed_guest_moves_flag": true,
+          "interpretation": "accessibility/setup audit flag; not a zero-uncertainty thermodynamic measurement"
+        }
+      }
+    },
+    {
+      "name": "fugacity sensitivity is explicitly quantified",
+      "status": "pass",
+      "evidence": {
+        "calibration_penalty_kJ_per_formula_unit": 67.9,
+        "PR_phi_at_19_bar": 0.861035194680442,
+        "SRK_phi_at_19_bar": 0.8705680417011492,
+        "PR_required_host_at_19_bar_kJ_per_formula_unit": 65.54201394875575,
+        "SRK_required_host_at_19_bar_kJ_per_formula_unit": 65.71691552789791,
+        "ideal_calibrated_root_bar": 18.969040782507562,
+        "PR_calibrated_root_bar": 22.342124703215532,
+        "SRK_calibrated_root_bar": 22.025871331444193,
+        "scope": "post-processing EOS sensitivity; production RASPA used FugacityCoefficient=1.0"
+      }
+    },
+    {
+      "name": "bootstrap distribution is finite",
+      "status": "pass",
+      "evidence": {
+        "n": 5000,
+        "seed": 20260913,
+        "mean_kJ_per_formula_unit": 67.93698171037697,
+        "sd_kJ_per_formula_unit": 1.272265072255474,
+        "q05_q50_q95_kJ_per_formula_unit": [
+          65.84186568050497,
+          67.9323776466391,
+          70.0280486065355
+        ]
+      }
+    },
+    {
+      "name": "local SI explicitly contains the 16/19 bar and 11 bar benchmarks",
+      "status": "pass",
+      "evidence": [
+        {
+          "page": 39,
+          "snippet": "S-39 Table S4. Summary of switching materials from closed to open phases with uptake > 100 cm3/g. Materials Triggered gas Saturated Uptake (cm3/g) Gate type The pressure of gate opening The pressure of gate closing Ref. X-pcu-5-Zn-β CO2 254 (195 K)a single-step P/P0 = 0.30 P/P0 = 0.20 This work CO2 199 (268 K)b single-step P = 16 bar P = 11 bar X-pcu-5-Zn-γ CO2 256 (195 K)a single-step P/P0 = 0.36 P/P0 = 0.21 CO2 212 (268 K)b single-step P = 19 bar P = 11 bar DUT-8 (Ni) CO2 590 (196 K)a single-step P/P0 = 0.4 P/P0 = 0.20 11 N2 650 (77K)a single-step P/P0 = 0.1 P/P0 < 0.01 Co(bdp) N2 600 (77K)a multi-step P/P0 < 0.01 P/P0 < 0.01 12 CH4 246 (298 K)b single-step P = 16 bar P = 7 bar Fe(bdp) N2 600 (77K)a multi-step P/P0 < 0.01 P/P0 < 0.01 CH4 295 (298 K)b single-step P = 25 bar P ≈ 9 bar X-dia-1-Ni CO2 325(195 K)a multi-step P/P0 < 0.03 P/P0 < 0.01 13 CH4 222 (298 K)b single-step P = 20 bar P < 1 bar [Zn(TCNQ-TCNQ)bpy] O2 268 (77 K)a single-step P/P0 = 0.34 P/P0 < 0.05 14 NO 322 (121 K)a single-step P/P0 = 0.11 P/P0 < 0.05 ELM-11 N2 340 (77K)a single-step P/P0 < 0.10 P/P0 ≈ 0 15 ELM-13 N2 314 (77 K)a single-step P/P0 = 0.40 P/P0 ≈ 0 Zn2(tp)2(L2) CO2 240 (195 K)a multi-step P/P0 < 0.05"
+        }
+      ]
+    },
+    {
+      "name": "attached methodology report was available as reference material",
+      "status": "pass",
+      "evidence": {
+        "exists": true,
+        "sha256": "0ecc917ea8a28d07ccb620030d3ee8a7d7a7b819aea13f4a9dcc9fd59b5bfde7",
+        "bytes": 51198,
+        "lines": 1382
+      }
+    }
+  ],
+  "structure_checks": {
+    "open_alpha": {
+      "ordered_sha256": "1e6c7477346c109d9e94fb24aa6681578a91bf0dd9ff510f8ed2d8545809c5b9",
+      "charged_sha256": "0066d2a309013f70514238fa5824dcdce528287136e18102ba1cec3fdc1cd542",
+      "gemmi_counts": {
+        "C": 64,
+        "H": 44,
+        "N": 4,
+        "O": 16,
+        "S": 8,
+        "Zn": 4
+      },
+      "gemmi_atoms": 140,
+      "gemmi_volume_A3": 2559.9035958286913,
+      "gemmi_charge_sum_e": -2.1874863032067537e-15,
+      "ase_atoms": 140,
+      "ase_volume_A3": 2559.9035958286922,
+      "coordinate_records_equal_after_charge_assignment": true,
+      "max_occupancy_deviation": 0.0
+    },
+    "closed_gamma": {
+      "ordered_sha256": "904024ae00b2925496a66640228722adbf92fcbbf109b74e0130d258302d1f1e",
+      "charged_sha256": "e98b34264caa1adfff9fa690f1ef254ddb76adb277b9a17acba9454f93e1c82c",
+      "gemmi_counts": {
+        "C": 128,
+        "H": 88,
+        "N": 8,
+        "O": 32,
+        "S": 16,
+        "Zn": 8
+      },
+      "gemmi_atoms": 280,
+      "gemmi_volume_A3": 3402.8129807037303,
+      "gemmi_charge_sum_e": 1.2212453270876722e-15,
+      "ase_atoms": 280,
+      "ase_volume_A3": 3402.8129807037335,
+      "coordinate_records_equal_after_charge_assignment": true,
+      "max_occupancy_deviation": 0.0
+    }
+  },
+  "main_output_points": [
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 0.1,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 0.1,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 1619089363,
+      "translation_acceptance": 0.7684941904595084,
+      "rotation_acceptance": 0.6549054373522458,
+      "swap_cbmc_acceptance": 0.27594531704479347,
+      "reinsertion_acceptance": 0.16061174264619713,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 0.3,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 0.3,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3251012897,
+      "translation_acceptance": 0.6093575501087404,
+      "rotation_acceptance": 0.6501079913606912,
+      "swap_cbmc_acceptance": 0.18113684458029627,
+      "reinsertion_acceptance": 0.08956264157518731,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 1.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 1.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 2490913566,
+      "translation_acceptance": 0.6061701755409109,
+      "rotation_acceptance": 0.6406368020452037,
+      "swap_cbmc_acceptance": 0.07076495615177564,
+      "reinsertion_acceptance": 0.038914819136522755,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 3.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 3.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3322548656,
+      "translation_acceptance": 0.6153216852685093,
+      "rotation_acceptance": 0.6575247352890123,
+      "swap_cbmc_acceptance": 0.022932166301969367,
+      "reinsertion_acceptance": 0.015284227852565987,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 5.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 5.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3541299084,
+      "translation_acceptance": 0.6324580940100809,
+      "rotation_acceptance": 0.5576338555061959,
+      "swap_cbmc_acceptance": 0.011109172337579248,
+      "reinsertion_acceptance": 0.008470120918277937,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 10.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 10.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 322794555,
+      "translation_acceptance": 0.6339519460119845,
+      "rotation_acceptance": 0.6676958928051268,
+      "swap_cbmc_acceptance": 0.007351872838752797,
+      "reinsertion_acceptance": 0.004993537774644578,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 15.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 15.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 179805423,
+      "translation_acceptance": 0.5874125874125874,
+      "rotation_acceptance": 0.4834186641843146,
+      "swap_cbmc_acceptance": 0.005026731752673175,
+      "reinsertion_acceptance": 0.005691486240685326,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 20.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 20.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 4135714515,
+      "translation_acceptance": 0.6260814027753585,
+      "rotation_acceptance": 0.6688922433813284,
+      "swap_cbmc_acceptance": 0.0044059248094147655,
+      "reinsertion_acceptance": 0.00520864160994377,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 30.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 30.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3601862639,
+      "translation_acceptance": 0.6723077823973765,
+      "rotation_acceptance": 0.669051465497346,
+      "swap_cbmc_acceptance": 0.0029643407248103695,
+      "reinsertion_acceptance": 0.003054331864904552,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 50.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 50.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 162307866,
+      "translation_acceptance": 0.6317809174952033,
+      "rotation_acceptance": 0.6184776292852993,
+      "swap_cbmc_acceptance": 0.002340686991632044,
+      "reinsertion_acceptance": 0.00291154719618005,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 80.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 80.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 1040467290,
+      "translation_acceptance": 0.6252615670774239,
+      "rotation_acceptance": 0.6667831353365945,
+      "swap_cbmc_acceptance": 0.002351301924584168,
+      "reinsertion_acceptance": 0.003585282708357823,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 0.1,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 0.1,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3842656824,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 0.3,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 0.3,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 2756510192,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 1.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 1.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3763553968,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 3.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 3.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 2884311413,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 5.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 5.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 297632070,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 10.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 10.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 4139916311,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 15.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 15.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3495221232,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 20.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 20.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 3219486668,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 30.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 30.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 2793231311,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 50.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 50.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 1530614401,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 80.0,
+      "csv_vs_text_abs_maxdiff": 0.0,
+      "csv_vs_text_excess_maxdiff": 0.0,
+      "temperature_input_K": 268.0,
+      "pressure_input_bar": 80.0,
+      "use_charges_from": "CIF_File",
+      "charge_method": "Ewald",
+      "raspa_version": "3.1.0",
+      "seed": 2307184190,
+      "translation_acceptance": null,
+      "rotation_acceptance": null,
+      "swap_cbmc_acceptance": 0.0,
+      "reinsertion_acceptance": null,
+      "copied_cif_sha_matches": true
+    }
+  ],
+  "analysis": {
+    "required_host_at_19_bar_kJ_per_formula_unit": 67.93558048062826,
+    "statistical_error_kJ_per_formula_unit": 0.9402299128119954,
+    "quadrature": {
+      "ideal_trapezoid_with_1e-4_bar_anchor": 67.93558048062826,
+      "without_low_pressure_anchor": 63.517854461957164,
+      "log_p_pchip": 73.55463818063234,
+      "absolute_vs_excess_kJ_per_formula_unit": {
+        "absolute": 67.93558048062826,
+        "excess": 67.76849280064806
+      },
+      "low_pressure_anchor_contribution_kJ": 4.417726018671097,
+      "pchip_minus_trapezoid_kJ": 5.619057700004078
+    },
+    "bootstrap": {
+      "n": 5000,
+      "seed": 20260913,
+      "mean_kJ_per_formula_unit": 67.93698171037697,
+      "sd_kJ_per_formula_unit": 1.272265072255474,
+      "q05_q50_q95_kJ_per_formula_unit": [
+        65.84186568050497,
+        67.9323776466391,
+        70.0280486065355
+      ]
+    },
+    "low_pressure_grid": {
+      "exists": true,
+      "rows": 20,
+      "merged_points": 38,
+      "required_host_at_19_bar_kJ_per_formula_unit": 69.2370291336926,
+      "statistical_error_kJ_per_formula_unit": 0.929665278485461,
+      "difference_from_main_kJ_per_formula_unit": 1.301448653064341,
+      "combined_statistical_error_kJ_per_formula_unit": 1.3222366728267305,
+      "agreement_within_combined_2sigma": true,
+      "calibrated_67_9_kJ_scenario_root_bar": 17.59431572907455
+    }
+  },
+  "independent_repeats": {
+    "open_alpha": {
+      "15.0": {
+        "n": 2,
+        "values": [
+          14.32767,
+          15.23
+        ],
+        "mean": 14.778835,
+        "sd": 0.6380436618680582
+      },
+      "19.0": {
+        "n": 4,
+        "values": [
+          15.12267,
+          16.35217,
+          15.51803,
+          15.69544
+        ],
+        "mean": 15.672077499999999,
+        "sd": 0.5127217725937405
+      },
+      "20.0": {
+        "n": 2,
+        "values": [
+          15.591,
+          15.50533
+        ],
+        "mean": 15.548165000000001,
+        "sd": 0.06057783794425052
+      }
+    },
+    "closed_gamma": {
+      "15.0": {
+        "n": 2,
+        "values": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "19.0": {
+        "n": 4,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "20.0": {
+        "n": 2,
+        "values": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "sd": 0.0
+      }
+    }
+  },
+  "accessibility_audit": {
+    "open_alpha": {
+      "point": "validation_long_268K_a/open_alpha/P_19bar",
+      "absolute_loading_molecules_per_cell": 15.51803,
+      "absolute_loading_error_molecules_per_cell": 0.09993061,
+      "move_counts": {
+        "translation_total": [
+          94821,
+          95060,
+          95145
+        ],
+        "swap_constructed": [
+          155292,
+          284513,
+          0
+        ],
+        "swap_accepted": [
+          1323,
+          1324,
+          0
+        ]
+      },
+      "zero_loading_no_constructed_guest_moves_flag": false,
+      "interpretation": "guest moves were constructed or accepted"
+    },
+    "closed_gamma": {
+      "point": "validation_long_268K_a/closed_gamma/P_19bar",
+      "absolute_loading_molecules_per_cell": 0.0,
+      "absolute_loading_error_molecules_per_cell": 0.0,
+      "move_counts": {
+        "translation_total": [
+          0,
+          0,
+          0
+        ],
+        "swap_constructed": [
+          131020,
+          0,
+          0
+        ],
+        "swap_accepted": [
+          0,
+          0,
+          0
+        ]
+      },
+      "zero_loading_no_constructed_guest_moves_flag": true,
+      "interpretation": "accessibility/setup audit flag; not a zero-uncertainty thermodynamic measurement"
+    }
+  },
+  "fugacity_sensitivity": {
+    "calibration_penalty_kJ_per_formula_unit": 67.9,
+    "PR_phi_at_19_bar": 0.861035194680442,
+    "SRK_phi_at_19_bar": 0.8705680417011492,
+    "PR_required_host_at_19_bar_kJ_per_formula_unit": 65.54201394875575,
+    "SRK_required_host_at_19_bar_kJ_per_formula_unit": 65.71691552789791,
+    "ideal_calibrated_root_bar": 18.969040782507562,
+    "PR_calibrated_root_bar": 22.342124703215532,
+    "SRK_calibrated_root_bar": 22.025871331444193,
+    "scope": "post-processing EOS sensitivity; production RASPA used FugacityCoefficient=1.0"
+  },
+  "literature_evidence": [
+    {
+      "page": 39,
+      "snippet": "S-39 Table S4. Summary of switching materials from closed to open phases with uptake > 100 cm3/g. Materials Triggered gas Saturated Uptake (cm3/g) Gate type The pressure of gate opening The pressure of gate closing Ref. X-pcu-5-Zn-β CO2 254 (195 K)a single-step P/P0 = 0.30 P/P0 = 0.20 This work CO2 199 (268 K)b single-step P = 16 bar P = 11 bar X-pcu-5-Zn-γ CO2 256 (195 K)a single-step P/P0 = 0.36 P/P0 = 0.21 CO2 212 (268 K)b single-step P = 19 bar P = 11 bar DUT-8 (Ni) CO2 590 (196 K)a single-step P/P0 = 0.4 P/P0 = 0.20 11 N2 650 (77K)a single-step P/P0 = 0.1 P/P0 < 0.01 Co(bdp) N2 600 (77K)a multi-step P/P0 < 0.01 P/P0 < 0.01 12 CH4 246 (298 K)b single-step P = 16 bar P = 7 bar Fe(bdp) N2 600 (77K)a multi-step P/P0 < 0.01 P/P0 < 0.01 CH4 295 (298 K)b single-step P = 25 bar P ≈ 9 bar X-dia-1-Ni CO2 325(195 K)a multi-step P/P0 < 0.03 P/P0 < 0.01 13 CH4 222 (298 K)b single-step P = 20 bar P < 1 bar [Zn(TCNQ-TCNQ)bpy] O2 268 (77 K)a single-step P/P0 = 0.34 P/P0 < 0.05 14 NO 322 (121 K)a single-step P/P0 = 0.11 P/P0 < 0.05 ELM-11 N2 340 (77K)a single-step P/P0 < 0.10 P/P0 ≈ 0 15 ELM-13 N2 314 (77 K)a single-step P/P0 = 0.40 P/P0 ≈ 0 Zn2(tp)2(L2) CO2 240 (195 K)a multi-step P/P0 < 0.05"
+    }
+  ],
+  "reference_report": {
+    "exists": true,
+    "sha256": "0ecc917ea8a28d07ccb620030d3ee8a7d7a7b819aea13f4a9dcc9fd59b5bfde7",
+    "bytes": 51198,
+    "lines": 1382
+  },
+  "limitations": {
+    "host_free_energy": "No independently computed empty-host F_host(alpha)-F_host(gamma) is present; approximately 67.9 kJ/formula unit is a calibrated scenario, not an independent prediction.",
+    "flexibility": "All production and repeat RASPA calculations keep the framework rigid; no q-grid, spinodal, saddle, or barrier was sampled.",
+    "force_field": "Framework LJ parameters are explicitly UFF-like placeholders; PACMOF charges are an electrostatic input, not a host free-energy model.",
+    "fugacity": "Production inputs use FugacityCoefficient=1.0; PR/SRK corrections are post-processing sensitivities.",
+    "kinetics": "Monte Carlo steps are not physical time; P_open/P_close hysteresis and rates are not identified by this dataset.",
+    "intermediate_structures": "Only alpha and gamma ordered endpoints are available; no chemically validated intermediate X-pcu-5-Zn structures were supplied for a multi-rigid q-grid.",
+    "accessibility": "The gamma/closed 19-bar long repeat has zero absolute loading and no constructed translation moves; treat this as an explicit accessibility/setup audit flag rather than a zero-uncertainty observation."
+  },
+  "status_counts": {
+    "pass": 29,
+    "warn": 1,
+    "fail": 0
+  }
+}

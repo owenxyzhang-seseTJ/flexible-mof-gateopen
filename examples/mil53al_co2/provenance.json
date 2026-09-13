@@ -1,0 +1,11 @@
+{
+  "material": "MIL-53(Al)",
+  "gas": "CO2",
+  "temperature_range_K": [195, 343],
+  "source": "Boutin et al., arXiv:1904.11921, Table 1",
+  "model_type": "published Langmuir two-state osmotic benchmark",
+  "limitations": [
+    "not an atomistic RASPA calculation",
+    "not a direct kinetic gate-opening prediction"
+  ]
+}

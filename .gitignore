@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+build/
+dist/
+*.egg-info/
+*.bin
+run.log
+output/
+restart_data.bin
+private/
+*.key
+*.pem

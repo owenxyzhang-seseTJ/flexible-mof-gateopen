@@ -1,0 +1,36 @@
+{
+  "SimulationType": "MonteCarlo",
+  "NumberOfCycles": 6000,
+  "NumberOfInitializationCycles": 1000,
+  "NumberOfEquilibrationCycles": 2000,
+  "PrintEvery": 2000,
+  "Systems": [
+    {
+      "Type": "Framework",
+      "Name": "Xpcu5Zn_open_alpha",
+      "HeliumVoidFraction": 0.3,
+      "NumberOfUnitCells": [
+        1,
+        1,
+        1
+      ],
+      "ExternalTemperature": 268.0,
+      "ExternalPressure": 2000000.0,
+      "ChargeMethod": "Ewald",
+      "UseChargesFrom": "CIF_File"
+    }
+  ],
+  "Components": [
+    {
+      "Name": "CO2",
+      "MoleculeDefinition": "ExampleDefinitions",
+      "FugacityCoefficient": 1.0,
+      "TranslationProbability": 0.5,
+      "RotationProbability": 0.5,
+      "ReinsertionProbability": 0.5,
+      "SwapProbability": 1.0,
+      "WidomProbability": 1.0,
+      "CreateNumberOfMolecules": 0
+    }
+  ]
+}

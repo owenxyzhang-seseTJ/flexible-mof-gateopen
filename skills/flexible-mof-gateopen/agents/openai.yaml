@@ -1,0 +1,4 @@
+interface:
+  display_name: "Flexible-MOF Gate Opening"
+  short_description: "Audit CIF-to-GCMC gate-opening workflows"
+  default_prompt: "Use $flexible-mof-gateopen to build or audit a reproducible CIF, PACMOF, RASPA, free-energy, and gate-pressure workflow."

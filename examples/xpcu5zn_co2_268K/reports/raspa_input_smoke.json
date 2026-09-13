@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "purpose": "Native local RASPA3 smoke test of the portable fixed-host input contract",
+  "software": {
+    "binary_architecture": "Mach-O arm64",
+    "binary_archived": false,
+    "framework_flexibility": "fixed host",
+    "charge_method": "Ewald",
+    "use_charges_from": "CIF_File"
+  },
+  "common": {
+    "gas": "CO2",
+    "temperature_K": 268.0,
+    "initialization_cycles": 3000,
+    "equilibration_cycles": 5000,
+    "production_cycles": 20000,
+    "force_field_note": "framework Lennard-Jones parameters are UFF-like placeholders",
+    "raw_logs_and_restart_files_archived": false
+  },
+  "runs": [
+    {
+      "phase": "open_alpha",
+      "pressure_bar": 0.1,
+      "charged_cif": "structures/alpha_pacmof_charged.cif",
+      "absolute_loading_molecules_per_cell": 3.9301,
+      "absolute_loading_error_molecules_per_cell": 0.1700462,
+      "excess_loading_molecules_per_cell": 3.928023,
+      "move_diagnostic": {
+        "translation_total": [18852, 18843, 18829],
+        "translation_constructed": [18852, 18843, 18826],
+        "swap_constructed": [55640, 57110, 0],
+        "swap_accepted": [15929, 15932, 0],
+        "widom_constructed": [110891]
+      },
+      "interpretation": "guest moves were constructed and accepted; the charged-CIF/Ewald smoke path is operational"
+    },
+    {
+      "phase": "closed_gamma",
+      "pressure_bar": 19.0,
+      "charged_cif": "structures/gamma_pacmof_charged.cif",
+      "absolute_loading_molecules_per_cell": 0.0,
+      "absolute_loading_error_molecules_per_cell": 0.0,
+      "excess_loading_molecules_per_cell": -0.6228917,
+      "move_diagnostic": {
+        "translation_total": [0, 0, 0],
+        "translation_constructed": [0, 0, 0],
+        "swap_constructed": [26072, 0, 0],
+        "swap_accepted": [0, 0, 0],
+        "widom_constructed": [52322]
+      },
+      "interpretation": "zero loading is retained as an accessibility/setup audit flag; the zero block error must not be treated as a precise uncertainty"
+    }
+  ],
+  "limitations": [
+    "This smoke test validates input parsing, CIF charges, Ewald setup, output parsing, and move diagnostics only.",
+    "It is not a flexible-framework simulation and does not independently determine F_host, P_open, P_close, a spinodal, or a kinetic rate."
+  ]
+}
