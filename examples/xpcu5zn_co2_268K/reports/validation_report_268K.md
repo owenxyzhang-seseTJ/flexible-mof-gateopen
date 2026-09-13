@@ -1,5 +1,9 @@
 # X-pcu-5-Zn 268 K validation report
 
+> Archived v0.1 report. Its uncertainty and PR/SRK scenarios are superseded by
+> the [v0.2 corrections](../../../references/method_boundaries.md).
+> These checks do not certify the mandatory clean-cif/solvent gate.
+
 This report audits the existing fixed-host RASPA result; it does not turn a rigid-host calculation into a flexible-framework kinetic simulation.
 
 - Checks: {'pass': 29, 'warn': 1, 'fail': 0}

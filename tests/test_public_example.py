@@ -61,7 +61,7 @@ def test_example_reproduces_19_bar_screen() -> None:
         target_pressure_bar=19.0,
     )
     assert abs(value - 67.94) < 0.05
-    assert error is not None and abs(error - 0.94) < 0.05
+    assert error is not None and 1.2 < error < 1.4
 
 
 def test_archived_validation_has_no_failures() -> None:

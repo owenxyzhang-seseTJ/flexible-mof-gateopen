@@ -22,19 +22,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 try:
     from flexible_mof_gateopen.free_energy import (
         ScreeningResult,
-        co2_fugacity_coefficient,
         integrate_required_host_penalty,
         required_penalty_curve,
         solve_crossing_pressure,
     )
+    from flexible_mof_gateopen.preflight import load_gas_profile, pressure_gate
 except ModuleNotFoundError:  # standalone copy inside a skill directory
     from free_energy import (  # type: ignore[no-redef]
         ScreeningResult,
-        co2_fugacity_coefficient,
         integrate_required_host_penalty,
         required_penalty_curve,
         solve_crossing_pressure,
     )
+    from preflight import load_gas_profile, pressure_gate
 
 
 def read_rows(path: Path, open_phase: str, closed_phase: str, refine_path: Path | None = None, replace_below: float = 1.0) -> tuple[list[float], list[float], list[float], list[float], list[float]]:
@@ -83,63 +83,19 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--refine-csv", type=Path, default=None, help="optional independent low-pressure CSV replacing points below --replace-below")
     parser.add_argument("--replace-below", type=float, default=1.0)
     parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument("--gas-profile", type=Path)
     return parser
-
-
-def trim_nonmonotonic_eos_grid(
-    pressures: list[float],
-    open_loading: list[float],
-    closed_loading: list[float],
-    open_error: list[float],
-    closed_error: list[float],
-    *,
-    temperature_K: float,
-    eos: str,
-    target_pressure_bar: float,
-) -> tuple[list[float], list[float], list[float], list[float], list[float], bool]:
-    """Trim a gas-EOS grid after a non-monotonic pure-fluid branch.
-
-    Below the CO2 saturation region the vapor-root fugacity is monotonic.  A
-    supplied grid can extend into a two-phase region (notably for SRK at 268 K
-   ); those points are not silently integrated as if they were one gas phase.
-    """
-    if eos == "ideal":
-        return pressures, open_loading, closed_loading, open_error, closed_error, False
-    keep = len(pressures)
-    while keep >= 2:
-        fugacities = [p * co2_fugacity_coefficient(p, temperature_K, eos) for p in pressures[:keep]]
-        if all(b > a for a, b in zip(fugacities, fugacities[1:])):
-            break
-        keep -= 1
-    if keep < 2 or target_pressure_bar > pressures[keep - 1]:
-        raise ValueError(
-            f"{eos.upper()} fugacity is not monotonic through the target pressure; "
-            "restrict the grid to one fluid branch or use ideal fugacity"
-        )
-    return (
-        pressures[:keep],
-        open_loading[:keep],
-        closed_loading[:keep],
-        open_error[:keep],
-        closed_error[:keep],
-        keep != len(pressures),
-    )
 
 
 def main() -> None:
     args = build_parser().parse_args()
     pressures, open_loading, closed_loading, open_error, closed_error = read_rows(args.csv, args.open_phase, args.closed_phase, args.refine_csv, args.replace_below)
-    pressures, open_loading, closed_loading, open_error, closed_error, grid_trimmed = trim_nonmonotonic_eos_grid(
-        pressures,
-        open_loading,
-        closed_loading,
-        open_error,
-        closed_error,
-        temperature_K=args.temperature_K,
-        eos=args.eos,
-        target_pressure_bar=args.target_pressure_bar,
-    )
-    fugacity = lambda p: p * co2_fugacity_coefficient(p, args.temperature_K, args.eos)
+    profile = load_gas_profile(args.gas_profile)
+    reservoir = pressure_gate(profile, args.temperature_K, pressures)
+    pressure_gate(profile, args.temperature_K, [args.target_pressure_bar])
+    if args.eos != "ideal":
+        raise ValueError("PR/SRK reweighting of loadings sampled at ideal fugacity is not a consistent reservoir correction. Use actual sampled fugacities; legacy EOS scenarios are withdrawn.")
+    fugacity = None  # These input isotherms were sampled with f=P.
     value, error = integrate_required_host_penalty(
         pressures,
         open_loading,
@@ -175,11 +131,11 @@ def main() -> None:
     )
     payload = {
         "result": result.__dict__,
+        "reservoir": reservoir,
         "pressure_bar": pressures,
         "required_host_penalty_curve_kJ_per_formula_unit": curve,
         "source_csv": str(args.csv),
         "refine_csv": str(args.refine_csv) if args.refine_csv else None,
-        "pressure_grid_trimmed_for_eos_branch": grid_trimmed,
         "limitations": [
             "fixed-host adsorption grand-potential integration only",
             "host penalty is an explicit input or calibration, not supplied by PACMOF charges",

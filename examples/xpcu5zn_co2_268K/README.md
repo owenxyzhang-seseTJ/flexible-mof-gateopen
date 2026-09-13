@@ -1,6 +1,10 @@
 # X-pcu-5-Zn + CO2 at 268 K
 
-This example follows the complete public workflow. The source Figshare CIF contains alpha, beta, and gamma blocks. The reproducible scan uses alpha as an open endpoint and gamma as a closed endpoint, both converted to explicit P1 ordered representatives. The beta block is retained in the source CIF but is not used because its half-occupancy alternatives need a more chemically constrained ordered model.
+This is an archived v0.1 dataset for testing analysis. It has not been certified
+against the v0.2 mandatory cleaning/solvent gate. The source CIF contains alpha,
+beta and gamma blocks; the historical scan used ordered alpha/open and
+gamma/closed representatives. See [corrections](../../references/method_boundaries.md)
+before using historical uncertainty or EOS scenarios.
 
 | endpoint | P1 formula | atoms | formula units/cell | volume (A^3) |
 |---|---:|---:|---:|---:|

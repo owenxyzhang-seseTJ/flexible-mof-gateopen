@@ -1,138 +1,81 @@
 ---
 name: flexible-mof-gateopen
-description: Build and audit a public, reproducible flexible-MOF gate-opening workflow from CIF provenance through PACMOF charges, RASPA fixed-host GCMC, quick osmotic free-energy screening, and explicitly bounded gate-pressure estimates.
+description: Prepare clean flexible-MOF structures and guest molecules, run saturation-limited RASPA adsorption, and screen two-state osmotic equilibrium pressures with explicit host free energies.
 ---
 
-# Flexible-MOF gate-opening workflow
+# Flexible MOF adsorption
 
-Use this skill when the user wants to download or inspect public CIFs, resolve
-disorder into a reproducible representative, add PACMOF charges, prepare or
-run RASPA GCMC, integrate adsorption free energies, screen framework free
-energy models, or estimate a flexible-MOF gate-opening pressure.
+## 1. Prepare each framework state — mandatory
 
-## Core scientific boundary
+Use $clean-cif before assigning charges or preparing GCMC. Read its SKILL.md
+and cleaning decisions. If unavailable, locate or install it before continuing
+structure preparation. Analysis of existing isotherms remains usable.
 
-Keep three quantities separate in every output:
+Preserve the source, resolve disorder into a justified ordered configuration,
+and identify/remove pore solvent. Distinguish coordinated solvent, structural
+water and charge-balancing counterions; document the activation state. Never
+delete framework fragments or set all disorder occupancies to one.
 
-1. `Omega_ads`: adsorbate grand-potential contribution from fixed-host GCMC;
-2. `F_host`: empty-framework free-energy difference, which must be an explicit
-   input, calibration, or independently validated model;
-3. kinetic/barrier quantities (`P_open`, `P_close`, spinodals, rates), which
-   require a framework reaction coordinate and enhanced sampling or an
-   experiment-calibrated criterion.
+Require chemistry review, Pymatgen/ASE agreement, Spglib cross-check and
+identity-only P1 output. Follow [cleaning_gate.md](references/cleaning_gate.md)
+for solvent decisions and the hash-bound audit record. Run check_cleaning.py.
+Unresolved disorder, solvent or chemistry blocks PACMOF and GCMC.
 
-PACMOF charges are electrostatic input, not `F_host`.  A rigid GCMC result is
-not a flexible-framework kinetic prediction.  Monte Carlo cycles are not
-experimental time.
+## 2. Prepare charges and guest
 
-Read [references/method_boundaries.md](references/method_boundaries.md) when
-writing a methods section or deciding whether a claim is supported.
+Use justified source charges or run run_pacmof.py with a cleaning report per
+input. Verify neutrality, element order, coordinates, occupancies and cell
+preservation; retain the charged CIF and updated record.
+PACMOF predicts charges, not framework free energy.
 
-## Workflow
+For VOCs read [vapor_and_guest.md](references/vapor_and_guest.md).
+prepare_guest_rdkit.py uses explicit H, ETKDGv3 and MMFF94s/UFF to select the
+lowest-energy converged sampled conformer. Review stereochemistry and relevant
+torsions. Supply validated RASPA atom types, charges and force-field parameters
+separately; gas-phase optimization does not establish an adsorption model.
 
-### 1. Provenance and structure intake
+## 3. Run fixed-host adsorption
 
-- Prefer a public DOI/URL and preserve the source hash in a provenance record.
-- Select the intended CIF data block before parsing.  Record space group,
-  formula-unit count `Z`, cell volume, atom counts, disorder/occupancy policy,
-  and whether the output is a derived ordered P1 representative.
-- Never call an ordered representative a new structure solution or refinement.
-- Audit with Gemmi (and ASE when available); check occupancies, formula, cell,
-  atom count, and coordinate preservation.
-- Do not upload restricted PDFs, private logs, credentials, RASPA binaries,
-  restart binaries, or personal absolute paths to a public repository.
+Specify gas, temperature and force-field provenance. VOCs require sourced
+Psat(T) or Antoine coefficients with explicit units and a valid temperature
+range. Enforce 0 < P <= Psat(T) in generation and analysis. Report P/Psat;
+never extrapolate saturation data.
 
-### 2. Charges
+prepare_raspa_inputs.py requires a passed cleaning record, neutral charges,
+explicit supercell and cutoff. Perpendicular supercell heights must be at
+least twice the largest real-space cutoff. It writes Ewald/CIF-charge inputs
+and rejects existing output directories. Custom guests require a gas profile
+and matching molecule JSON. Read [raspa_input.md](references/raspa_input.md).
 
-- Keep the source CIF unchanged and write a separate charged CIF.
-- PACMOF is optional but appropriate when the original CIF lacks charges.
-- Verify `_atom_site_charge` is present, the atom ordering/coordinates are
-  unchanged, and the cell charge is neutral to a stated tolerance.
-- Report the PACMOF model/version if it is available; do not reinterpret its
-  charges as a framework energy model.
+Launch when simulation is requested; --run requires a local RASPA executable.
+Parse absolute loading and guest moves. Zero loading with no accepted
+insertions requires an accessibility audit. Use independent seeds, sufficient
+equilibration and longer repeats near a proposed crossing.
 
-### 3. RASPA fixed-host GCMC
+## 4. Screen equilibrium pressure
 
-- Require an explicit gas model, temperature, pressure/fugacity convention,
-  force-field provenance, cycle counts, seeds, and formula-unit normalization.
-- For charged frameworks use `ChargeMethod: Ewald` and
-  `UseChargesFrom: CIF_File`; audit the actual `simulation.json`, not just a
-  template.
-- Keep framework degrees of freedom fixed in the quick screen.  State that
-  this samples guest translation/rotation/reinsertion/swap only.
-- Parse absolute and excess loading, statistical error, and move diagnostics
-  from raw text.  A zero loading with no constructed translations or no
-  accepted guest moves is an accessibility/setup flag that needs an audit
-  before quantitative use.
-- Run at least one independent seed and a longer repeat near a proposed
-  crossing when the result is intended as evidence.
+Normalize phases to the same formula unit:
+DeltaOmega_ads = -RT integral (N_open - N_closed) d ln f.
 
-Read [references/raspa_input.md](references/raspa_input.md) when preparing or
-auditing RASPA directories.
+Verify the Henry regime below the first point. Supply host free energy with
+source, temperature, normalization and uncertainty. Account for external
+P DeltaV or state its neglect. Static ML energy is a prior unless finite-
+temperature entropy and material-specific accuracy have been validated.
 
-### 4. Fast free-energy screening
+quick_free_energy_screen.py gives required host penalty and a conditional
+two-state crossing. Its CSV convention is ideal reservoir f=P; do not relabel
+those loadings with EOS fugacities at unchanged pressures. Report nodal errors
+and sensitivity to pressure grid, force field and host free energy.
+Read [method_boundaries.md](references/method_boundaries.md).
 
-For paired open/closed fixed-host isotherms, normalize each loading to one
-framework formula unit and calculate
+Call the result P_eq. Experimental P_open/P_close, barriers and spinodals
+require intermediate states and a justified landscape/criterion. Do not
+validate a pressure against the same point used to fit the host term.
 
-`DeltaOmega_ads(f) = -R*T*integral[(N_open-N_closed) d ln(f)]`.
+## Deliver
 
-Use the exact Henry-limit contribution below the first pressure point.  Do not
-linearly extrapolate loading in `ln(P)` to an artificial zero-pressure point.
-Use fugacity for non-ideal reservoir sensitivity and label post-processing EOS
-corrections as such.
-
-The fastest defensible ranking is:
-
-1. cheap static/ML host-energy prior and pore-accessibility audit;
-2. 3–5 log-spaced endpoint GCMC points for shortlisted candidates;
-3. full endpoint scan and independent repeats for the top candidates;
-4. multi-`q` rigid states only after the endpoint screen passes.
-
-The skill's `quick_free_energy_screen.py` reports the required host penalty and
-an optional scenario crossing.  A host penalty calibrated from a known gate
-pressure is a conditional calibration, not an independent prediction.
-
-### 5. Gate-pressure language
-
-- `P_eq`: equilibrium crossing of two explicitly defined osmotic states.
-- `P_open`/`P_close`: do not report as independently predicted unless a
-  framework free-energy landscape, spinodal/barrier criterion, or validated
-  experimental calibration is present.
-- `spinodal`: local-minimum loss along a stated reaction coordinate.
-- `barrier`: a free-energy difference, not a Monte Carlo time or rate.
-
-Always include an uncertainty/sensitivity table for `F_host`, force field,
-fugacity, pressure grid, and formula-unit normalization.
-
-## Reusable scripts
-
-The public mirror under `skills/flexible-mof-gateopen/` contains portable
-copies of these helpers:
-
-- `fetch_cif.py`: download a public file and verify SHA-256;
-- `audit_cif.py`: Gemmi structure/charge audit;
-- `run_pacmof.py`: invoke a local PACMOF installation without overwriting the
-  source CIF;
-- `prepare_raspa_inputs.py`: write portable fixed-host RASPA3 inputs;
-- `parse_raspa_output.py`: parse loadings and accessibility diagnostics;
-- `quick_free_energy_screen.py`: Henry-corrected two-state screening and
-  pressure crossing.
-
-These scripts default to read-only preparation or write-only derived outputs;
-running RASPA requires an explicit `--run` and a user-supplied executable.
-
-## Public-package quality gate
-
-Before claiming completion, run:
-
-```bash
-python scripts/quick_validate.py /path/to/skill
-python -m pytest -q
-```
-
-Then run a bundled example without network access and inspect the generated
-JSON.  For a real RASPA case, archive the input JSON, charged-CIF hash, raw
-loading table, validation report, and limitations; do not archive restart
-binaries.  Use the public provenance schema in
-`references/provenance_schema.md`.
+Provide source/derived CIFs, cleaning and charge records, guest/model provenance,
+Psat and pressure grid, RASPA inputs/loadings, and the pressure result with its
+assumptions. Keep binaries, credentials and restricted files out of public
+packages. During skill maintenance, run tests, skill validation and the bundled
+example; synchronize repository and installed skill scripts.

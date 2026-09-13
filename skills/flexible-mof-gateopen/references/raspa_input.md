@@ -1,6 +1,20 @@
 # Portable RASPA3 input contract
 
-The helper script writes a fixed-host, single-component CO2 GCMC directory.
+```bash
+python scripts/prepare_raspa_inputs.py \
+  --cif host_charged.cif --cleaning-report host_charged.cleaning.json \
+  --force-field force_field.json --gas-profile ethanol.json \
+  --molecule-json ethanol_raspa.json --temperature 298.15 \
+  --pressures 0.001 0.01 --unit-cells 2 2 2 --cutoff 12 \
+  --output-dir ethanol_runs
+```
+
+Example pressures/supercell must be checked against your sourced Psat and cell.
+Omit gas-profile/molecule-json only for the bundled CO2 model. Add --run and
+--raspa-bin /path/to/raspa3 to launch an authorized local calculation.
+Run scripts/prepare_raspa_inputs.py --help for required arguments.
+
+The helper writes fixed-host, single-component GCMC directories.
 The framework CIF must contain `_atom_site_charge` values.  The input must
 contain:
 

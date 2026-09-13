@@ -80,8 +80,8 @@ def cumulative_integral(
     _validate_grid(p, n)
     f = _fugacity_grid(p, fugacity)
     target = p[-1] if target_pressure_bar is None else float(target_pressure_bar)
-    if target <= 0:
-        raise ValueError("target pressure must be positive")
+    if not math.isfinite(target) or target <= 0 or target > p[-1]:
+        raise ValueError("target pressure must be finite, positive, and within the sampled upper limit")
     ft = float(target if fugacity is None else fugacity(target))
     if ft <= 0 or not math.isfinite(ft):
         raise ValueError("target fugacity must be finite and positive")
@@ -107,28 +107,33 @@ def cumulative_error(
     fugacity: FugacityFunction | None = None,
     target_pressure_bar: float | None = None,
 ) -> float:
-    """Conservative independent-error propagation for :func:`cumulative_integral`."""
+    """Propagate independent nodal errors, combining shared-node weights first.
+
+    Retains the uncertainty convention supplied by the caller (e.g. a block
+    confidence half-width); does not reinterpret it as a standard deviation.
+    """
     p = _as_float_list(pressure_bar, "pressure_bar")
     e = _as_float_list(delta_error, "delta_error")
     _validate_grid(p, e)
+    if any(v < 0 for v in e):
+        raise ValueError("errors cannot be negative")
     f = _fugacity_grid(p, fugacity)
     target = p[-1] if target_pressure_bar is None else float(target_pressure_bar)
+    if not math.isfinite(target) or target <= 0 or target > p[-1]:
+        raise ValueError("target outside valid pressure range")
     ft = float(target if fugacity is None else fugacity(target))
     if ft <= f[0]:
         return e[0] * ft / f[0]
-    variance = e[0] ** 2  # exact Henry contribution
-    last_f, last_e = f[0], e[0]
-    for next_f, next_e in zip(f[1:], e[1:]):
-        if ft <= next_f:
-            dx = math.log(ft / last_f)
-            fraction = math.log(ft / last_f) / math.log(next_f / last_f)
-            current_e = last_e + fraction * (next_e - last_e)
-            variance += (0.5 * dx) ** 2 * (last_e**2 + current_e**2)
-            return math.sqrt(variance)
-        dx = math.log(next_f / last_f)
-        variance += (0.5 * dx) ** 2 * (last_e**2 + next_e**2)
-        last_f, last_e = next_f, next_e
-    return math.sqrt(variance)
+    weights = [1.] + [0.] * (len(e)-1)
+    for i in range(len(f)-1):
+        full = math.log(f[i+1] / f[i])
+        width = math.log(min(ft, f[i+1]) / f[i])
+        fraction = width / full
+        weights[i] += width * (1 - fraction / 2)
+        weights[i+1] += width * fraction / 2
+        if ft <= f[i+1]:
+            break
+    return math.sqrt(sum((w * error)**2 for w, error in zip(weights, e)))
 
 
 def integrate_required_host_penalty(
@@ -167,6 +172,8 @@ def integrate_required_host_penalty(
             raise ValueError("open_error and closed_error must be supplied together")
         oe = [float(v) / open_formula_units for v in open_error]
         ce = [float(v) / closed_formula_units for v in closed_error]
+        if len(oe) != len(p) or len(ce) != len(p) or any(not math.isfinite(v) or v < 0 for v in oe + ce):
+            raise ValueError("error arrays must match grid and be finite nonnegative")
         error = [math.hypot(a, b) for a, b in zip(oe, ce)]
     factor = R_KJ_MOL_K * float(temperature_K)
     value = factor * cumulative_integral(p, delta, fugacity=fugacity, target_pressure_bar=target_pressure_bar)

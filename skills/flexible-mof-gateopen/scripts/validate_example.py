@@ -59,6 +59,7 @@ def main() -> None:
     )
     report = json.loads((root / "reports" / "validation_report_268K.json").read_text(encoding="utf-8"))
     result = {
+        "validation_scope": "Archived CIF hashes, charge neutrality and ideal-reservoir integration only; not a clean-cif certification or independent gate-pressure validation",
         "ok": report["status_counts"]["fail"] == 0 and abs(value - 67.94) < 0.05 and all(item["charge_neutral"] for item in audits.values()),
         "charge_audits": audits,
         "derived_hashes": hashes,
