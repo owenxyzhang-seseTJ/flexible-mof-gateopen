@@ -54,6 +54,9 @@ equilibration and longer repeats near a proposed crossing.
 
 ## 4. Screen equilibrium pressure
 
+For detailed derivations, host-free-energy routes (including ML), uncertainty
+and implementation limits, read [free_energy_methods.zh-CN.md](references/free_energy_methods.zh-CN.md).
+
 Normalize phases to the same formula unit:
 DeltaOmega_ads = -RT integral (N_open - N_closed) d ln f.
 

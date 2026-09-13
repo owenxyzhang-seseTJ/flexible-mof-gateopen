@@ -49,6 +49,7 @@ X-pcu-5-Zn/CO₂ 归档数据在 19 bar 对应的框架自由能惩罚约为 **6
 
 ## 详细说明
 
+- [自由能预测方法：原理、ML 路线、计算与误差](references/free_energy_methods.zh-CN.md)
 - [结构、无序与溶剂处理](references/cleaning_gate.md)
 - [VOC 饱和蒸汽压与 RDKit](references/vapor_and_guest.md)
 - [RASPA 命令](references/raspa_input.md)

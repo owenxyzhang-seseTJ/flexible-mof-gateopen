@@ -49,6 +49,7 @@ Experimental opening/closing pressures require a validated framework free-energy
 
 ## Details
 
+- [Detailed free-energy methods (Chinese)](references/free_energy_methods.zh-CN.md)
 - [Structure and solvent preparation](references/cleaning_gate.md)
 - [VOC saturation and RDKit](references/vapor_and_guest.md)
 - [RASPA commands](references/raspa_input.md)
