@@ -65,6 +65,25 @@ def inline(text: str) -> str:
         placeholders.append(value)
         return token
 
+    # A few chemical formulas in the Markdown source use Unicode
+    # subscript/superscript characters (for example ``CO₂`` and ``Å³``).
+    # Latin Modern, which is the fallback text font under XeLaTeX, does not
+    # contain every such code point.  Convert them to real TeX math before
+    # escaping ordinary text so the glyph is embedded and remains portable.
+    subs = dict(zip("₀₁₂₃₄₅₆₇₈₉", "0123456789"))
+    sups = dict(zip("⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁼", "0123456789-+="))
+
+    def unicode_script(match: re.Match[str]) -> str:
+        value = match.group(0)
+        if all(char in subs for char in value):
+            digits = "".join(subs[char] for char in value)
+            return stash(rf"\ensuremath{{_{{{digits}}}}}")
+        digits = "".join(sups[char] for char in value)
+        return stash(rf"\ensuremath{{^{{{digits}}}}}")
+
+    script_chars = "₀₁₂₃₄₅₆₇₈₉⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁼"
+    text = re.sub(f"[{script_chars}]+", unicode_script, text)
+
     # Preserve explicit Markdown inline math as real TeX math.  The source
     # guide uses $...$ only for short symbols/equations; display equations are
     # still represented by the explicit [eq] mapping below.
@@ -162,7 +181,15 @@ def build(source: Path, out: Path, tex_out: Path | None = None, engine: str | No
     build_dir.mkdir()
     local_tex = build_dir / tex_out.name
     local_tex.write_text(tex, encoding="utf-8")
-    command = [engine, "-interaction=nonstopmode", "-halt-on-error", "-file-line-error", local_tex.name]
+    command = [engine, "-interaction=nonstopmode", "-halt-on-error", "-file-line-error"]
+    # xdvipdfmx defaults to PDF 1.7 object streams.  Some Preview/GitHub
+    # readers reject that combination even though Poppler accepts it.  PDF
+    # 1.4 without object streams is broadly readable while retaining the
+    # XeLaTeX-generated embedded CJK and math fonts.  Keep LuaLaTeX as a
+    # fallback without passing this XeTeX-specific driver option.
+    if Path(engine).name.startswith("xelatex"):
+        command.append(r"-output-driver=xdvipdfmx -V 4 -C 0x40")
+    command.append(local_tex.name)
     for _ in range(2):
         subprocess.run(command, cwd=build_dir, check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     rendered = build_dir / tex_out.with_suffix(".pdf").name

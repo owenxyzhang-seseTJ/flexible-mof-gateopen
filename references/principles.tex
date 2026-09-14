@@ -42,7 +42,7 @@ Agent-native scientific method guide | Version 1.0
 \item \(N_i\)：每个框架化学式单元吸附的客体分子数，数值等于 mol 客体/mol 框架 f.u.。
 \item \(F_{\mathrm{host}}\)：空框架 Helmholtz 自由能，单位 kJ/mol-f.u.。
 \item \(P\)：外部储气相压力；\(f\)：客体逸度；计算输入可以使用 bar，但必须一致。
-\item \(V_i\)：每个框架化学式单元的体积，单位 Å³/f.u.。
+\item \(V_i\)：每个框架化学式单元的体积，单位 Å\ensuremath{^{3}}/f.u.。
 \item \(\Omega_i\)：包含框架、吸附客体与机械功的状态比较势。
 \item \(R=0.008314462618\ \mathrm{kJ\,mol^{-1}\,K^{-1}}\)；\(T\) 为绝对温度 K。
 \end{itemize}
@@ -96,7 +96,7 @@ U_{\mathrm{ads}}=U_{\mathrm{host-guest}}+U_{\mathrm{guest-guest}}
 U_{\mathrm{LJ}}(r)=4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6\right]
 \end{equation*}
 分别指定主机与客体的 LJ 参数、部分电荷、组合规则、截断、尾修正和长程静电处理。RDKit 的 MMFF 电荷、气相优化能和分子内部势参数不能自动替代已验证的吸附参数。改变一个已发表刚性分子的几何，也会改变它的电荷多极矩与吸附能，需要声明参数移用的风险。
-输入气体的名称、SMILES、SDF、RASPA 分子文件和真实储气相 fluid 标识应一致。CO₂ 的定义不能作为其他 VOC 的通用替代品。
+输入气体的名称、SMILES、SDF、RASPA 分子文件和真实储气相 fluid 标识应一致。CO\ensuremath{_{2}} 的定义不能作为其他 VOC 的通用替代品。
 \clearpage
 \section*{5. 用预训练机器学习势估计静态 ΔE}
 在相同势、同一模型版本、相同 head 和归一化下，分别计算两相空框架的静态势能。快速入口固定输入端点，不开展轨迹采样或有限位移声子。

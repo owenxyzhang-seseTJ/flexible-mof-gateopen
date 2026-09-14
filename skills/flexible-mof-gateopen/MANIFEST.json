@@ -32,8 +32,8 @@
       "bytes": 30769085
     },
     "assets/principles.pdf": {
-      "sha256": "ec3b3bd292839dd62557cc14f233f37640eacb2533311c2ca457cfeba5d217e2",
-      "bytes": 311427
+      "sha256": "6ca8edca1682dcdf14a28d38d528e54f9cc77b8e85320f91ce42855df9b3cba7",
+      "bytes": 329744
     },
     "assets/workflow.template.json": {
       "sha256": "119b7514a64bf15869f8d250621f39cc7567b041222f6cbadea4c34009528415",
@@ -60,8 +60,8 @@
       "bytes": 3084
     },
     "references/principles.tex": {
-      "sha256": "f7799d31bbdd4484a69e1b16e1ca3f6280e092612163d8ab8c0fb49686b4a4c0",
-      "bytes": 33975
+      "sha256": "32c32391dcc5b88cd62d697c9a87f2054fd1719feb5a0947f0bfc062c35cf190",
+      "bytes": 34004
     },
     "references/principles.zh-CN.md": {
       "sha256": "4bbb44f376df07c3977ee1d867293d29a697e985f301af2b28842956006b1f19",
@@ -92,8 +92,8 @@
       "bytes": 737
     },
     "scripts/build_principles_pdf.py": {
-      "sha256": "f7a7bff700b1cd2cf7fe7ab985a589460a0c5aee1ce28a9aadc0e99e474b27db",
-      "bytes": 10513
+      "sha256": "5a6ffa3960d779c4d82fbd5a65b50110d5e05a18e32c74786bcfc10ad9bf5c94",
+      "bytes": 12034
     },
     "scripts/check_cleaning.py": {
       "sha256": "26dc689d37802e531039cc3acf4abe4c21abf764c1217390c06022b5f76158c1",
@@ -1604,5 +1604,5 @@
       "bytes": 7788889
     }
   },
-  "total_bytes": 387512005
+  "total_bytes": 387531872
 }
