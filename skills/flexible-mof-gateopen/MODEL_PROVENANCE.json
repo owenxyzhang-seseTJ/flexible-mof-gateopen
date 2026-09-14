@@ -1,0 +1,31 @@
+{
+  "MACE": {
+    "path": "assets/models/mofs_v2.model",
+    "sha256": "04113c54cb5f8e1f30babbbda12cd97df401a65c1424f24c4cf1bcce247f12db",
+    "source": "https://github.com/ddmms/data/tree/main/mace-mof-0/v2",
+    "doi": "10.1038/s41524-025-01611-8",
+    "license": "CC-BY-4.0",
+    "head": "pbe_d3",
+    "extra_D3": false,
+    "role": "static host energy; not entropy"
+  },
+  "PACMOF": {
+    "path": "vendor/pacmof/data/Model_RF_DDEC.pkl",
+    "sha256": "e749a9c276f1e12d8fe9ae0c14a99a8628e4d17595d22e74437dfa49a5d2dfa6",
+    "doi": "10.1021/acs.jctc.0c01229",
+    "license": "vendor/pacmof/LICENSE.md",
+    "sklearn": "1.8.0",
+    "provenance": "Exact locally supplied RF-DDEC serialized artifact, retained byte-for-byte; not asserted byte-identical to an original publication release",
+    "role": "charges only"
+  },
+  "entropy": {
+    "role": "periodic elastic-network proxy",
+    "weights": "no learned entropy weights; parameters in scripts/elastic_network.py",
+    "calibrated": false
+  },
+  "RASPA": {
+    "version": "3.1.0",
+    "commit": "3b81db0e6fe7119732d1525d83a572462a1e8c73",
+    "source": "https://github.com/iRASPA/RASPA3"
+  }
+}

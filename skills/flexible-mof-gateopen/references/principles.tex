@@ -1,0 +1,286 @@
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\IfFontExistsTF{STIX Two Math}{\setmathfont{STIX Two Math}}{\setmathfont{Latin Modern Math}}
+\IfFontExistsTF{Songti SC}{\setCJKmainfont{Songti SC}}{\setCJKmainfont{FandolSong}}
+\IfFontExistsTF{PingFang SC}{\setCJKsansfont{PingFang SC}}{}
+\usepackage[margin=2.0cm,top=2.25cm,bottom=1.75cm,headheight=15pt]{geometry}
+\usepackage{xcolor,hyperref,fancyhdr,enumitem,booktabs}
+\hypersetup{hidelinks,pdfcreator={XeLaTeX},pdftitle={Flexible MOF gate-opening fast screening principles}}
+\urlstyle{same}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.35em}
+\linespread{1.06}
+\emergencystretch=3em
+\sloppy
+\definecolor{navy}{HTML}{103B50}
+\definecolor{teal}{HTML}{127C81}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily FLEXIBLE-MOF / FAST SCREENING / PRINCIPLES}
+\fancyhead[R]{\small\thepage}
+\fancyfoot[C]{\small 条件性平衡预测 · 无 MD / DFT · 代理误差独立验证}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.2pt}
+\makeatletter\renewcommand{\section}{\@startsection{section}{1}{0pt}{1.2ex plus .2ex}{.5ex}{\Large\bfseries\color{navy}}}\makeatother
+\makeatletter\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{1.0ex plus .2ex}{.35ex}{\large\bfseries\color{teal}}}\makeatother
+\begin{document}
+\section*{柔性 MOF 开孔压力快速筛选}
+\subsection*{热力学原理、计算模型与适用边界}
+Agent-native scientific method guide | Version 1.0
+从闭孔/开孔 CIF 出发，以静态机器学习势、快速振动熵代理和刚性框架巨正则蒙特卡洛构建条件性平衡相变预测。无需开展 MD 或 DFT；所有能量、归一化、统计假设与证据等级均显式记录。
+核心问题不是“气体能否先进入闭孔”，而是“在给定温度与储气相化学势下，哪一个框架状态的总热力学势更低”。
+本手册解释方法，不给任意材料承诺精度。未经材料级独立校准的代理自由能只能支撑筛选和敏感性分析，不能把数值交点直接称为实验开门压力。
+\clearpage
+\section*{阅读地图与符号}
+本手册依次讨论：模型目标、结构活化、赋电荷、客体模型、静态势能、弹性网络、振动统计、GCMC、真实储气相、渗透系综、积分求根、零吸附闭孔、误差传播、快速筛选策略、验证与软件契约。前半部分说明输入如何变成自由能；后半部分说明自由能如何变成压力，以及哪些结论不能从端点模型得到。
+\subsection*{统一记号}
+\begin{itemize}[leftmargin=1.7em,itemsep=0.15em,topsep=0.15em]
+\item c / o：closed / open，分别表示闭孔相和开孔相。
+\item \(\Delta X = X_o-X_c\)：全文统一采用“开孔减闭孔”。
+\item Z：一个输入 CIF 晶胞中的框架化学式单元数；不同相的 Z 可以不同。
+\item \(N_i\)：每个框架化学式单元吸附的客体分子数，数值等于 mol 客体/mol 框架 f.u.。
+\item \(F_{\mathrm{host}}\)：空框架 Helmholtz 自由能，单位 kJ/mol-f.u.。
+\item \(P\)：外部储气相压力；\(f\)：客体逸度；计算输入可以使用 bar，但必须一致。
+\item \(V_i\)：每个框架化学式单元的体积，单位 Å³/f.u.。
+\item \(\Omega_i\)：包含框架、吸附客体与机械功的状态比较势。
+\item \(R=0.008314462618\ \mathrm{kJ\,mol^{-1}\,K^{-1}}\)；\(T\) 为绝对温度 K。
+\end{itemize}
+\subsection*{证据层级}
+“程序通过”说明实现能运行；“数值收敛”说明离散化和采样可控；“模型验证”说明某类材料/条件下与独立证据相符；“实验预测准确”还要求状态、样品、时间尺度与实验协议匹配。这四个层级不能互相替代。
+\clearpage
+\section*{1. 预测目标：平衡交点，而非迟滞开门}
+柔性 MOF 可有多个框架构型。吸附改变各构型的相对稳定性：空框架更稳定的闭孔相未必在有气体时仍稳定，因为开孔相可能获得更大的吸附自由能收益。两相模型仅比较两种固定结构在相同 \(T\)、外压 \(P\) 和客体化学势 \(\mu\) 下的热力学势。
+\begin{equation*}
+P_{\mathrm{eq}}:\quad \Omega_o(P,T)=\Omega_c(P,T)
+\end{equation*}
+若低压侧 \(\Omega_c\) 更低、高压侧 \(\Omega_o\) 更低，该根属于平衡开孔方向；反向根属于平衡闭合方向。同一温度可以有零个、一个或多个交点，不能预设一定开一次。
+实验吸附支的 \(P_{\mathrm{open}}\) 与脱附支的 \(P_{\mathrm{close}}\) 往往不同，原因可能包括成核能垒、弹性应力、晶粒尺寸、缺陷、传质阻力和扫描速率。平衡交点不包含这些动力学因素。不能仅由两端点的 \(\Delta F\) 画一条人为双阱，就宣称预测了实际能垒或 spinodal。
+\subsection*{固定端点近似的含义}
+每个相的晶胞和原子位置在 GCMC 中固定。模型忽略相内连续形变以及客体加载后重新调整的结构。只有当两端点足以代表主要吸附分支时，该近似才合理。若材料逐渐呼吸、存在中间相、发生配位键重构或明显吸附诱导畸变，需要更多结构分支或其他证据；这不是简单增加 GCMC 循环数可以弥补的误差。
+\subsection*{不吸附也能开门}
+闭孔中没有预先进入的客体，并不妨碍开孔状态在热力学上更稳定。气体可在局部开放区域吸附并稳定新相；实际成核路径不是端点平衡计算的前提输入，但也是其不可能自动给出的结果。[1]
+\clearpage
+\section*{2. CIF、活化状态与可比较性}
+两相差值只有在比较相同物质时才有意义。首先确认金属、配体、氢、反离子和保留溶剂在每个化学式单元上的组成一致。某相含孔道水、另一相不含时，直接相减混入了脱附/脱水化学过程；需要额外化学势项，不能仍称空框架开闭孔 \(\Delta F\)。
+\subsection*{clean-cif 的科学职责}
+保存原始 CIF，选择正确 data block，先看原始原子行、占有率与对称操作，再判断是合法不对称单元、已展开结构、周期显示副本还是无序模型。无序应选择化学上合理的完整构型或有依据的有序超胞，不能把所有位置都设为满占有率。
+孔道游离溶剂、配位溶剂、结构水和反离子需要区别处理。去除配位溶剂会改变金属配位和可能的电荷平衡，必须属于明确的活化模型。SQUEEZE/掩膜溶剂即使不出现在原子行里，也应进入活化说明。不能按“有限分子片段”一键删除所有非无限网络物种，因为其中可能包括维持电中性的反离子。
+\subsection*{审核与归一化}
+输出身份对称 P1、唯一标签、显式占有率和保守 CIF 标签。Pymatgen 与 ASE独立检查原子数、元素组成和晶胞；Spglib 只作恢复对称性交叉检查。核对周期配位、配体完整性、每个 H 的成键对象、短接触、化学式与 Z。原始和候选审计以及转换记录用 SHA-256 绑定到具体文件，不以“解析成功”代替化学正确。
+\begin{equation*}
+E_i[\mathrm{kJ\,mol^{-1}\,f.u.^{-1}}]=96.4853321233\,\frac{E_i[\mathrm{eV\,CIF\ cell}]}{Z_i}
+\end{equation*}
+比较每原子能量、每晶胞能量或未经归一化的两相超晶胞能量都可能制造错误相稳定性。相内和相间必须使用同一个归一化约定。
+\clearpage
+\section*{3. 框架电荷、PACMOF 与静电相互作用}
+固定电荷模型用框架和客体原子的部分电荷描述静电相互作用。部分电荷不是唯一可观测量，依赖定义和模型；模型来源应与吸附参数化背景相容。具有极性客体、开放金属位点或强静电环境时，电荷误差可能显著改变低压亲和力。
+PACMOF 使用局部结构描述符和随机森林预测参考电荷。本技能使用随包 RF-DDEC模型和相容的 scikit-learn 版本；它并不预测框架能量或框架熵。[2]
+\subsection*{赋电荷不应改变几何}
+以通过审核的最终框架为输入，只插入/替换电荷列。对比原子元素及顺序、分数坐标、占有率、晶胞和标签，验证输出净电荷接近零。不能在转换 CIF 时低精度重写坐标，随后把变化归因于模型；也不能把预测向量直接赋给不同排序的原子。
+中性框架仍可有很强局部电场。“总电荷为零”只是基本约束，不代表电荷分布准确。对于真实带电框架，需要把必要反离子纳入活化和归一化模型；不要用人为统一平移电荷掩盖丢失的物种。
+\subsection*{与主机 ML 势的关系}
+PACMOF 电荷供吸附势使用。静态 MACE 主机能量由其训练与推理定义，不能随意再加一遍由 PACMOF 电荷构造的框架库仑项，否则可能双重计数。主机势与吸附相互作用势是不同层面的模型，必须分别记录名称、权重、参数和适用范围。
+RASPA 使用 CIF 电荷和 Ewald 静电设置。实空间截断、周期超胞与长程设置需要收敛检查；错误的单位或过小的模拟盒会系统性改变吸附自由能。
+\clearpage
+\section*{4. 客体结构与吸附参数不能混为一谈}
+RDKit 负责客体图结构、显式氢和构象。ETKDG 生成多个构象，MMFF94s 或 UFF进行几何优化，从已收敛的候选中选取最低能结构。必须保留立体化学、原子排序和随机种子，并检查化学键长、夹角及重要扭转构象。[5]
+优化器报告收敛仅意味着在该势的收敛准则下停止。某些小分子的通用力场平衡几何可能偏离合理结构；应执行独立几何检查。若有经过验证且与吸附势匹配的分子几何，可提供有来源的 SDF，而不是强迫通用优化器重做。
+\subsection*{刚性客体近似}
+当前桥接把选定几何写入刚性 RASPA 分子。每个原子的元素和 pseudo-atom 类型必须一一对应，包括所有显式 H。气相最低能构象未必是孔内占优构象；柔性VOC 的不同构象、内转动或限域构象熵可能影响吸附。此类情况需要单独的模型适用性判断，不能把单刚性构象计算称为完整构象平均。
+\subsection*{吸附势的组成}
+\begin{equation*}
+U_{\mathrm{ads}}=U_{\mathrm{host-guest}}+U_{\mathrm{guest-guest}}
+\end{equation*}
+\begin{equation*}
+U_{\mathrm{LJ}}(r)=4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6\right]
+\end{equation*}
+分别指定主机与客体的 LJ 参数、部分电荷、组合规则、截断、尾修正和长程静电处理。RDKit 的 MMFF 电荷、气相优化能和分子内部势参数不能自动替代已验证的吸附参数。改变一个已发表刚性分子的几何，也会改变它的电荷多极矩与吸附能，需要声明参数移用的风险。
+输入气体的名称、SMILES、SDF、RASPA 分子文件和真实储气相 fluid 标识应一致。CO₂ 的定义不能作为其他 VOC 的通用替代品。
+\clearpage
+\section*{5. 用预训练机器学习势估计静态 ΔE}
+在相同势、同一模型版本、相同 head 和归一化下，分别计算两相空框架的静态势能。快速入口固定输入端点，不开展轨迹采样或有限位移声子。
+\begin{equation*}
+\Delta E_{\mathrm{static}}=\frac{E_o}{Z_o}-\frac{E_c}{Z_c}
+\end{equation*}
+上式使用统一能量单位；若输入 eV/晶胞，还需乘 96.4853321233。使用不同模型对两相分别取“更好的结果”会混入不可抵消的参考能差，不能作直接差分。
+随包 MACE-MOF0-v2 来自已发表的 MOF 机器学习势工作，使用 pbe\_d3 head，不额外叠加 D3。[3] 推理不等于执行 DFT：已有模型由参考数据训练，但当前任务只调用预训练势。应记录模型文件及实际载入权重的哈希、软件版本、设备、元素覆盖和色散约定；未知来源的 pickle/Torch 文件不能直接载入。
+\subsection*{单点能的限制}
+单点 \(\Delta E\) 是给定几何上的势能差，不是有限温度自由能。若一相有很大残余力、显著应力、缺氢、异常配位或处于训练分布外，差值可能被几何误差主导。应报告最大力和应力作为诊断，但小力不证明该相是局域最小值，更不证明相对能量准确。相稳定性的二阶信息不能由单点能或正的代理网络替代。
+快速筛选可用审核过的稳定结构或已有可靠优化结果。若需要进一步主机优化，应在该固定端点 fast contract 之外显式处理并重新审核结构，不能在后台无说明地改变晶胞、相身份或活化状态。
+\clearpage
+\section*{6. 快速熵：周期弹性网络代理}
+弹性网络把局部相对位移转化为二次恢复能，以便无需温度轨迹即可构造一个近似振动谱。方法受各向异性网络思想启发，但本实现针对周期框架的连接、横向弹簧和接触参数是启发式近似，不是已验证的 MOF 熵力场。[4]
+\subsection*{从连接到矩阵}
+根据元素、共价半径、周期距离和配位规则建立 X-H、共价、金属-供体连接。每条连接的单位方向 \(\mathbf n\) 对应刚度块：
+\begin{equation*}
+\mathbf K_{ij}=k_{\parallel}\left[\mathbf n\mathbf n^{\mathsf T}+\alpha\left(\mathbf I-\mathbf n\mathbf n^{\mathsf T}\right)\right]
+\end{equation*}
+纵向项表示伸缩恢复力，横向项用弱恢复近似角度/铰链阻力。它不是严格由完整分子力场的键角、扭转和非键相互作用 Hessian 推导出来的。重原子非键接触加入平滑弱弹簧，同时排除真实周期 1-2 和 1-3 对，避免明显重复计数。
+对跨晶胞平移向量 \(\mathbf s\) 的连接引入 \(\exp(i2\pi\mathbf q\cdot\mathbf s)\)，并按质量平方根归一化，构造每个波矢 \(\mathbf q\) 的 Hermitian 动力学矩阵 \(D(\mathbf q)\)。本征值与频率平方对应。\(q\) 网格比仅看 Γ 点更能包含周期集体模，但增加网格只改善这个代理模型的积分。
+\subsection*{参数敏感性}
+默认共价/X-H/配位弹簧为 \(15/40/3\ \mathrm{eV\,\mathring A^{-2}}\)，横向系数 0.03，接触参数 0.03，截止 4.5 Å。默认比较更软/更硬横向恢复力、无接触及更强接触五种情景。这些数值是可审计的模型假设，不是材料无关常数。候选排序若随参数改变而翻转，应输出不确定，不能挑选最符合预期的一组作为“正确值”。
+\clearpage
+\section*{7. 从频率到 S、U 与 F}
+对于频率 \(\nu\) 的量子谐振子，定义 \(x=h\nu/(k_\mathrm{B}T)\)。其配分函数、自由能和熵为：
+\begin{equation*}
+z_{\mathrm{vib}}=\frac{\exp(-x/2)}{1-\exp(-x)}
+\end{equation*}
+\begin{equation*}
+F_{\mathrm{vib}}=\frac{RT}{Z}\sum_q w_q\left\{\frac{x}{2}+\ln\left[1-\exp(-x)\right]\right\}
+\end{equation*}
+\begin{equation*}
+U_{\mathrm{vib}}=\frac{RT}{Z}\sum_q w_qx\left\{\frac{1}{2}+\frac{1}{\exp(x)-1}\right\}
+\end{equation*}
+\begin{equation*}
+S_{\mathrm{vib}}=\frac{R}{Z}\sum_q w_q\left\{\frac{x}{\exp(x)-1}-\ln\left[1-\exp(-x)\right]\right\}
+\end{equation*}
+求和包括所有 \(q\) 点及振动支；\(w_q\) 归一化为 1，\(Z\) 为该晶胞的化学式单元数。\(R\) 取 kJ 单位时 \(S\) 为 kJ/mol-f.u./K；输出 J 单位需要乘 1000。频率若用 THz，必须用相应 \(h/k_\mathrm{B}\) 换算；本实现 \(h/k_\mathrm{B}\approx47.99243\ \mathrm{K/THz}\)。
+\subsection*{不能遗漏振动内能}
+\begin{equation*}
+\Delta F_{\mathrm{screen}}=\Delta E_{\mathrm{static}}+\Delta U_{\mathrm{vib,proxy}}-T\Delta S_{\mathrm{proxy}}
+\end{equation*}
+\begin{equation*}
+\Delta F_{\mathrm{screen}}=\Delta E_{\mathrm{static}}+\Delta F_{\mathrm{vib,proxy}}
+\end{equation*}
+零点能和温度激发均包含在 \(U_\mathrm{vib}\) 中。仅写 \(\Delta E_\mathrm{static}-T\Delta S\)，会漏掉两相振动内能差，除非有证据说明其可忽略。闭孔参考 F=0 只是选零点，并非闭孔没有熵或内能。开孔相的熵也不保证总更高：软模、刚度与局部约束共同决定差值。
+\subsection*{零模与不稳定模}
+仅去除 Γ 点已知的三个整体平移零模。额外零模可能表示断连/过软网络；负本征值需调查，不应取绝对值或设置任意频率下限。代理网络频率为正也不说明原 ML 势没有虚频。低频模对熵特别敏感，参数和 q 网格收敛必须分别报告。
+\clearpage
+\section*{8. 代理 F 的缺项与校准}
+严格的某一势能面上的自由能应来自同一个 Hamiltonian 的统计平均。本筛选把 MACE 静态能与独立弹性网络振动项组合，因此属于混合模型代理，不是自洽的 MACE 自由能。它的作用是提供可计算、可比较、可扰动的筛选输入。
+\subsection*{没有显式包含的物理}
+\begin{itemize}[leftmargin=1.7em,itemsep=0.15em,topsep=0.15em]
+\item 强非谐振动和大幅度铰链运动。
+\item 多个亚稳构型、无序、缺陷与构象混合的熵。
+\item 客体加载造成的框架谱变化及两者耦合自由能。
+\item 热膨胀、连续体积响应及相内结构分布。
+\item 相界、晶粒和应力约束造成的额外自由能。
+\end{itemize}
+晶体学占有率不是平衡构型概率，不能直接代入 \(-R\sum p\ln p\)。若有独立的构型集合及相容能量，可以建立额外的构型配分函数，但必须避免与振动盆地的重叠计数。仅两个 CIF 无法确定未知构型的数目和权重。
+\subsection*{不做 MD/DFT 时如何提高可信度}
+使用已有、条件一致的量热/相平衡/可靠计算数据校准 ΔF 或 ΔS 的系统偏差，保留未参与校准的材料或温度做验证。对相近拓扑和组成的差分比较通常比跨化学家族绝对排名更可解释，但也不能假设误差必然抵消。
+建议分别报告静态 \(\Delta E\)、代理 \(\Delta U\)、\(-T\Delta S\) 及合计 \(\Delta F\)。若 \(\Delta F\) 的符号或材料排名随合理参数扫描改变，判为敏感/不确定。窄参数范围不等于小真实模型误差；q 网格收敛也只证明数值积分收敛，而不证明真实熵正确。
+\clearpage
+\section*{9. 两相刚性 GCMC：吸附自由能的信息来源}
+在固定框架、\(T\)、体积与客体化学势条件下，GCMC 允许分子数变化，采样粒子插入、删除、平移、转动或有适当校正的偏置构造。平衡平均负载给出 \(N_i(f)\)。开孔和闭孔分别运行，其结果是两个固定结构的吸附分支，不是一次直接观察整个框架开门事件的动态模拟。[6]
+\subsection*{采样与单位}
+初始化、平衡化和生产统计应分开；使用独立随机种子，并在低负载区与相变交点附近检查更长采样。零客体时没有平移成功并不异常；应看测试插入实际构造次数、接受数、平均负载、分块统计及模型设置。
+\begin{equation*}
+N[\mathrm{f.u.}]=\frac{N[\mathrm{simulation\ box}]}{Z\,n_a n_b n_c}
+\end{equation*}
+RASPA 的 molecules/cell 与 molecules/uc 分别可能指模拟盒和 CIF 单胞，需交叉核对原生输出约定。以 K 给出的能量通常为 \(U/k_\mathrm{B}\)；转为 kJ/mol 需要 \(R\)，并再按框架 f.u. 归一化。不要把框架-客体总能误当每个吸附分子的能量。
+\subsection*{绝对吸附与过剩吸附}
+热力学积分使用绝对平均粒子数。过剩吸附扣除了参考气相体积中的分子数，不能不加修正直接代入相变积分。实验过剩等温线与计算绝对等温线比较时，还需要一致的体积和气相密度定义。
+等温线拟合可以描述数据；框架-客体能量拟合可诊断相互作用变化。但单温Langmuir \(b\) 不是唯一可辨识的吸附焓，\(U_{\mathrm{host-guest}}\) 也不是吸附自由能。正式端点比较使用 \(N(f)\) 的积分，不用拟合相互作用能替代化学势贡献。
+\clearpage
+\section*{10. 真实储气相与 VOC 饱和上限}
+气体的化学势由逸度决定，而非一般情况下的机械压力：
+\begin{equation*}
+\mu(T,P)=\mu_{\mathrm{ref}}(T)+RT\ln\left[\frac{f(T,P)}{f_{\mathrm{ref}}}\right]
+\end{equation*}
+\begin{equation*}
+f(T,P)=\phi(T,P)P
+\end{equation*}
+理想气体 \(\phi=1\)；接近饱和、较高压力或强非理想流体可能明显偏离。RASPA输入和后处理必须一致：若模拟使用理想储气相，不能只把横坐标重新标为真实气体逸度，声称完成了真实储气相模拟。应按新的化学势重新计算，或使用有明确适用条件的统计重加权。
+\subsection*{VOC 只做到 Psat(T)}
+纯 VOC 气相吸附扫描限定 \(0<P\le P_{\mathrm{sat}}(T)\)。\(P_{\mathrm{sat}}\) 来自该温度的可靠数值，或给出温度和压力单位、有效温区的 Antoine 关系：\(\log_{10}P=A-B/(T+C)\)。不同来源的系数可能采用 K/°C、bar/mmHg，不能混用或超范围外推。
+超饱和气相并非稳定的常规储气相。超过 Psat 会引入体相液体条件，不能仍按纯气相筛选解释。此限制不禁止孔内在 \(P/P_{\mathrm{sat}}<1\) 时发生协同填充或毛细凝聚。应输出 P/Psat。临界温度以上没有通常意义的饱和蒸汽压；需另行采用适当的超临界流体设定，不得硬套 VOC 饱和规则。
+本技能的 CoolProp/HEOS 接口处理单组分稳定蒸汽/允许的超临界状态，检查三相点、液相和两相区域。[7] 混合气需要组分逸度和相平衡，不能直接以总压代替每个组分的化学势。储气相有效范围和 GCMC 已采样范围要同时满足。
+\clearpage
+\section*{11. 从吸附量构造渗透系综势}
+固定框架的客体巨势满足 \(d\Omega_{\mathrm{ads}}=-N\,d\mu\)。取极低逸度时的空孔状态为客体巨势零点，并使用 \(d\mu=RT\,d\ln f\)，可得：
+\begin{equation*}
+\Omega_{\mathrm{ads},i}(f,T)=-RT\int_{0}^{f}N_i(f',T)\,d\ln f'
+\end{equation*}
+对两个框架端点，比较势包含空框架自由能和外部机械功：
+\begin{equation*}
+\Omega_i=F_{\mathrm{host},i}(T)+P_{\mathrm{ext}}V_i+\Omega_{\mathrm{ads},i}
+\end{equation*}
+\begin{equation*}
+\Delta\Omega=\Delta F_{\mathrm{host}}(T)+P_{\mathrm{ext}}\Delta V-RT\int_{0}^{f}\Delta N(f',T)\,d\ln f'
+\end{equation*}
+这里假设外部静水压力等于储气相压力。对于非静水应力、薄膜夹持、预应力或其他边界条件，机械功不能简单写为同一个 \(P\Delta V\)。若输入已是包含 \(PV\) 的Gibbs 自由能，又再加一次 PΔV，则会重复计数。
+\subsection*{单位与符号}
+\begin{equation*}
+P\Delta V[\mathrm{kJ\,mol^{-1}\,f.u.^{-1}}]=6.02214076\times10^{-5}\,P[\mathrm{bar}]\,\Delta V[\mathrm{\mathring A^3\,f.u.^{-1}}]
+\end{equation*}
+常见开孔过程 \(\Delta V>0\)，外压机械项倾向于抑制开孔；若开孔吸附量更大，负的吸附积分倾向于稳定开孔。\(\Delta F_{\mathrm{host}}>0\) 表示空框架更偏好闭孔。这三个项之间的竞争决定交点，不能仅凭“开孔吸附热更高”判断是否一定开门。[1]
+积分自零逸度起并不意味着必须模拟 \(f=0\)；由于 Henry 极限 \(N\approx K_H f\)，低端积分有限。两相自由能零点可以共同平移，不影响根；但不能独立任意平移其中一相。
+\clearpage
+\section*{12. Henry 尾部、数值积分与交点}
+最小模拟逸度 \(f_0\) 以下，只有在确认 Henry 区域时才使用 \(N=K_H f\)。该区间的积分精确为 \(K_H f_0=N(f_0)\)，不应直接丢弃。
+\begin{equation*}
+I(0\to f_0)=\int K_H f\,d\ln f=K_H f_0
+\end{equation*}
+对后续节点，采用 \(x=\ln f\)，\(N(x)\) 分段线性。每段的积分为梯形面积；在某段内部使用线性函数的解析积分。记录原始 \(N(f)\)，不依赖一个任意拟合曲线来掩盖欠采样。若低端 N/f 不稳定或相对误差很大，需更低压力/更长采样或独立稀释极限证据，而不是自动声称 Henry 已确认。
+扫描 ΔΩ 的符号变化，在原始逸度模型和储气相映射内求根，并判定根两侧稳定相。多相时一个两两交点可能被第三相压低，因此必须比较全局最低势。根搜索网格细化只能改善数值定位，不能补充原始等温线缺失的信息。
+\subsection*{一个可解析的校验模型}
+闭孔不吸附、开孔满足 Langmuir \(N_o=N_{\mathrm{sat}}bf/(1+bf)\)、理想气体且忽略\(P\Delta V\) 时，有：
+\begin{equation*}
+\Delta\Omega=\Delta F_{\mathrm{host}}-RTN_{\mathrm{sat}}\ln(1+bP)
+\end{equation*}
+\begin{equation*}
+P_{\mathrm{eq}}=\frac{\exp\left[\Delta F_{\mathrm{host}}/(RTN_{\mathrm{sat}})\right]-1}{b}
+\end{equation*}
+这只用于校验符号、单位与积分实现，不是所有柔性 MOF 的物理规律。\(\Delta F\le0\)时空框架可能已偏好开孔，不能机械套用公式输出正“开门压力”。若已采样范围内没有交点，应报告 no-root-in-range，而不是向高压外推制造交点。
+\clearpage
+\section*{13. 闭孔零吸附与近零吸附}
+真正不吸附的闭孔相是合法模型。此时 \(N_c=0\)，\(\Omega_{\mathrm{ads},c}=0\)，计算只需开孔吸附积分和两相框架自由能差。闭孔的框架 \(F\) 和熵仍存在；零吸附并不意味着闭孔框架自由能可忽略。
+\subsection*{区分排斥、传质与采样问题}
+几何上无法容纳任何客体、孔口太小但内部有腔体、随机插入没有找到稀有有利位点，是不同问题。GCMC 可直接把分子插入内部，绕开真实扩散孔口；因此孔限直径小于客体尺寸不证明平衡吸附为零。有限网格/取向扫描也不是严格遍历所有构型的排斥证明。
+空框架 Widom 进行试插入，不改变实际客体数，用单粒子 Boltzmann 权重估计无限稀释 Henry 行为。独立种子、构造次数、分块与稀有大权重检查至关重要。Widom 运行中的零占据数是算法要求，不能拿它证明物理零吸附。
+\subsection*{残余吸附情景}
+用 \(N_c=K_s f\) 描述声明范围内的一组假设，和零分支对照：
+\begin{equation*}
+\Omega_{\mathrm{ads},c}=-RTK_s f
+\end{equation*}
+\begin{equation*}
+\Delta\Omega_{\mathrm{residual}}=\Delta\Omega_{\mathrm{zero}}+RTK_s f
+\end{equation*}
+闭孔残余吸附稳定闭孔，通常把平衡开孔压力推高。可以用 Widom 统计尺度及其放大倍数构造敏感性扫描，但“均值＋confidence”不是保证上界。Henry 系数只确定 \(f\to0\) 的斜率，不能排除有限压力下由客体协同造成的填充。若担心这类机制，应使用带正确偏置校正的增强 GCMC 或其他独立证据。线性情景在高压可能不物理，必须限定适用范围，不能无限外推。
+\clearpage
+\section*{14. 自由能误差如何放大为压力误差}
+在一个简单、非切触的开孔交点附近，暂忽略机械项并采用理想气体：
+\begin{equation*}
+\frac{d\Delta\Omega}{d\ln P}\approx-RT\,\Delta N(P_{\mathrm{eq}})
+\end{equation*}
+\begin{equation*}
+\delta\ln P_{\mathrm{eq}}\approx\frac{\delta(\Delta F_{\mathrm{host}})}{RT\,\Delta N(P_{\mathrm{eq}})}
+\end{equation*}
+分母是开闭两相负载差，不是单独的开孔负载。若两相吸附量接近，交点很平坦，小能量误差也可能造成很大的压力偏移；若斜率接近零，线性传播会失效，甚至改变根的数量。不能给所有材料一个统一“±若干 bar”的精度。
+例如纯演示条件下 \(T=298\ \mathrm{K}\)、\(\Delta N=1\)、框架自由能偏差 \(+1\ \mathrm{kJ\,mol^{-1}\,f.u.^{-1}}\)，忽略\(PV\) 与非理想性时压力比约 \(\exp[1/(RT)]\approx1.50\)。该例只说明指数敏感性，不是本模型真实误差的测量。静态能看似只差一点，不代表压力也只差一点。
+\subsection*{真实气体与机械项}
+令 \(\alpha=d\ln f/d\ln P\)，则 \(D=d\Delta\Omega/d\ln P=C_{\mathrm{PV}}P\Delta V-RT\,\Delta N\,\alpha\)，其中 \(C_{\mathrm{PV}}=6.02214076\times10^{-5}\) 对应本手册单位。更一般地 \(\delta\ln P\approx-\delta\Delta F/D\)。\(\alpha\)、机械项及局部 \(\Delta N\) 均应在交点附近评估，不能在高压仍默认 \(\alpha=1\)。
+\subsection*{不确定性需要分层}
+区分 GCMC 统计误差、网格/截断误差、吸附力场偏差、主机势/熵代理偏差和结构/机制错误。它们可能相关，不能把所有原生 confidence 当独立高斯标准差平方相加。参数和负载扰动是情景范围；只有定义了概率模型、校准数据和相关结构，才有条件讨论统计置信或可信区间。
+\clearpage
+\section*{15. 快速筛选的计算预算与决策}
+快筛不是把每个环节都缩短到出现一个数。应先用成本低的结构、单位、活化、电荷和模型覆盖检查淘汰不可比较输入，再把计算集中到可能改变排序的地方。静态 ML 两点和小 q 网格代理熵通常远便宜于多压力、多种子的 GCMC，但原子数、超胞大小、软件和硬件都会影响时间，不能承诺每个 MOF 数秒完成。
+\subsection*{分层执行}
+第一层：通过结构和电荷门槛，计算 ΔE 与五组代理 ΔF。若参数改变会翻转相偏好，标记 host-sensitive。若无合法结构/元素覆盖，停止，不用猜测补齐。
+第二层：两相采用跨数量级的低压到目标上限网格，保留独立种子。VOC 以Psat 为上限。检查低端 Henry；闭孔近零时使用显式分支与稀释审计。
+第三层：求条件交点，比较主机参数、负载与残余吸附情景。把新 GCMC 点布在交点附近和等温线曲率大的区域，延长主导误差的点，而不是均匀加密所有点。重复检查种子、循环、截断及实际压力节点的结果稳定性。
+第四层：按“范围内有稳定根 / 范围内无根 / 对模型敏感 / 输入或证据不足”分类。排序时优先使用对合理扰动保持结论的候选；无法区分的候选不要给出人为精确的先后名次。对不同材料族保留额外分布外风险。
+\subsection*{可复用内容}
+固定结构的静态 ML 能量和审核哈希可缓存；同温度、同客体、同结构/电荷/力场的吸附数据可在不同 ΔF 情景下复用。改变温度、客体参数、结构或储气相化学势定义则可能需要新 GCMC。缓存必须按内容哈希验证，不能仅凭文件名。
+\clearpage
+\section*{16. 验证、校准与交付规范}
+软件验证应包含解析 Henry/Langmuir 积分、符号与单位、超胞归一化、多根/无根、残余吸附导致的正确压力移动、气相上限拒绝，以及结构审计哈希和独立随机种子校验。晶胞复制、原子排列和整体旋转不应改变归一化后的代理热力学，数值容差内的这些不变量是有意义的回归测试。
+模型验证需要独立于参数拟合的数据。以某实验开门压力反推 ΔF，再用这个ΔF 复现相同压力，只能说明代数闭合。若实验有迟滞，应先判断参考数据是平衡信息还是吸附/脱附路径端点；不能把动力学偏差全吸收到框架熵里。
+\subsection*{原生 Agent 的交付}
+机器可读输入需记录两相 CIF、Z、活化/无序决定、审计、电荷来源、气体与温度、压力/逸度/饱和上限、吸附力场、模型权重/版本、种子和循环数。输出包含：静态 ΔE、代理 ΔU/ΔS/ΔF；原始 N(f) 与能量统计；相稳定性曲线、所有合法交点与方向；模型/统计敏感性；未完成项及主要限制。
+零闭孔分支是显式科学假设，不能静默覆写已有正吸附数据。系统返回成功表示完成条件性计算，不代表实验精度验证。输出无根或 blocker 都是有用结果；强行输出一个压力会破坏筛选数据集的可信度。
+\subsection*{包与依赖}
+skill 包含入口及所需源码、MACE/PACMOF 权重、许可证、来源及 SHA-256、RASPA/MACE 源码归档和依赖记录。Python 与系统动态库需在目标机器配置；macOS arm64 二进制不能冒充跨平台程序。不存在必须开启的网页服务。模型文件按可信可执行内容对待，禁止载入来源不明的序列化权重。
+\clearpage
+\section*{参考资料与适用性说明}
+[1] Coudert, F.-X. et al. Thermodynamics of Guest-Induced Structural Transitions in Hybrid Organic-Inorganic Frameworks. Journal of the American Chemical Society. DOI: 10.1021/ja805129c. 用于客体诱导相变的热力学框架，不代表本代理熵的验证。
+[2] Fast and Accurate Machine Learning Strategy for Calculating Partial Atomic Charges in Metal-Organic Frameworks. Journal of Chemical Theory and Computation. DOI: 10.1021/acs.jctc.0c01229. PACMOF 的电荷预测背景；不是自由能模型。
+[3] Elena, A. M., Kamath, P. D., Jaffrelot Inizan, T. et al. Machine learned potential for high-throughput phonon calculations of metal-organic frameworks. npj Computational Materials 11, 125 (2025). DOI: 10.1038/s41524-025-01611-8.模型来源：github.com/ddmms/data，mace-mof-0/v2；CC BY 4.0。
+[4] Atilgan, A. R. et al. Anisotropy of Fluctuation Dynamics of Proteins with an Elastic Network Model. Biophysical Journal 80, 505-515 (2001). DOI: 10.1016/S0006-3495(01)76033-X. 网络思想背景，研究对象为蛋白质；不能将其当作本周期网络参数或 MOF 熵精度验证。
+[5] RDKit: Open-source cheminformatics. rdkit.org；代码 github.com/rdkit/rdkit。本技能使用的具体包版本记录在 runtime-lock.json。MMFF/UFF/ETKDG 的功能用于几何准备，不自动构成完整的刚性客体吸附力场。
+[6] RASPA3 official source: github.com/iRASPA/RASPA3，v3.1.0，commit 3b81db0e6fe7119732d1525d83a572462a1e8c73。输入及原生输出约定以该版本为准。
+[7] CoolProp documentation: coolprop.org；HEOS 单组分状态和逸度计算以记录的具体软件版本为准。使用稳定气相检查不等于验证主机/吸附相互作用势。
+以上资料分别支撑热力学关系、软件和模型来源。周期弹性网络的横向/接触参数、混合模型组合与默认敏感性情景属于本技能的明确近似，未宣称这些参考文献提供了其材料级开孔压力准确性证明。
+\end{document}

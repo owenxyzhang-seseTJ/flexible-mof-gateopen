@@ -1,0 +1,84 @@
+{
+  "source_doi": "10.1038/s41524-025-01611-8",
+  "source_license": "CC BY 4.0",
+  "source_url": "https://github.com/ddmms/data/tree/main/mace-mof-0/phonons",
+  "archive_sha256": "005e469f713b90f472672898b6bfc15329ee9cff12d7ce02e9bef50395eede2d",
+  "results": [
+    {
+      "model_directory": "0b",
+      "temperature_K": 300.0,
+      "primitive_composition": {
+        "Al": 4,
+        "O": 20,
+        "C": 32,
+        "H": 20
+      },
+      "formula_units": 4,
+      "S_J_mol_primitive_K": 862.68486058,
+      "S_J_mol_fu_K": 215.671215145,
+      "Cv_J_mol_fu_K": 222.64675416,
+      "F_vib_kJ_mol_fu": 280.8091004275,
+      "min_band_frequency_THz": -0.2899177646,
+      "negative_band_entries_below_minus_1e_minus4": 177,
+      "harmonic_stability_on_sampled_path": false,
+      "source_header": "# temperature [K] | Cv [J/mol/K] | F [J/mol] | S [J/mol/K]",
+      "S_from_F_finite_difference_J_mol_primitive_K": 862.6409459999991,
+      "entropy_consistency_relative_error": 5.090454464606875e-05,
+      "table_sha256": "b5e7f0aa96847421091160a3f20a5021a3f7cc80d8606232ebd096b7d2c9856d",
+      "warning": "Sampled band path is not a full Brillouin-zone stability proof; F is vibrational only"
+    },
+    {
+      "model_directory": "mof0",
+      "temperature_K": 300.0,
+      "primitive_composition": {
+        "Al": 4,
+        "O": 20,
+        "C": 32,
+        "H": 20
+      },
+      "formula_units": 4,
+      "S_J_mol_primitive_K": 850.72285942,
+      "S_J_mol_fu_K": 212.680714855,
+      "Cv_J_mol_fu_K": 209.845403195,
+      "F_vib_kJ_mol_fu": 292.7490219425,
+      "min_band_frequency_THz": -5.61889e-05,
+      "negative_band_entries_below_minus_1e_minus4": 0,
+      "harmonic_stability_on_sampled_path": true,
+      "source_header": "# temperature [K] | Cv [J/mol/K] | F [J/mol] | S [J/mol/K]",
+      "S_from_F_finite_difference_J_mol_primitive_K": 850.6894060000036,
+      "entropy_consistency_relative_error": 3.9323523079115574e-05,
+      "table_sha256": "ab70f5dddd8db21b2407b1383edc2262833adb61af1df946c63b3d9a8de71b4a",
+      "warning": "Sampled band path is not a full Brillouin-zone stability proof; F is vibrational only"
+    },
+    {
+      "model_directory": "mof0-v2",
+      "temperature_K": 300.0,
+      "primitive_composition": {
+        "Al": 4,
+        "O": 20,
+        "C": 32,
+        "H": 20
+      },
+      "formula_units": 4,
+      "S_J_mol_primitive_K": 849.95378096,
+      "S_J_mol_fu_K": 212.48844524,
+      "Cv_J_mol_fu_K": 209.7822397175,
+      "F_vib_kJ_mol_fu": 292.6787353975,
+      "min_band_frequency_THz": -2.66681e-05,
+      "negative_band_entries_below_minus_1e_minus4": 0,
+      "harmonic_stability_on_sampled_path": true,
+      "source_header": "# temperature [K] | Cv [J/mol/K] | F [J/mol] | S [J/mol/K]",
+      "S_from_F_finite_difference_J_mol_primitive_K": 849.9203954999984,
+      "entropy_consistency_relative_error": 3.927914758361517e-05,
+      "table_sha256": "ffbce8a0bf5502cba0186e7428bea61acd01b89a636cfd8f1368992a56adaf10",
+      "warning": "Sampled band path is not a full Brillouin-zone stability proof; F is vibrational only"
+    }
+  ],
+  "classification": "reanalysis_of_published_single_structure_ML_data_not_open_closed_entropy_difference",
+  "unit_warning": "Published F header says J/mol, but F values are consistent with kJ/mol and S with J/mol/K",
+  "limitations": [
+    "No paired open/closed phase assignment or independent DFT entropy benchmark established here",
+    "The 0b table has substantial imaginary band modes and is not a stable harmonic reference",
+    "No fresh CIF cleaning, ML inference, phonon sampling or convergence was performed"
+  ]
+}

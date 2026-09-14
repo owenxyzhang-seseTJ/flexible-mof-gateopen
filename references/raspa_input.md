@@ -14,6 +14,15 @@ Omit gas-profile/molecule-json only for the bundled CO2 model. Add --run and
 --raspa-bin /path/to/raspa3 to launch an authorized local calculation.
 Run scripts/prepare_raspa_inputs.py --help for required arguments.
 
+For a real pure vapor reservoir, add `--reservoir coolprop` (optional CoolProp
+dependency). This writes the calculated `FugacityCoefficient` to RASPA and
+preserves pressure, fugacity and EOS version in each `preflight.json`. Custom
+gas profiles may specify `coolprop_fluid`. Stable-vapor/Psat checks happen
+before any run directory is created; no liquid, mixture or below-triple-point
+reservoir is supported. The default remains explicit ideal fugacity (`f=P`).
+Use [advanced workflows](advanced_workflows.md) for consistent post-processing
+of actual-fugacity isotherms rather than relabelling old ideal loadings.
+
 The helper writes fixed-host, single-component GCMC directories.
 The framework CIF must contain `_atom_site_charge` values.  The input must
 contain:
@@ -36,3 +45,11 @@ constructed and accepted insertion/swap/translation moves. A zero loading
 with no constructed translations or no accepted swaps is an
 accessibility/setup flag and should trigger a pore geometry, molecule-size,
 and force-field audit.
+
+No accepted swaps is not a universal failure: a physically nonadsorbing closed
+phase is legitimate. See [explicit zero/residual scenarios](nonadsorbing_closed_phase.zh-CN.md).
+`run_empty_widom.py` reuses only hash-verified, preflight-passed source inputs,
+disables all guest population-changing moves, and runs independent Widom seeds
+in fresh directories. It reports dilute Henry statistics, not a finite-pressure
+upper bound. Empty occupancy is enforced in this calculation and is not itself
+evidence for physical exclusion.

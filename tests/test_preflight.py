@@ -110,6 +110,20 @@ def test_structure_gate_rejects_unresolved_or_changed_model(reviewed):
         structure_gate(cif, report)
 
 
+def test_host_cli_blocks_unreviewed_cif_before_ml_load(reviewed,tmp_path):
+    pytest.importorskip("scipy")
+    cif,report,data=reviewed
+    data["solvent"]["status"]="unknown"
+    report.write_text(json.dumps(data))
+    spec=tmp_path/"host.json"
+    spec.write_text(json.dumps({"states":[{"name":"test","cif":str(cif),"cleaning_report":str(report),"formula_units":1}]}))
+    out=tmp_path/"blocked.json"
+    run=subprocess.run([sys.executable,str(ROOT/"scripts/advanced_free_energy.py"),"host-energy",
+                        "--spec",str(spec),"--out",str(out)],capture_output=True,text=True)
+    assert run.returncode!=0 and "unresolved solvent" in run.stderr
+    assert not out.exists()
+
+
 def test_cli_voc_limit_and_valid_custom_guest(reviewed, tmp_path):
     cif, report, _ = reviewed
     profile = tmp_path / "gas.json"
@@ -145,13 +159,15 @@ def test_rdkit_ethanol(tmp_path):
 
 
 @pytest.mark.skipif(not os.environ.get("RASPA_SMOKE_BIN"), reason="optional native RASPA integration")
-def test_native_raspa_preflight(reviewed, tmp_path):
+@pytest.mark.parametrize("reservoir", ["ideal", "coolprop"])
+def test_native_raspa_preflight(reviewed, tmp_path, reservoir):
+    if reservoir == "coolprop": pytest.importorskip("CoolProp")
     cif, report, _ = reviewed
     out = tmp_path / "native"
     command = [sys.executable, str(ROOT / "scripts/prepare_raspa_inputs.py"), "--cif", str(cif),
         "--cleaning-report", str(report), "--force-field", str(ROOT / "examples/xpcu5zn_co2_268K/data/force_field.json"),
         "--temperature", "298.15", "--output-dir", str(out), "--unit-cells", "1", "1", "1", "--cutoff", "12",
-        "--pressures", "0.01", "--raspa-bin", os.environ["RASPA_SMOKE_BIN"], "--run"]
+        "--pressures", "0.01", "--raspa-bin", os.environ["RASPA_SMOKE_BIN"], "--run", "--reservoir", reservoir]
     result = subprocess.run(command, capture_output=True, text=True, timeout=120)
     assert result.returncode == 0, result.stderr
     outputs = list((out / "P_0p01bar/output").glob("output_*.txt"))

@@ -1,84 +1,59 @@
 ---
 name: flexible-mof-gateopen
-description: Prepare clean flexible-MOF structures and guest molecules, run saturation-limited RASPA adsorption, and screen two-state osmotic equilibrium pressures with explicit host free energies.
+description: Agent-native fast screening of flexible-MOF equilibrium opening pressures from closed/open CIFs with clean-cif, PACMOF, static MACE, entropy proxy and RASPA GCMC. Supports nonadsorbing closed phases and saturation-limited VOCs; no MD, DFT or web interface.
 ---
 
-# Flexible MOF adsorption
+# Flexible-MOF fast screening
 
-## 1. Prepare each framework state — mandatory
+Read [README.md](README.md) and [agent_contract.md](references/agent_contract.md).
+Full theory: [principles.pdf](assets/principles.pdf), with searchable
+[Markdown source](references/principles.zh-CN.md) and the reproducible
+[XeLaTeX source](references/principles.tex).
 
-Use $clean-cif before assigning charges or preparing GCMC. Read its SKILL.md
-and cleaning decisions. If unavailable, locate or install it before continuing
-structure preparation. Analysis of existing isotherms remains usable.
+1. Run `python scripts/verify_bundle.py`. Use hash-checked trusted model files;
+   pickle/Torch weights can execute code. Install requirements.txt if needed;
+   never suppress the PACMOF scikit-learn version check. The RASPA executable is
+   macOS arm64-specific; other systems must build the supplied source.
+2. Obtain closed/open CIFs, gas, T, Z per CIF cell, sourced adsorption force field
+   and pressure range. Preserve originals. Use clean-cif: read the bundled
+   `vendor/clean-cif/SKILL.md` and its cleaning decisions. Resolve disorder and
+   pore solvent with chemistry review; preserve framework ligands, structural
+   water and counterions. Require same-composition/activation P1 structures and
+   hash-bound dual-parser/chemistry audits. See [cleaning_gate.md](references/cleaning_gate.md).
+3. Use sourced neutral CIF charges or PACMOF RF-DDEC. Preserve coordinates/cell
+   and audit neutrality/order. PACMOF predicts charges, not host free energy.
+4. Prepare the guest with RDKit or a sourced valid SDF. Keep atom types, LJ,
+   charges and rigid-geometry mapping explicit. Optimizer convergence is not
+   geometry/model validation. No electronic refinement, MD, DFT, host relaxation
+   or finite-displacement phonons is executed by the fast entry point.
+5. Run `python scripts/run_fast_screen.py --spec /absolute/job.json --output-dir /absolute/new_run`.
+   This combines static MACE-MOF0-v2 (`pbe_d3`, no extra D3), periodic elastic-
+   network entropy, independent-seed GCMC, actual-fugacity integration and PΔV.
+   Identical checkpointed runs may resume; changed inputs require a new directory.
+   Use quick_host_free_energy.py alone for a host-only screen.
+6. Review Henry behavior, seeds/cycles and root-region pressure resolution. VOCs
+   must remain ≤ sourced Psat(T). Never extrapolate isotherms or relabel ideal
+   simulations using real-gas fugacity after the fact.
+7. Closed phases need not adsorb. Use an explicit zero-uptake branch plus residual
+   sensitivity; run_empty_widom.py provides dilute evidence when needed. Zero
+   accepted swaps is not proof of exclusion; a small pore window is not proof
+   that interior cavities cannot adsorb. Widom does not rule out cooperative
+   filling. Open-state sampling gates remain active.
+8. Report all stable closed-to-open equilibrium crossings or sampled-range
+   no-root outcomes, with host/adsorption/residual sensitivity. Refine actual
+   simulations when needed; dense integration nodes are not new GCMC evidence.
 
-Preserve the source, resolve disorder into a justified ordered configuration,
-and identify/remove pore solvent. Distinguish coordinated solvent, structural
-water and charge-balancing counterions; document the activation state. Never
-delete framework fragments or set all disorder occupancies to one.
+## Scientific interpretation
 
-Require chemistry review, Pymatgen/ASE agreement, Spglib cross-check and
-identity-only P1 output. Follow [cleaning_gate.md](references/cleaning_gate.md)
-for solvent decisions and the hash-bound audit record. Run check_cleaning.py.
-Unresolved disorder, solvent or chemistry blocks PACMOF and GCMC.
+Use open minus closed per identical formula unit:
+`ΔF_screen=ΔE_static+ΔU_vib,proxy−TΔS_proxy`;
+`ΔΩ=ΔF_screen+PΔV−RT∫(N_open−N_closed)dln(f)`.
 
-## 2. Prepare charges and guest
+The entropy proxy is uncalibrated and uses a different model from static MACE.
+It is not self-consistent host F or proof of phase stability. Parameter scenarios
+are not confidence intervals. Report P_eq, not experimental P_open/P_close;
+endpoints do not determine barriers, kinetics or hysteresis. Fitting ΔF to a
+gate pressure and reproducing that same point is calibration, not validation.
 
-Use justified source charges or run run_pacmof.py with a cleaning report per
-input. Verify neutrality, element order, coordinates, occupancies and cell
-preservation; retain the charged CIF and updated record.
-PACMOF predicts charges, not framework free energy.
-
-For VOCs read [vapor_and_guest.md](references/vapor_and_guest.md).
-prepare_guest_rdkit.py uses explicit H, ETKDGv3 and MMFF94s/UFF to select the
-lowest-energy converged sampled conformer. Review stereochemistry and relevant
-torsions. Supply validated RASPA atom types, charges and force-field parameters
-separately; gas-phase optimization does not establish an adsorption model.
-
-## 3. Run fixed-host adsorption
-
-Specify gas, temperature and force-field provenance. VOCs require sourced
-Psat(T) or Antoine coefficients with explicit units and a valid temperature
-range. Enforce 0 < P <= Psat(T) in generation and analysis. Report P/Psat;
-never extrapolate saturation data.
-
-prepare_raspa_inputs.py requires a passed cleaning record, neutral charges,
-explicit supercell and cutoff. Perpendicular supercell heights must be at
-least twice the largest real-space cutoff. It writes Ewald/CIF-charge inputs
-and rejects existing output directories. Custom guests require a gas profile
-and matching molecule JSON. Read [raspa_input.md](references/raspa_input.md).
-
-Launch when simulation is requested; --run requires a local RASPA executable.
-Parse absolute loading and guest moves. Zero loading with no accepted
-insertions requires an accessibility audit. Use independent seeds, sufficient
-equilibration and longer repeats near a proposed crossing.
-
-## 4. Screen equilibrium pressure
-
-For detailed derivations, host-free-energy routes (including ML), uncertainty
-and implementation limits, read [free_energy_methods.zh-CN.md](references/free_energy_methods.zh-CN.md).
-
-Normalize phases to the same formula unit:
-DeltaOmega_ads = -RT integral (N_open - N_closed) d ln f.
-
-Verify the Henry regime below the first point. Supply host free energy with
-source, temperature, normalization and uncertainty. Account for external
-P DeltaV or state its neglect. Static ML energy is a prior unless finite-
-temperature entropy and material-specific accuracy have been validated.
-
-quick_free_energy_screen.py gives required host penalty and a conditional
-two-state crossing. Its CSV convention is ideal reservoir f=P; do not relabel
-those loadings with EOS fugacities at unchanged pressures. Report nodal errors
-and sensitivity to pressure grid, force field and host free energy.
-Read [method_boundaries.md](references/method_boundaries.md).
-
-Call the result P_eq. Experimental P_open/P_close, barriers and spinodals
-require intermediate states and a justified landscape/criterion. Do not
-validate a pressure against the same point used to fit the host term.
-
-## Deliver
-
-Provide source/derived CIFs, cleaning and charge records, guest/model provenance,
-Psat and pressure grid, RASPA inputs/loadings, and the pressure result with its
-assumptions. Keep binaries, credentials and restricted files out of public
-packages. During skill maintenance, run tests, skill validation and the bundled
-example; synchronize repository and installed skill scripts.
+Deliver reviewed/charged CIFs, gas/model provenance, native isotherms and energy
+fits, ΔE/ΔU/ΔS/ΔF, P_eq or explicit blocker/no-root status, and limitations.

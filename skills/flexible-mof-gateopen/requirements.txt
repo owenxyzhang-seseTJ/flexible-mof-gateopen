@@ -1,0 +1,17 @@
+# Tested fast-screen runtime; Python 3.14.4 on macOS arm64
+numpy==2.5.3
+scipy==1.18.1
+ase==3.29.0
+pymatgen==2026.5.4
+gemmi==0.7.5
+spglib==2.7.0
+rdkit==2026.3.6
+mace-torch==0.3.16
+torch==2.14.0
+scikit-learn==1.8.0
+CoolProp==8.0.0
+joblib==1.6.0
+pandas==3.0.5
+tqdm==4.70.1
+dask==2026.8.0
+distributed==2026.8.0

@@ -1,0 +1,241 @@
+{
+  "classification": "analytic_and_Si_software_checks_not_MOF_prediction",
+  "reservoir_CO2_268K_19bar": {
+    "temperature_K": 268.0,
+    "pressure_bar": 19.0,
+    "fugacity_bar": 16.479300591801522,
+    "fugacity_coefficient": 0.8673316100948169,
+    "phase": 5,
+    "backend": "CoolProp/HEOS",
+    "version": "8.0.0",
+    "fluid": "CO2",
+    "psat_bar": 30.33361572882272
+  },
+  "double_well_spinodal": {
+    "numeric_tilt": 1.539599368421056,
+    "exact_tilt": 1.539600717839002,
+    "relative_error": 8.764726662224831e-07
+  },
+  "constrained_TI_harmonic": {
+    "numeric_delta_F_eV": 0.02727837835174811,
+    "exact_delta_F_eV": 0.026878861145705587,
+    "approximate_block_SE_eV": 0.00020509638881615396,
+    "seed": 32
+  },
+  "qha_parabola": {
+    "volume_A3_fu": 100.0,
+    "G_kJ_mol_fu": 0.0,
+    "boundary_minimum": false,
+    "method": "basin-specific PCHIP QHA minimization; no extrapolation"
+  },
+  "actual_backend_checks": [
+    {
+      "calculator": {
+        "backend": "chgnet",
+        "model": "0.3.0",
+        "package_version": "0.4.2",
+        "device": "cpu",
+        "dispersion": false,
+        "weights_sha256": "f4e6865fff5728996e785f93d229eae42126dc4bbde07ec3f0436e3974c67d0e"
+      },
+      "static_strain_check": [
+        {
+          "lattice_A": 5.43,
+          "energy_eV_cell": -10.624359130859375,
+          "energy_kJ_mol_fu": -512.547409669144,
+          "formula_units": 2.0,
+          "composition_per_fu": {
+            "Si": 1.0
+          },
+          "volume_A3_fu": 20.01287587499999,
+          "max_force_eV_A": 2.9802322387695312e-08,
+          "stress_eV_A3": [
+            -0.010601544752717018,
+            -0.010601541958749294,
+            -0.010601608082652092,
+            -2.5504112710628135e-10,
+            -1.4337566689448522e-09,
+            -7.445788430260336e-10
+          ],
+          "atom_count": 2,
+          "delta_E_kJ_mol_fu": 0.0
+        },
+        {
+          "lattice_A": 5.48,
+          "energy_eV_cell": -10.626937866210938,
+          "energy_kJ_mol_fu": -512.6718147375709,
+          "formula_units": 2.0,
+          "composition_per_fu": {
+            "Si": 1.0
+          },
+          "volume_A3_fu": 20.57082400000001,
+          "max_force_eV_A": 5.960464477539063e-08,
+          "stress_eV_A3": [
+            0.0028562729712575674,
+            0.0028562787920236588,
+            0.002856277395039797,
+            -2.726166847821787e-09,
+            -3.9653245131887616e-09,
+            -3.98410815449779e-09
+          ],
+          "atom_count": 2,
+          "delta_E_kJ_mol_fu": -0.12440506842688137
+        }
+      ],
+      "phonons": {
+        "base": {
+          "energy_eV_cell": -10.624359130859375,
+          "energy_kJ_mol_fu": -512.547409669144,
+          "formula_units": 2.0,
+          "composition_per_fu": {
+            "Si": 1.0
+          },
+          "volume_A3_fu": 20.01287587499999,
+          "max_force_eV_A": 2.9802322387695312e-08,
+          "stress_eV_A3": [
+            -0.010601544752717018,
+            -0.010601541958749294,
+            -0.010601608082652092,
+            -2.5504112710628135e-10,
+            -1.4337566689448522e-09,
+            -7.445788430260336e-10
+          ],
+          "atom_count": 2
+        },
+        "supercell": [
+          2,
+          2,
+          2
+        ],
+        "mesh": [
+          4,
+          4,
+          4
+        ],
+        "displacement_A": 0.01,
+        "min_frequency_THz": -1.6186009451699253e-07,
+        "imaginary_tolerance_THz": 0.1,
+        "displacements": 1,
+        "max_force_drift_eV_A": 4.140934262153451e-09,
+        "phonopy_version": "4.5.0",
+        "normalization": "input cell / formula_units; primitive matrix identity",
+        "status": "harmonic_screen",
+        "thermal": [
+          {
+            "temperature_K": 0.0,
+            "F_vib_kJ_mol_fu": 6.1381740036067125,
+            "F_total_kJ_mol_fu": -506.4092356655373,
+            "S_J_mol_fu_K": 0.0,
+            "Cv_J_mol_fu_K": 0.0
+          },
+          {
+            "temperature_K": 300.0,
+            "F_vib_kJ_mol_fu": 4.27341004397588,
+            "F_total_kJ_mol_fu": -508.27399962516813,
+            "S_J_mol_fu_K": 16.224280245206224,
+            "Cv_J_mol_fu_K": 19.62876056653845
+          }
+        ],
+        "warning": "ZPE included; <=1e-5 THz modes excluded. Converge soft modes, displacement, mesh and supercell; not MOF validation"
+      },
+      "framework_MC_wiring_only": {
+        "F_reference_eV": 0.09800566490495627,
+        "delta_F_TI_eV": -10.596151103206665,
+        "F_conf_eV": -10.498145438301709,
+        "approximate_block_SE_eV": 0.0016899141933823692,
+        "windows": [
+          {
+            "lambda_value": 0.0,
+            "mean_dU_eV": -10.615031950761647,
+            "block_SE_eV": 0.0029949944656850742,
+            "acceptance": 0.85,
+            "samples": 20
+          },
+          {
+            "lambda_value": 0.5,
+            "mean_dU_eV": -10.584672652840748,
+            "block_SE_eV": 0.0018146432207002405,
+            "acceptance": 0.75,
+            "samples": 20
+          },
+          {
+            "lambda_value": 1.0,
+            "mean_dU_eV": -10.600227156383518,
+            "block_SE_eV": 0.004852962782950776,
+            "acceptance": 0.85,
+            "samples": 20
+          }
+        ],
+        "seed": 32,
+        "dimension": 3,
+        "bound_A": 0.3,
+        "spring_eV_A2": 2.0,
+        "temperature_K": 300.0,
+        "measure": "product dx/(1 Angstrom), pinned atom, fixed cell, labelled atoms, hard-wall Cartesian cube",
+        "classification": "constrained_configurational_TI_not_unconstrained_host_F",
+        "warnings": [
+          "Block SE assumes decorrelation, including between lambda windows; verify block-size plateaus and independent seeds.",
+          "Converge lambda quadrature, warmup, proposals and bound; no COM/kinetic/permutation correction.",
+          "Hard-wall basin depends on bound; it is not an automatically identified physical phase basin."
+        ],
+        "F_conf_kJ_mol_fu": -506.4585246466762,
+        "formula_units": 2,
+        "anchor_atom_index": 0
+      }
+    },
+    {
+      "calculator": {
+        "backend": "mace",
+        "model": "small",
+        "package_version": "0.3.16",
+        "device": "cpu",
+        "dispersion": false,
+        "weights_sha256": "4fb77b4ebaaacc5dbd4448ff637ee9acde724beb352c9e5e038a2f942cc55d68"
+      },
+      "static_strain_check": [
+        {
+          "lattice_A": 5.43,
+          "energy_eV_cell": -10.738467996831734,
+          "energy_kJ_mol_fu": -518.0523255849228,
+          "formula_units": 2.0,
+          "composition_per_fu": {
+            "Si": 1.0
+          },
+          "volume_A3_fu": 20.01287587499999,
+          "max_force_eV_A": 2.5713876660537084e-16,
+          "stress_eV_A3": [
+            -0.00877439199614371,
+            -0.008774391996143677,
+            -0.008774391996143636,
+            -1.3799106432999131e-17,
+            3.0333773460404536e-18,
+            1.3930086085714166e-17
+          ],
+          "atom_count": 2,
+          "delta_E_kJ_mol_fu": 0.0
+        },
+        {
+          "lattice_A": 5.48,
+          "energy_eV_cell": -10.741160761761888,
+          "energy_kJ_mol_fu": -518.1822317442306,
+          "formula_units": 2.0,
+          "composition_per_fu": {
+            "Si": 1.0
+          },
+          "volume_A3_fu": 20.57082400000001,
+          "max_force_eV_A": 1.0507453338654708e-16,
+          "stress_eV_A3": [
+            0.003635694197860915,
+            0.003635694197860913,
+            0.00363569419786091,
+            1.5829189886994886e-18,
+            -4.766510346106953e-19,
+            1.2850778647426809e-18
+          ],
+          "atom_count": 2,
+          "delta_E_kJ_mol_fu": -0.12990615930789318
+        }
+      ]
+    }
+  ]
+}

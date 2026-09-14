@@ -1,0 +1,31 @@
+{
+  "SimulationType" : "MonteCarlo",
+  "NumberOfCycles" : 500000,
+  "NumberOfInitializationCycles" : 5000,
+  "PrintEvery" : 1000,
+
+  "Systems" : [
+    {
+      "Type" : "Framework",
+      "Name" : "MFI_SI",
+      "NumberOfUnitCells" : [2, 2, 2],
+      "ExternalTemperature" : 300.0,
+      "ExternalPressure" : 100.0,
+      "ChargeMethod" : "None"
+    }
+  ],
+
+  "Components" : [ 
+    {
+      "Name" : "butane",
+      "FugacityCoefficient" : 1.0,
+      "IdealGasRosenbluthWeight" : 0.1304441,
+      "TranslationProbability" : 0.5,
+      "RotationProbability" : 0.5,
+      "ReinsertionProbability" : 0.5,
+      "SwapProbability" : 1.0,
+      "WidomProbability" : 1.0,
+      "CreateNumberOfMolecules" : 0
+    }
+  ]
+}

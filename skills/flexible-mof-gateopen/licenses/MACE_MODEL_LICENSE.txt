@@ -1,0 +1,10 @@
+## License and Citation
+
+All data in this repository is licensed under the **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)** license.
+
+### Requirements for Use
+
+- You **must cite** the following publication when using the data or models in any form:
+
+Elena, A.M., Kamath, P.D., Jaffrelot Inizan, T. et al. Machine learned potential for high-throughput phonon calculations of
+metal—organic frameworks. npj Comput Mater 11, 125 (2025). https://doi.org/10.1038/s41524-025-01611-8

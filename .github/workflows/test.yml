@@ -16,7 +16,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
-      - run: python -m pip install -e '.[dev,structure,guest]'
+      - run: python -m pip install -e '.[dev,structure,guest,advanced]'
       - run: python -m pytest -q
       - run: python skills/flexible-mof-gateopen/scripts/quick_validate.py skills/flexible-mof-gateopen
       - run: python scripts/validate_example.py
+      - run: python scripts/validate_advanced.py --out /tmp/advanced-checks.json

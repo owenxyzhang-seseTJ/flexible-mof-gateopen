@@ -1,0 +1,16 @@
+{
+  "description": "SYNTHETIC three-state schema demonstration, not material parameters",
+  "slices": [{
+    "temperature_K": 300,
+    "pressure_bar": [0.01, 0.03, 0.1, 0.3, 1, 3, 10],
+    "reservoir_backend": "ideal",
+    "states": [
+      {"name":"closed", "host_F_kJ_mol_fu":0, "host_source":"synthetic", "volume_A3_fu":100,
+       "fugacity_bar":[0.001,0.01,0.1,1,10], "loading_molecules_fu":[0.0001,0.001,0.01,0.1,0.5], "henry_confirmed":true},
+      {"name":"open", "host_F_kJ_mol_fu":3, "host_source":"synthetic", "volume_A3_fu":200,
+       "fugacity_bar":[0.001,0.01,0.1,1,10], "loading_molecules_fu":[0.001,0.01,0.1,1,2], "henry_confirmed":true},
+      {"name":"high_energy_control", "host_F_kJ_mol_fu":100, "host_source":"synthetic", "volume_A3_fu":150,
+       "fugacity_bar":[0.001,0.01,0.1,1,10], "loading_molecules_fu":[0.001,0.01,0.1,1,2], "henry_confirmed":true}
+    ]
+  }]
+}

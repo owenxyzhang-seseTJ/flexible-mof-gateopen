@@ -16,6 +16,8 @@ import importlib.util
 from pathlib import Path
 import sys
 import json
+import warnings
+from importlib.metadata import version
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
@@ -74,17 +76,26 @@ def main() -> None:
     for input_path, report_path in zip(args.inputs, args.cleaning_reports):
         if not input_path.is_file():
             raise FileNotFoundError(input_path)
-        atoms = module.get_charges_single_serial(
-            str(input_path),
-            create_cif=True,
-            path_to_output_dir=str(args.output_dir),
-            add_string=args.suffix,
-        )
+        from sklearn.exceptions import InconsistentVersionWarning
+        with warnings.catch_warnings():
+            warnings.simplefilter("error", InconsistentVersionWarning)
+            atoms = module.get_charges_single_serial(str(input_path), create_cif=False)
         generated = args.output_dir / f"{input_path.stem}{args.suffix}.cif"
-        if not generated.is_file():
-            raise FileNotFoundError(f"expected PACMOF output missing: {generated}")
         import gemmi
         import numpy as np
+        # PACMOF's legacy writer rounds coordinates; preserve the exact input
+        # atom table and replace ONLY the inferred charge column instead.
+        doc = gemmi.cif.read_file(str(input_path))
+        b = doc.sole_block()
+        labels = b.find_values("_atom_site_label")
+        predicted = np.asarray(atoms.info.get("_atom_site_charge", []), dtype=float)
+        if len(predicted) != len(labels) or not np.isfinite(predicted).all() or abs(predicted.sum()) > 1e-6:
+            raise ValueError("PACMOF returned missing/nonfinite/nonneutral charges")
+        if not b.find_values("_atom_site_charge"):
+            b.find_loop("_atom_site_label").get_loop().add_columns(["_atom_site_charge"], "0")
+        column = b.find_values("_atom_site_charge")
+        for i, value in enumerate(predicted): column[i] = f"{value:.15g}"
+        doc.write_file(str(generated))
         before = gemmi.cif.read_file(str(input_path)).sole_block()
         after = gemmi.cif.read_file(str(generated)).sole_block()
         for tag in ("_atom_site_type_symbol",):
@@ -106,6 +117,10 @@ def main() -> None:
         for field in ("source_audit", "candidate_audit"):
             report[field]["path"] = str((report_path.parent / report[field]["path"]).resolve())
         report["precharge_sha256"] = sha256(input_path)
+        model_path = Path(module.__file__).parent / "data/Model_RF_DDEC.pkl"
+        report["charge_model"] = dict(method="PACMOF RF-DDEC", sklearn_version=version("scikit-learn"),
+                                     model_sha256=sha256(model_path), code_sha256=sha256(module.__file__),
+                                     coordinate_policy="unchanged original table; charge-only insertion")
         report["candidate_sha256"] = sha256(generated)
         charged_report = generated.with_suffix(".cleaning.json")
         charged_report.write_text(json.dumps(report, indent=2) + "\n")

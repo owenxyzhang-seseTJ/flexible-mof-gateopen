@@ -1,0 +1,1608 @@
+{
+  "schema_version": 1,
+  "package": "flexible-mof-gateopen",
+  "version": "1.0.0-fast",
+  "files": {
+    "LICENSE": {
+      "sha256": "1b38976e184215fabd944b9aa89a66f9305e859812b1d4fdc0400df48465d55e",
+      "bytes": 1067
+    },
+    "MODEL_PROVENANCE.json": {
+      "sha256": "8ff00d4866523c35612d4922b116f4d0b6fa61ec9e1bfcd38371d70cbd5fcc9f",
+      "bytes": 1148
+    },
+    "README.md": {
+      "sha256": "7fbe1b5cf3bf68f052ee1272f0980fbcf835363d628e01fb48ed4db478bba6ea",
+      "bytes": 4282
+    },
+    "README.zh-CN.md": {
+      "sha256": "fa32c68dc8a12fd68f9a5f13fe5e068ca1b18a0c87d0093ac4dc3facf37c1a55",
+      "bytes": 3146
+    },
+    "SKILL.md": {
+      "sha256": "575b8b3c746168c05a8c22fd9fc95d2d7e786cd816e64b54f04444972312d579",
+      "bytes": 3848
+    },
+    "agents/openai.yaml": {
+      "sha256": "d2c6c4edded8e85a22074898d08366e79a79ba919e983736c255ef473165d6d1",
+      "bytes": 260
+    },
+    "assets/models/mofs_v2.model": {
+      "sha256": "04113c54cb5f8e1f30babbbda12cd97df401a65c1424f24c4cf1bcce247f12db",
+      "bytes": 30769085
+    },
+    "assets/principles.pdf": {
+      "sha256": "ec3b3bd292839dd62557cc14f233f37640eacb2533311c2ca457cfeba5d217e2",
+      "bytes": 311427
+    },
+    "assets/workflow.template.json": {
+      "sha256": "119b7514a64bf15869f8d250621f39cc7567b041222f6cbadea4c34009528415",
+      "bytes": 873
+    },
+    "licenses/MACE_MODEL_LICENSE.txt": {
+      "sha256": "81322ae76865ef22793dba2c9d172b48fd6e889190c612f25a6d03989d3bde2c",
+      "bytes": 547
+    },
+    "licenses/MACE_MODEL_LICENSE_AND_CITATION.md": {
+      "sha256": "03b0b0c6e9ce46d1cc827daf8003822bc8fd0f019983a444d733d11a87e049d5",
+      "bytes": 1298
+    },
+    "licenses/RASPA3_LICENSE.md": {
+      "sha256": "e9440b909d3500cc6afbd4c313788fdaacd4651a8f3915a37c41d2529c116d2a",
+      "bytes": 1442
+    },
+    "references/agent_contract.md": {
+      "sha256": "372a98b748eea31f031d0a84eae061fb60af6ef76659d5a1d36434110b847f49",
+      "bytes": 5592
+    },
+    "references/cleaning_gate.md": {
+      "sha256": "165fbab345c844cf8bbc95c09d2da8cf52c54e6bcd037fd3c08198c81c867887",
+      "bytes": 3084
+    },
+    "references/principles.tex": {
+      "sha256": "f7799d31bbdd4484a69e1b16e1ca3f6280e092612163d8ab8c0fb49686b4a4c0",
+      "bytes": 33975
+    },
+    "references/principles.zh-CN.md": {
+      "sha256": "4bbb44f376df07c3977ee1d867293d29a697e985f301af2b28842956006b1f19",
+      "bytes": 30387
+    },
+    "references/vapor_and_guest.md": {
+      "sha256": "a2f7e4c39622434cf3e7b350d90046f29226952738536bea822c7b409defa8bf",
+      "bytes": 1990
+    },
+    "requirements.txt": {
+      "sha256": "30db03c9b25b9cc5f0f1d89c6656e1017d9f9c5300d76c901c6a899629c18b3a",
+      "bytes": 307
+    },
+    "runtime-lock.json": {
+      "sha256": "3d99dd326df2dddc12e6bfa351fb2a9b751a13f91bfac02b59e3ee525b58e3ef",
+      "bytes": 3391
+    },
+    "scripts/adsorption_fit.py": {
+      "sha256": "de9e1f7e6bdd35a7741ec732934e8d04e53791b5c003a60f9807c1b7ebf40c36",
+      "bytes": 2028
+    },
+    "scripts/advanced_thermo.py": {
+      "sha256": "5e083c58e598aaa57aeea309c6b32f6ac1c12d4deb12b1eb6084bfb2161855da",
+      "bytes": 15481
+    },
+    "scripts/audit_cif.py": {
+      "sha256": "e1cf876cb303156fdf9551182894a86b16e854240d14401377d40a0582c48986",
+      "bytes": 737
+    },
+    "scripts/build_principles_pdf.py": {
+      "sha256": "f7a7bff700b1cd2cf7fe7ab985a589460a0c5aee1ce28a9aadc0e99e474b27db",
+      "bytes": 10513
+    },
+    "scripts/check_cleaning.py": {
+      "sha256": "26dc689d37802e531039cc3acf4abe4c21abf764c1217390c06022b5f76158c1",
+      "bytes": 716
+    },
+    "scripts/cif_audit.py": {
+      "sha256": "6175884d63478d87e79ac8844be732085da36ab4bd6391e726558d87aa15c650",
+      "bytes": 2484
+    },
+    "scripts/elastic_network.py": {
+      "sha256": "ccecd6c3f78ba422bcf4944a6a3b979552e4c8c7f75942d964f393540e7e07ee",
+      "bytes": 8374
+    },
+    "scripts/fetch_cif.py": {
+      "sha256": "b1f7edcfaa0ea7739ff1ae85fcd2875849dc87fc0c351c64f5f34e4d3bf08f5b",
+      "bytes": 1257
+    },
+    "scripts/host_models.py": {
+      "sha256": "6be744c75c4752970ee4160b355461c3fd9be099956a43ff54cbafa0fccb54e8",
+      "bytes": 10208
+    },
+    "scripts/parse_raspa_output.py": {
+      "sha256": "d0437d517ed63794f0b956e9930475accf88c42761fb464d9dbfeed64741a432",
+      "bytes": 5634
+    },
+    "scripts/preflight.py": {
+      "sha256": "9e8187cd13bb5e25ebe587052eca70dd7b8421563e8fda2c23d5fc05f386a89a",
+      "bytes": 8999
+    },
+    "scripts/prepare_guest_rdkit.py": {
+      "sha256": "7f0f11125523621148b2d4473de905446a9bde2cfc45efcb576580de0e84f22e",
+      "bytes": 6059
+    },
+    "scripts/prepare_raspa_inputs.py": {
+      "sha256": "edff7ecd9b5e115815753b5981fb1b3b63e02ade437fbeb5795aa37a2d1c886f",
+      "bytes": 8673
+    },
+    "scripts/quick_host_free_energy.py": {
+      "sha256": "c2c95e358d7beb8713518860a501262aa6f95d97165888f5f5f7decde0c2568e",
+      "bytes": 3048
+    },
+    "scripts/reservoir.py": {
+      "sha256": "73e02cfeb09133d56d2c63b918f54cbdb92961c1d7d4da6ded607e47ac29621a",
+      "bytes": 2453
+    },
+    "scripts/run_empty_widom.py": {
+      "sha256": "4f64846204bc1ac244d95cc54812538957f455a25239400d8e920b71542161b7",
+      "bytes": 5794
+    },
+    "scripts/run_fast_screen.py": {
+      "sha256": "ee71f57078b95c880beeb2226bbb5beddf7121d95472f511b270770c21a17085",
+      "bytes": 3983
+    },
+    "scripts/run_pacmof.py": {
+      "sha256": "316b02d2a89f83efaf3992b5c5f07046e0ea19eb6227edaa2f0227542a8c0893",
+      "bytes": 7305
+    },
+    "scripts/run_workflow.py": {
+      "sha256": "dd5744a2702293958d34cc2c133bc6804d14e78eab422cc879e6efbb33deffca",
+      "bytes": 23900
+    },
+    "scripts/self_test.py": {
+      "sha256": "4e73258dc1f39d47fb4e1cf9d19092e2ac832f13e845f78da6ca2e3bccdbe17f",
+      "bytes": 2064
+    },
+    "scripts/verify_bundle.py": {
+      "sha256": "357c60703e7b11c1d74ded97026b4067569ab65da3dd825eb8eab7e7173fc045",
+      "bytes": 1811
+    },
+    "vendor/clean-cif/SKILL.md": {
+      "sha256": "1d0ffae82ee9b1a749e598aba2c9e00e33ebd2a16998e445bc5f8cd2fea44745",
+      "bytes": 4883
+    },
+    "vendor/clean-cif/references/cleaning-decisions.md": {
+      "sha256": "1e57e4786b597febda41b1e4e894fb8aae33de98bfe21da97fa24e767f73bbb9",
+      "bytes": 4774
+    },
+    "vendor/clean-cif/scripts/audit_cif.py": {
+      "sha256": "c7e9d60f8b29dd9412e90d7fb1d6178084b108e448e85d26fa89f9c1088e31f0",
+      "bytes": 6731
+    },
+    "vendor/pacmof/LICENSE.md": {
+      "sha256": "a88467ab8a36702bb3a6caf3944a9b7935ae8993357ba61fce429ada22d77aee",
+      "bytes": 1284
+    },
+    "vendor/pacmof/__init__.py": {
+      "sha256": "0ffeb64de716353dc6299798401041cbd1bc38f21bee1941aa347ee6f54868a4",
+      "bytes": 474
+    },
+    "vendor/pacmof/_version.py": {
+      "sha256": "26690e62b05df4ea411dd44082c02b081b8445862c46105e0eb1d800af28a84e",
+      "bytes": 18447
+    },
+    "vendor/pacmof/data/Model_RF_DDEC.pkl": {
+      "sha256": "e749a9c276f1e12d8fe9ae0c14a99a8628e4d17595d22e74437dfa49a5d2dfa6",
+      "bytes": 334443607
+    },
+    "vendor/pacmof/pacmof.py": {
+      "sha256": "af1045be0c98a068a14fa66f2b5de80b11f38e2645ab7ba63ffc1fe07ec5c0ba",
+      "bytes": 60053
+    },
+    "vendor/raspa3/bin/commandline.pcm": {
+      "sha256": "4054c3cf4cd60d9c326e8da4678db2632b3996a99512ecc86e66e3f694097213",
+      "bytes": 163728
+    },
+    "vendor/raspa3/bin/raspa3": {
+      "sha256": "06be2a564147b7119e25022e6a71c406527244d46c4e8633c27b8e53e9178850",
+      "bytes": 4186736
+    },
+    "vendor/raspa3/bin/raspa3-cli": {
+      "sha256": "b85fea1fbe11814b2ba1f8e293ff3e41ab6ff4f9a0ab38ba2583e4cd19591f4a",
+      "bytes": 6042800
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/force_field.json": {
+      "sha256": "afc36bdfc20521084772fb5dd543bb244839add27d0cb640bf9aad59a7fb5145",
+      "bytes": 1146
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/output/output_240_0.s0.json": {
+      "sha256": "dd85ac8303d3f3f02a775454f6c1bd5b55026e48851bc08bfc47132bb89b26bd",
+      "bytes": 5823
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/output/output_240_0.s0.txt": {
+      "sha256": "ef7089e41c5d435b41f825acc4006957b60c30ec30b80a1ad360a29553310f9a",
+      "bytes": 10775
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/output/output_240_0.s1.json": {
+      "sha256": "dd85ac8303d3f3f02a775454f6c1bd5b55026e48851bc08bfc47132bb89b26bd",
+      "bytes": 5823
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/output/output_240_0.s1.txt": {
+      "sha256": "c276ec0fda0b506796370d3609c3fe746a5776756ccb98d4fcadb19e9f1f957c",
+      "bytes": 10775
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/output/restart_240_0.s0.json": {
+      "sha256": "dc907d54a0c190aa4e214335cc8b473a9c6c8d4aae7bf1a0ce6c70224ee2d587",
+      "bytes": 66400
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/output/restart_240_0.s1.json": {
+      "sha256": "c94f91e3db7cb09095faa2a0e7100a6ac0a986e6230686c23e686feba7073733",
+      "bytes": 70050
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/restart_data.bin": {
+      "sha256": "b2591d18e8ec27447506ad1933e9b30b77d6dafb04654e91cf6eeaf8548cfc95",
+      "bytes": 1506693
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/run.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/run.py": {
+      "sha256": "25f3c1137d773ce7ad5685906a946e2f62c8e70d463fe44584d7de92ddb589fc",
+      "bytes": 1202
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/1_mc_gibbs_co2/simulation.json": {
+      "sha256": "7e7ee197d7eecc365e6d7c256f5035396f49e19297f9747ddf153746e3adbb49",
+      "bytes": 906
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/force_field.json": {
+      "sha256": "1452f07344789ae4394466d6d1bfcc1cffd5511574f3508c3123d440a74c34fc",
+      "bytes": 2072
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/run.py": {
+      "sha256": "740bc22f83f38469e26f0baec3678af8afc6a7f19ac0b24b8af64a21336eba4b",
+      "bytes": 974
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/2_mc_cfcmc_co2_in_mfi/simulation.json": {
+      "sha256": "40fe5107dcb3ee6123b289943638824d495b153bb820128fc7b11e3403cf4eb2",
+      "bytes": 817
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/force_field.json": {
+      "sha256": "1452f07344789ae4394466d6d1bfcc1cffd5511574f3508c3123d440a74c34fc",
+      "bytes": 2072
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/run.py": {
+      "sha256": "8318d2ca342de446909d569020857bee13a7817228d812ce9ddd90481e10b643",
+      "bytes": 1005
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/4_hmc_cfcmc_co2_in_mfi/simulation.json": {
+      "sha256": "65498442765d9d9c4d3a7f9b05fc9bb8440643c92799799b2a470d99aaf55073",
+      "bytes": 868
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/0/force_field.json": {
+      "sha256": "66672efcb749d6038808eff8f7448c765d41ba69c8ba0fb0cb6a605bd70e43e8",
+      "bytes": 2043
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/0/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/0/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/0/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/0/simulation.json": {
+      "sha256": "674945b8dfe6bd90802d1044d0649088dca603cf9b3b25e608c58551c50e1509",
+      "bytes": 807
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/0/tobacco-667.cif": {
+      "sha256": "2f1a2ba4154ffb6e93000ddcebc19393b0e6496732660ca9d5f8b051056377ec",
+      "bytes": 6659
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/1/force_field.json": {
+      "sha256": "66672efcb749d6038808eff8f7448c765d41ba69c8ba0fb0cb6a605bd70e43e8",
+      "bytes": 2043
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/1/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/1/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/1/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/1/simulation.json": {
+      "sha256": "d1df4aaad74439b69f9603bc06ad3a0c9d5a9782ceb37b108cfea70b2b6bdb49",
+      "bytes": 810
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/1/tobacco-667.cif": {
+      "sha256": "2f1a2ba4154ffb6e93000ddcebc19393b0e6496732660ca9d5f8b051056377ec",
+      "bytes": 6659
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/2/force_field.json": {
+      "sha256": "66672efcb749d6038808eff8f7448c765d41ba69c8ba0fb0cb6a605bd70e43e8",
+      "bytes": 2043
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/2/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/2/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/2/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/2/simulation.json": {
+      "sha256": "c8fb36785e2df552659cdede9a59f40e0380c81a2f9504e06c0e8dacca8055d7",
+      "bytes": 811
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/2/tobacco-667.cif": {
+      "sha256": "2f1a2ba4154ffb6e93000ddcebc19393b0e6496732660ca9d5f8b051056377ec",
+      "bytes": 6659
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/3/force_field.json": {
+      "sha256": "66672efcb749d6038808eff8f7448c765d41ba69c8ba0fb0cb6a605bd70e43e8",
+      "bytes": 2043
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/3/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/3/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/3/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/3/simulation.json": {
+      "sha256": "c727b27c218474dc8f7ad7dc482386f08fe78a11b31343466973971d282d66bc",
+      "bytes": 811
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/3/tobacco-667.cif": {
+      "sha256": "2f1a2ba4154ffb6e93000ddcebc19393b0e6496732660ca9d5f8b051056377ec",
+      "bytes": 6659
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/4/force_field.json": {
+      "sha256": "66672efcb749d6038808eff8f7448c765d41ba69c8ba0fb0cb6a605bd70e43e8",
+      "bytes": 2043
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/4/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/4/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/4/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/4/simulation.json": {
+      "sha256": "4d755d28a36184508935e39bcedba583f23e243cabee4539c47a5b4e1dc4844e",
+      "bytes": 811
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/4/tobacco-667.cif": {
+      "sha256": "2f1a2ba4154ffb6e93000ddcebc19393b0e6496732660ca9d5f8b051056377ec",
+      "bytes": 6659
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/combine-tmmc-data.py": {
+      "sha256": "f80036baaeda6b913c4089fea3b5f6cdaff502c389fd92e517d737b6d884107a",
+      "bytes": 6850
+    },
+    "vendor/raspa3/share/raspa3/examples/advanced/5_tmmc_methane_in_tobacco_667/combined_lnpi.png": {
+      "sha256": "4f72e4c7ea8eddd5e64a1ebf8276ab2dbaa74eabf0cd9c57a460139121369c1c",
+      "bytes": 300910
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/butane.json": {
+      "sha256": "4c090ac6e113af70e30784997643169fbb4af6c64efd3bbf72f779bdd28d134f",
+      "bytes": 637
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/force_field.json": {
+      "sha256": "247e8889a36a1954413f6f36e4b235e01b5347e90d8e99285d0ff32f920dd3a0",
+      "bytes": 3431
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/run.py": {
+      "sha256": "38035077739576c1b82a030106b447e5ac638e89b324c5ebaf51ec2ec104e775",
+      "bytes": 895
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/1_mc_ideal_gas_rosenbluth_weight_butane/simulation.json": {
+      "sha256": "ca486ab1242f4547523561d83f181428e54221f9fb7a82ed9b232dcc2cad8ed8",
+      "bytes": 449
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/butane.json": {
+      "sha256": "4c090ac6e113af70e30784997643169fbb4af6c64efd3bbf72f779bdd28d134f",
+      "bytes": 637
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/force_field.json": {
+      "sha256": "247e8889a36a1954413f6f36e4b235e01b5347e90d8e99285d0ff32f920dd3a0",
+      "bytes": 3431
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/heptane.json": {
+      "sha256": "e765cc412a6f96f83a27eff680cb8c2ca452b3eccd02d6bdc863d22e819fda1b",
+      "bytes": 928
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/hexane.json": {
+      "sha256": "77ddb97f01f633860ab9f398bb36bfc0fd740b822460c18aba3f4abda3007fb1",
+      "bytes": 884
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/nonane.json": {
+      "sha256": "7bf865f558c59351aaecd0b614f767a1e157b372bf5db2fcbe83b2c4fce56d59",
+      "bytes": 1016
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/octane.json": {
+      "sha256": "86a32a601bec68e935eb4404dd627426c4b9bfacc416608224f6173e83a3a02b",
+      "bytes": 972
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/pentane.json": {
+      "sha256": "fad9134639c24bb37cbc80747968eb09ce50b051df3ba5d17645559b45c5d464",
+      "bytes": 839
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/run.py": {
+      "sha256": "38035077739576c1b82a030106b447e5ac638e89b324c5ebaf51ec2ec104e775",
+      "bytes": 895
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/2_mc_ideal_gas_rosenbluth_weight_c5_c9_573k/simulation.json": {
+      "sha256": "fca1bbd3e3f7acaf6c9e7f5f90d954cb3200cc228dbc2b584f1d235f0b870d39",
+      "bytes": 874
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/2-methylpentane.json": {
+      "sha256": "a204b1e4f1d770b248fb274691a9246109e39b86d1e5304784f269a11eba3693",
+      "bytes": 1096
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/22-dimethylbutane.json": {
+      "sha256": "9274a9232038b41d7b69e3375c81569c650dfb9c4d5d98c57dd1a0961770a5db",
+      "bytes": 902
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/23-dimethylbutane.json": {
+      "sha256": "eb80d22dcb2ff7433ba7d523e560bcbd23020b2322b8966234c10664a9d186e6",
+      "bytes": 805
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/3-methylpentane.json": {
+      "sha256": "e3b0cc144e81075afbccf6011da34348292fe82e6c18755d56827c79881e3ab0",
+      "bytes": 1044
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/force_field.json": {
+      "sha256": "247e8889a36a1954413f6f36e4b235e01b5347e90d8e99285d0ff32f920dd3a0",
+      "bytes": 3431
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/hexane.json": {
+      "sha256": "77ddb97f01f633860ab9f398bb36bfc0fd740b822460c18aba3f4abda3007fb1",
+      "bytes": 884
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/run.py": {
+      "sha256": "38035077739576c1b82a030106b447e5ac638e89b324c5ebaf51ec2ec104e775",
+      "bytes": 895
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/3_mc_ideal_gas_rosenbluth_weights_c6_isomers_433k/simulation.json": {
+      "sha256": "74a39a683a6a8c6cc527004006a8d2948b2c50decd8f92490bb8227831d8d492",
+      "bytes": 888
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/4_charge_equilibration/IRMOF-1.cif": {
+      "sha256": "eb7840ec4d967f0cf35b3a4fdc0fefe356d340053244d7dad19dc401a2958b49",
+      "bytes": 4531
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/4_charge_equilibration/force_field.json": {
+      "sha256": "bed0d085266863b7f875055a58f3d532a243dc2fed96c8155127f95003ae635a",
+      "bytes": 3476
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/4_charge_equilibration/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/4_charge_equilibration/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/4_charge_equilibration/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/4_charge_equilibration/simulation.json": {
+      "sha256": "0a141ab304a7073769a5b0113e18e4845774669cea1d74d545535a315f7d6460",
+      "bytes": 543
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/IRMOF-1.cif": {
+      "sha256": "a8c7a51f21bc1894e1ccb52b597092caf0403e515b3f2ead1c8dbcf1165f04b7",
+      "bytes": 4604
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/force_field.json": {
+      "sha256": "55501469df736e2cbe71b08fb50024ae8462bb204cfcecf8307abbb66a3eb300",
+      "bytes": 4622
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/auxiliary/5_make_grids/simulation.json": {
+      "sha256": "ab197b8b98db54a87727deb2eac060bbd298322f91ea254bcd9e0126fa36a31f",
+      "bytes": 713
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/force_field.json": {
+      "sha256": "1452f07344789ae4394466d6d1bfcc1cffd5511574f3508c3123d440a74c34fc",
+      "bytes": 2072
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/run.py": {
+      "sha256": "740bc22f83f38469e26f0baec3678af8afc6a7f19ac0b24b8af64a21336eba4b",
+      "bytes": 974
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/10_mc_adorption_co2_in_mfi/simulation.json": {
+      "sha256": "f77a38be270cb5ffa4d44fcca9f418ae88fbcbb664dc8c62cc0e8b30e99eaeb6",
+      "bytes": 799
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/Cu-BTC.cif": {
+      "sha256": "9d10fe490d6e1cebe384edaf10e9b493096d03cc38427776e57f8db11bb735ac",
+      "bytes": 4489
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/N2.json": {
+      "sha256": "d54fc199349217065b32dbc21ca6bf714225e195bf0ea5c9a01267c4a61dc846",
+      "bytes": 240
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/bias_factors/lambda_bias_CO2.s0.json": {
+      "sha256": "d382ee7812d600bc71e2c659abb36dd8310b5c17e2e31edb12acee7bb5fbe104",
+      "bytes": 387
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/force_field.json": {
+      "sha256": "5b05482d6ba4344ad582c610c55c7c84d28b6e86bf9410bfc026b563e72d6f86",
+      "bytes": 3200
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/run.py": {
+      "sha256": "4ecaefc90dd86ea54bf7071fec2aa110a3e553a9ef2eaa41c653cc3eeae4fc6e",
+      "bytes": 916
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/11_mc_adsorption_of_co2_in_cu_btc/simulation.json": {
+      "sha256": "8ef3d198d43469d90e56af326337f35e9fb3d42d16d674d5828d6b1492e379e6",
+      "bytes": 707
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/N2.json": {
+      "sha256": "d54fc199349217065b32dbc21ca6bf714225e195bf0ea5c9a01267c4a61dc846",
+      "bytes": 240
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/force_field.json": {
+      "sha256": "68f26e45dee9db2bb5d17377b3307d78f90e1c2e463c63958b582911c35828a9",
+      "bytes": 3415
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/run.py": {
+      "sha256": "7c93152150ee16bcd1cd5d71bb8bf08e8ee4efb1e16f9895405dc9ec11a35459",
+      "bytes": 1189
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/12_mc_henry_coefficient_of_co2_n2_methane_in_mfi/simulation.json": {
+      "sha256": "c7f9e27069a094ec5f9022c31442b32551d3a77153017ff89a931235ff93d36b",
+      "bytes": 717
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/13_md_rdf_water_box/force_field.json": {
+      "sha256": "61b87b200920ac7c05447dfce47127cd9e24cabfa25f06857360ce85dc90ae4c",
+      "bytes": 825
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/13_md_rdf_water_box/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/13_md_rdf_water_box/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/13_md_rdf_water_box/simulation.json": {
+      "sha256": "5497fd42c6ca7f6dee8af199d3591c22ecb33e2d929ac8bf64ff036decfee6d1",
+      "bytes": 814
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/13_md_rdf_water_box/water.json": {
+      "sha256": "1d99dcb5361b902f071ac7d438def0a5cf912edf4e767d85f7caacaeb2fa3d7b",
+      "bytes": 589
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/14_mc_rdf_water_box/force_field.json": {
+      "sha256": "61b87b200920ac7c05447dfce47127cd9e24cabfa25f06857360ce85dc90ae4c",
+      "bytes": 825
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/14_mc_rdf_water_box/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/14_mc_rdf_water_box/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/14_mc_rdf_water_box/run.py": {
+      "sha256": "7e977d3a6add6f81bd2eb91cad6e3cedbead231d410bd9985e19c110ccb6eca1",
+      "bytes": 788
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/14_mc_rdf_water_box/simulation.json": {
+      "sha256": "dbfbd25d4451fc32577b1c593a66af62e77c5022794295e8cb9fad3a58b285de",
+      "bytes": 740
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/14_mc_rdf_water_box/water.json": {
+      "sha256": "1d99dcb5361b902f071ac7d438def0a5cf912edf4e767d85f7caacaeb2fa3d7b",
+      "bytes": 589
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/force_field.json": {
+      "sha256": "9a3c14050e393a503fa5458d651e29c6f7eebd2693811057c2d1c57079c80b95",
+      "bytes": 637
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/from_json.py": {
+      "sha256": "a9e238cc6086dad367e185a654aa594c27e17a1e011d9e542cd1d7c5bca1ebb4",
+      "bytes": 77
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/methane.json": {
+      "sha256": "948e08961e8406711cc0a65a04009c94b19859d62637b79454b9f83041495248",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/run.py": {
+      "sha256": "1b3bd6471926ef10ae1e7115a7257b5d2bc2109b57b39c680a7d81634b746e62",
+      "bytes": 737
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/1_mc_methane_in_box/simulation.json": {
+      "sha256": "47cd460c5f4c153fae158dc6709bae8893e1fcce90fa6c76e87956d6b1915d31",
+      "bytes": 554
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/N2.json": {
+      "sha256": "d54fc199349217065b32dbc21ca6bf714225e195bf0ea5c9a01267c4a61dc846",
+      "bytes": 240
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/force_field.json": {
+      "sha256": "f40848ab90c3505b2b7cea8efa90c76bdc283fbf72ea2839b6e15004035c3255",
+      "bytes": 2047
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/run.py": {
+      "sha256": "a507ec027be6ceac87a090d3dd4e2a8f54719aebcba6d3b78ed0a3bc89ef0a4c",
+      "bytes": 1125
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/2_mc_co2_n2_in_two_independent_boxes/simulation.json": {
+      "sha256": "51162bf0853eaa16574390a6f5adb20c8765d3a89cf2cb482c09d90168989fa3",
+      "bytes": 1111
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/N2.json": {
+      "sha256": "d54fc199349217065b32dbc21ca6bf714225e195bf0ea5c9a01267c4a61dc846",
+      "bytes": 240
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/force_field.json": {
+      "sha256": "74cbeabf30fe974a2c152c1da9749cf82b48f01d082ea3d28ea8b8ab7ae8ea0a",
+      "bytes": 2052
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/run.py": {
+      "sha256": "c28c6b0662aa831f6df95fa1a87e92d7fafb1021e1b33ffba41b14819f3b8489",
+      "bytes": 1174
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/3_mc_binarymixture_in_two_boxes/simulation.json": {
+      "sha256": "50a8875080dbc5ce16ce232c6e40bb871b5eba253a5396f72b7f168d8d6ea6f9",
+      "bytes": 951
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/butane.json": {
+      "sha256": "05aa1c005dd6134414c3091e3af5fab6ad985df9a95d3faecf9f7dcec0f26f7e",
+      "bytes": 686
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/force_field.json": {
+      "sha256": "a8ade97fe62c4292e54898596faf1bcd5af8a9183b4d7ed036a664cd18c14a9f",
+      "bytes": 1145
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/propane.json": {
+      "sha256": "e8401622f060fc2786a32f4da0776dd1d8dcd56b1577867acb73fcd279376172",
+      "bytes": 505
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/run.py": {
+      "sha256": "0edcccf57bc1cc3b68376b1fe3686d4d17e8d3311780da55513e9abc3346d9ed",
+      "bytes": 973
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/4_mc_binary_mixture_propane_butane_in_box/simulation.json": {
+      "sha256": "703dcec432abe37ae5da95ecdd1790d747fa83fd985796d57bb5e4bc895fe00c",
+      "bytes": 785
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/force_field.json": {
+      "sha256": "938fa50f3841c4634f1b0d75933fd041342f99bb2ba5505c3442d6ae26128cfa",
+      "bytes": 615
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/from_json.py": {
+      "sha256": "a9e238cc6086dad367e185a654aa594c27e17a1e011d9e542cd1d7c5bca1ebb4",
+      "bytes": 77
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/5_md_methane_in_box_msd/simulation.json": {
+      "sha256": "24ac71eaee2de2f28e05eaaaeb0e06c033e4e089d8c99eb8c9db72bee034cc63",
+      "bytes": 643
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/force_field.json": {
+      "sha256": "c547231b59a3e49363436160e1e3f0aec30a54a226ae4af8af2d18a4cb46b6dd",
+      "bytes": 1584
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/run.py": {
+      "sha256": "c9db92b8ccd9ca9243b30edebdc8a5931a7dc0dcc436a3ce7a10f21815de5831",
+      "bytes": 842
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/6_mc_enthalpy_of_adsorption_in_mfi_at_zero_loading/simulation.json": {
+      "sha256": "3e6f95f6f6f05e0fb7e8fb7a3fee4e195249f22fa444243460a2165847b7e67e",
+      "bytes": 595
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/force_field.json": {
+      "sha256": "c547231b59a3e49363436160e1e3f0aec30a54a226ae4af8af2d18a4cb46b6dd",
+      "bytes": 1584
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/run.py": {
+      "sha256": "38035077739576c1b82a030106b447e5ac638e89b324c5ebaf51ec2ec104e775",
+      "bytes": 895
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/7_mc_henry_coefficient_of_methane_in_mfi/simulation.json": {
+      "sha256": "cba8c96dc9493cbde21bff0342e477d794c4a81ac8cd4420b43143b52dac4a48",
+      "bytes": 493
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/force_field.json": {
+      "sha256": "c547231b59a3e49363436160e1e3f0aec30a54a226ae4af8af2d18a4cb46b6dd",
+      "bytes": 1584
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/8_mc_adsorption_of_methane_in_mfi/simulation.json": {
+      "sha256": "37fef01f0b31cf1f92a331a505c6baf6d7f68ad5bf7f0cb0fc8e5ee20e9235a2",
+      "bytes": 829
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/butane.json": {
+      "sha256": "4c090ac6e113af70e30784997643169fbb4af6c64efd3bbf72f779bdd28d134f",
+      "bytes": 637
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/force_field.json": {
+      "sha256": "247e8889a36a1954413f6f36e4b235e01b5347e90d8e99285d0ff32f920dd3a0",
+      "bytes": 3431
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/basic/9_mc_adsorption_of_butane_in_mfi/simulation.json": {
+      "sha256": "f85172e9d3a833a94482c36d6d882c3255c53fe82b2125c399495e11ffef29f2",
+      "bytes": 712
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/IRMOF-1.cif": {
+      "sha256": "e5d0b3d72445c15cd2ed02a36fa2fdf3d5d13f6c21441984475449d48d3f0ad2",
+      "bytes": 4591
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/force_field.json": {
+      "sha256": "434a3866cf195b0df3ef73a15a9799d5ae820eb94941ba1aa8e36d54e025ee97",
+      "bytes": 4127
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1_split_density_by_site/simulation.json": {
+      "sha256": "17dda3662b17c747f9d75dbbd90ab3a255243c621a275c4d683c1fbe3d693c3a",
+      "bytes": 1265
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/force_field.json": {
+      "sha256": "c547231b59a3e49363436160e1e3f0aec30a54a226ae4af8af2d18a4cb46b6dd",
+      "bytes": 1584
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/2_mc_adsorption_of_methane_in_mfi_standard_binning/simulation.json": {
+      "sha256": "bec0fb588e4615dda0c843d65386a2fb46dddf1ad1ea214340e77f84d1081e09",
+      "bytes": 869
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/force_field.json": {
+      "sha256": "c547231b59a3e49363436160e1e3f0aec30a54a226ae4af8af2d18a4cb46b6dd",
+      "bytes": 1584
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/3_mc_adsorption_of_methane_in_mfi_equitable_binning/simulation.json": {
+      "sha256": "48084fc888b33ef320b77606fbbf8cc57347d7cac16b54dee593db97b46c8a23",
+      "bytes": 870
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/CALF-20-methyl.cif": {
+      "sha256": "312e036b1502827bfb3fe2feb18eb06e0e8ae16b4b2b15389004073461daef7d",
+      "bytes": 3703
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/CO2.json": {
+      "sha256": "251c9ab16cf7c20e516ad6d02965a787472b1b2ea4284dbe0e432b575ff645b6",
+      "bytes": 237
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/force_field.json": {
+      "sha256": "80c43160e5468fc6196fa2335039edffe70de5458e5a0f242d01a696ac31bf2d",
+      "bytes": 19239
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/4_mc_adsorption_of_co2_in_calf_20_methyl_split_density_equitable_binning/simulation.json": {
+      "sha256": "59dc1fe836362424a572e2840400a3e05b052a6289409d46ce56ba562c7bdc96",
+      "bytes": 953
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/C2H2.json": {
+      "sha256": "03f1eb6fbafaf4afa2e66d47268dfd563a208217c3ed86c040aea0b831154c68",
+      "bytes": 266
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/CPL-1.cif": {
+      "sha256": "4e9adaeff5484a2c90e0aae2f4cdbb4d9dcfe439e4ba0018b536e9981eb22d3a",
+      "bytes": 4951
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/force_field.json": {
+      "sha256": "53204a71e5e6dee294a5951486433f380868ce6caacd16052fc430116b622ffd",
+      "bytes": 27138
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/5_mc_adsorption_of_c2h2_in_cpl_1_split_density_equitable_binning/simulation.json": {
+      "sha256": "25bb34f476bd800fcabc9bf012a61f2e1e567f004f678544205fb911138f0da1",
+      "bytes": 942
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/CALF-20.cif": {
+      "sha256": "ebcb9f5aa1bd96a62e413f75cc0cec103682b0b48b7e1e82de837d94c2420286",
+      "bytes": 3075
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/CO2.json": {
+      "sha256": "251c9ab16cf7c20e516ad6d02965a787472b1b2ea4284dbe0e432b575ff645b6",
+      "bytes": 237
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/force_field.json": {
+      "sha256": "6d97050f006e2a406f3873724b64a7b1bf55ad58297004b9cc6b03a8b80b1a37",
+      "bytes": 15289
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/run.py": {
+      "sha256": "f8e77eebc227e094c112e29f847d994552fc0a6f392fa3af31a6d35b9c46e21c",
+      "bytes": 880
+    },
+    "vendor/raspa3/share/raspa3/examples/density_grids/6_mc_adsorption_of_co2_in_calf_20_split_density_equitable_binning/simulation.json": {
+      "sha256": "ca107adcde0e3891f99cbbda6543223734e42aab0beaf72fc4294190322f747c",
+      "bytes": 946
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/1_mc_water_in_cylinder_channel/force_field.json": {
+      "sha256": "dd0c7aee8995bdc08fac09b8553898ea8c6f4a4c92770077d1503a60e5912f46",
+      "bytes": 953
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/1_mc_water_in_cylinder_channel/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/1_mc_water_in_cylinder_channel/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/1_mc_water_in_cylinder_channel/simulation.json": {
+      "sha256": "23b649ea287c17bfdd965ac564ade2ccb28c8144d0448e30bc596f46e9f2ba0d",
+      "bytes": 608
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/1_mc_water_in_cylinder_channel/water.json": {
+      "sha256": "1d99dcb5361b902f071ac7d438def0a5cf912edf4e767d85f7caacaeb2fa3d7b",
+      "bytes": 589
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/2_mc_water_in_square_channel/force_field.json": {
+      "sha256": "dca4115902e0ef5df7aee0fd07292e17330284f8fb3f4b42d313740da8e2ce4b",
+      "bytes": 1012
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/2_mc_water_in_square_channel/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/2_mc_water_in_square_channel/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/2_mc_water_in_square_channel/simulation.json": {
+      "sha256": "23b649ea287c17bfdd965ac564ade2ccb28c8144d0448e30bc596f46e9f2ba0d",
+      "bytes": 608
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/2_mc_water_in_square_channel/water.json": {
+      "sha256": "1d99dcb5361b902f071ac7d438def0a5cf912edf4e767d85f7caacaeb2fa3d7b",
+      "bytes": 589
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/3_mc_water_in_cylinder_channel_grids/bias_factors/lambda_bias_water.s0.json": {
+      "sha256": "d382ee7812d600bc71e2c659abb36dd8310b5c17e2e31edb12acee7bb5fbe104",
+      "bytes": 387
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/3_mc_water_in_cylinder_channel_grids/force_field.json": {
+      "sha256": "61b3d47bfdf5fba8346493b03966b48a529add5f69c0db1e879ebbedeacb5a9a",
+      "bytes": 1131
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/3_mc_water_in_cylinder_channel_grids/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/3_mc_water_in_cylinder_channel_grids/simulation.json": {
+      "sha256": "23b649ea287c17bfdd965ac564ade2ccb28c8144d0448e30bc596f46e9f2ba0d",
+      "bytes": 608
+    },
+    "vendor/raspa3/share/raspa3/examples/external_fields/3_mc_water_in_cylinder_channel_grids/water.json": {
+      "sha256": "1d99dcb5361b902f071ac7d438def0a5cf912edf4e767d85f7caacaeb2fa3d7b",
+      "bytes": 589
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/IRMOF-1.cif": {
+      "sha256": "e5d0b3d72445c15cd2ed02a36fa2fdf3d5d13f6c21441984475449d48d3f0ad2",
+      "bytes": 4591
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/force_field.json": {
+      "sha256": "434a3866cf195b0df3ef73a15a9799d5ae820eb94941ba1aa8e36d54e025ee97",
+      "bytes": 4127
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/1_mc_adsorption_binary_mixture_co2_ch4_in_irmof_1/simulation.json": {
+      "sha256": "73fe21dcf5990a2cb2eaedde2fbd41db45df38bef83bb9a15f08eba694814016",
+      "bytes": 1053
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/2_mc_npt_co2/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/2_mc_npt_co2/force_field.json": {
+      "sha256": "afc36bdfc20521084772fb5dd543bb244839add27d0cb640bf9aad59a7fb5145",
+      "bytes": 1146
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/2_mc_npt_co2/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/2_mc_npt_co2/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/2_mc_npt_co2/simulation.json": {
+      "sha256": "c444078e2b0046543a139cef275f1a4f66880d5fda6a2c1257cabedf64e8cde5",
+      "bytes": 636
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/3_mc_npt_propane/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/3_mc_npt_propane/force_field.json": {
+      "sha256": "94fd3321dd3260c85bfb70d603c9633d2084c393948418c5ee98a599b272b1ed",
+      "bytes": 2528
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/3_mc_npt_propane/propane.json": {
+      "sha256": "be44af2585a91838dba509e7f3882e5c67299240479bff4f5ed4a68833609a20",
+      "bytes": 520
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/3_mc_npt_propane/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/3_mc_npt_propane/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/3_mc_npt_propane/simulation.json": {
+      "sha256": "dfd3a9f2b353000941c8c100cd73a8aa3a5d83d2752fb8d8582b203e3832a4bb",
+      "bytes": 716
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/4_mc_gibbs_co2/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/4_mc_gibbs_co2/force_field.json": {
+      "sha256": "f7d5865a9f65da40e80d79e5c8a23aa3bbd3cc7c54a4168d858e1e97a8f11955",
+      "bytes": 1096
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/4_mc_gibbs_co2/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/4_mc_gibbs_co2/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/4_mc_gibbs_co2/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/4_mc_gibbs_co2/simulation.json": {
+      "sha256": "e767d5edd74d7330b91626f4e02b2efd096e7a3a1fe3e66f9e94abe36fd509ac",
+      "bytes": 871
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/IRMOF-1.cif": {
+      "sha256": "a8c7a51f21bc1894e1ccb52b597092caf0403e515b3f2ead1c8dbcf1165f04b7",
+      "bytes": 4604
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/benzene.json": {
+      "sha256": "58a3f62d1c6935c95f5390042b06b522a3cb483178c6eb94f008af0e8514067e",
+      "bytes": 986
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/force_field.json": {
+      "sha256": "7f87202a1ad8b09b7cf2f664dd54a50e42a424a09a8623eb879065ac3bba57c3",
+      "bytes": 3755
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/5_md_benzene_in_irmof_1/simulation.json": {
+      "sha256": "ee509bdfd83b33a7a1960610bc30f59b8a9174c2dfdb2ec7c7b1b439b404894f",
+      "bytes": 724
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/LTA4A.cif": {
+      "sha256": "6f6213efed81ffa69f16ae74f148beee325cf6f30e569d52d08fc5b5ecc166dc",
+      "bytes": 50022
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/force_field.json": {
+      "sha256": "0d82c804f19a735aa940e24f149801fb790eb1d30c19e85ea4f31f3403dd387d",
+      "bytes": 4219
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/simulation.json": {
+      "sha256": "f4321b9e1296d9342f5c4027398827da763b8900fb28d754615630c2681760a9",
+      "bytes": 2517
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/6_mc_adsorption_co2_in_lta4a_sodium/sodium.json": {
+      "sha256": "8b26491e55b2fac25a89795436754be5a42a580add430fe0170444ddae2f7238",
+      "bytes": 85
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/LTA4A.cif": {
+      "sha256": "6f6213efed81ffa69f16ae74f148beee325cf6f30e569d52d08fc5b5ecc166dc",
+      "bytes": 50022
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/force_field.json": {
+      "sha256": "0d82c804f19a735aa940e24f149801fb790eb1d30c19e85ea4f31f3403dd387d",
+      "bytes": 4219
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/simulation.json": {
+      "sha256": "147b49dc1ce8397235592d2ff0078a452cc7514658e786c7e334c128ad5dac96",
+      "bytes": 2613
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/7_md_diffusion_co2_in_lta4a_sodium/sodium.json": {
+      "sha256": "8b26491e55b2fac25a89795436754be5a42a580add430fe0170444ddae2f7238",
+      "bytes": 85
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/2-methylpentane.json": {
+      "sha256": "a109409e61731ba758b013d34d2b6b78c71c6571e21688896bb4efe422a8ef52",
+      "bytes": 1221
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/22-methylbutane.json": {
+      "sha256": "9cb6d7d3c3997b2a50a07bd79e955c488caef3a0a95790576872035c4f8113ac",
+      "bytes": 1012
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/23-methylbutane.json": {
+      "sha256": "66dec606c41a3d50d3834a4ade2005753f7ad0dd2ec0e6c5b43763721caa40b0",
+      "bytes": 915
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/3-methylpentane.json": {
+      "sha256": "0e0a843e0aa9f60216a0cad5312593fd05c3aee874353c58bdfcffe13f6cdc1b",
+      "bytes": 1166
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/CO2.json": {
+      "sha256": "638a0b931b9d4dcaa3b776f4fcb322a379e2f52f0ed4133afa760e02d2820f68",
+      "bytes": 246
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/MFI_SI.cif": {
+      "sha256": "1be57c99be89150670cde2b33f6e403f325090cb8f2a91aa498380a81c080f4b",
+      "bytes": 4381
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/force_field.json": {
+      "sha256": "247e8889a36a1954413f6f36e4b235e01b5347e90d8e99285d0ff32f920dd3a0",
+      "bytes": 3431
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/hexane.json": {
+      "sha256": "937408ef9bcbf6d67b98195b557cc1e3100a537a85b8121ac0310c87430e6899",
+      "bytes": 1024
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/non_basic/8_mc_adsorption_c6_isomers_in_mfi/simulation.json": {
+      "sha256": "bcd4157d331e5874f8ac3b3efd5a3947609e1a406516663f1b3f411c8ae61c8d",
+      "bytes": 2441
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/1_particles_in_box_nvt/force_field.json": {
+      "sha256": "4b246294afab9751ffcd997dd0bba70f9c5a0fb06db651b400e6c69c40d97954",
+      "bytes": 470
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/1_particles_in_box_nvt/particle.json": {
+      "sha256": "1efb9100969888dcbd3e7ee24268f96ab15e50134323edceacada302ce3e8fc7",
+      "bytes": 169
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/1_particles_in_box_nvt/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/1_particles_in_box_nvt/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/1_particles_in_box_nvt/simulation.json": {
+      "sha256": "b829cf0c05df487790aa8db51fad46098216e17f78c048536e4e37c613105a1d",
+      "bytes": 678
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/2_particles_in_box_nvt_cfcmc/force_field.json": {
+      "sha256": "0c5dedfb64cfa76f75dde7a2ba4d4c24be48ee54097dc89bb571068b489db77f",
+      "bytes": 470
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/2_particles_in_box_nvt_cfcmc/particle.json": {
+      "sha256": "1efb9100969888dcbd3e7ee24268f96ab15e50134323edceacada302ce3e8fc7",
+      "bytes": 169
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/2_particles_in_box_nvt_cfcmc/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/2_particles_in_box_nvt_cfcmc/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/2_particles_in_box_nvt_cfcmc/simulation.json": {
+      "sha256": "39353f85385362319f5dad86dfb269477f85581ae3b11603af23cf575d108555",
+      "bytes": 778
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/3_gibbs/force_field.json": {
+      "sha256": "56c677787087b2477083b0fb1a5acd41512af8cc21c891a9a20ba172cb6d3ef7",
+      "bytes": 466
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/3_gibbs/particle.json": {
+      "sha256": "1efb9100969888dcbd3e7ee24268f96ab15e50134323edceacada302ce3e8fc7",
+      "bytes": 169
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/3_gibbs/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/3_gibbs/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/3_gibbs/simulation.json": {
+      "sha256": "ac072ad4f4a3ab444c85d6a41d590aac5872e3ca127c3fbed5d6aea475f125d5",
+      "bytes": 945
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/4_gibbs_cfcmc/force_field.json": {
+      "sha256": "56c677787087b2477083b0fb1a5acd41512af8cc21c891a9a20ba172cb6d3ef7",
+      "bytes": 466
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/4_gibbs_cfcmc/particle.json": {
+      "sha256": "1efb9100969888dcbd3e7ee24268f96ab15e50134323edceacada302ce3e8fc7",
+      "bytes": 169
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/4_gibbs_cfcmc/run": {
+      "sha256": "1cf85c8cc199fcc835cf7e8384fba4f54132ec212550f78a05ff9c28824e6c59",
+      "bytes": 147
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/4_gibbs_cfcmc/run.bat": {
+      "sha256": "6f53044c617f9f97a4f2049b20044f960628b2a7b1e10c0af63260e3ef7fc158",
+      "bytes": 11
+    },
+    "vendor/raspa3/share/raspa3/examples/reduced_units/4_gibbs_cfcmc/simulation.json": {
+      "sha256": "6ee4c49f4e01de25a9acad1f151ee2d9f42c3f85d2f0db9044d41d40c5e6b3f2",
+      "bytes": 988
+    },
+    "vendor/raspa3/share/raspa3/forcefields/example_molecule_forcefield/force_field.json": {
+      "sha256": "04d52795d2dd5fea6fa8468c1330f4dce3b62f09f3f61e46ce9303ed79df90b4",
+      "bytes": 5578
+    },
+    "vendor/raspa3/share/raspa3/manual/raspa-manual.pdf": {
+      "sha256": "6f9df7f029585f93aa682798835a4a3173ae7bf9673bd690e0aaa1ce8f65a838",
+      "bytes": 727577
+    },
+    "vendor/raspa3/share/raspa3/molecules/example_definitions/co2.json": {
+      "sha256": "953f6a6955693b2a5c44027fcaeee2e035c6de74d3ae355d06dd85c3885c78b4",
+      "bytes": 294
+    },
+    "vendor/raspa3/share/raspa3/molecules/example_definitions/methane.json": {
+      "sha256": "3d15c750c71032a23977f607486eb93679485b66e3af286993efd5760fd17188",
+      "bytes": 185
+    },
+    "vendor/raspa3/share/raspa3/molecules/example_definitions/n2.json": {
+      "sha256": "e5629f16b5126c67b6331c52f510a5f4aba03e67a20cad46cd253239caf037eb",
+      "bytes": 290
+    },
+    "vendor/sources/mace_torch-0.3.16.tar.gz": {
+      "sha256": "5fbc84d319a92ab15e3e686533547a0afd2632261132e31cb0705a4347508935",
+      "bytes": 275501
+    },
+    "vendor/sources/raspa3-3.1.0.tar.gz": {
+      "sha256": "c5221f009a5085532578620264b40755952c7e0e9a66b110b857d85ca27f2a52",
+      "bytes": 7788889
+    }
+  },
+  "total_bytes": 387512005
+}

@@ -1,0 +1,5 @@
+{
+  "temperature_K": 268,
+  "pressure_bar": [0.1, 1, 10, 19],
+  "reservoir_backend": "coolprop"
+}

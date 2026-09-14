@@ -1,0 +1,32 @@
+{
+  "SimulationType" : "MonteCarlo",
+  "NumberOfCycles" : 1000000,
+  "NumberOfInitializationCycles" : 50000,
+  "PrintEvery" : 1000,
+  
+  "Systems" : 
+  [
+    {
+      "Type" : "Box",
+      "BoxLengths" : [30.0, 30.0, 30.0],
+      "ExternalTemperature" : 250.0,
+      "ExternalPressure" : 1e6,
+      "ChargeMethod" : "None",
+      "VolumeMoveProbability" : 0.05
+    }
+  ],
+
+  "Components" : 
+  [ 
+    {
+      "Name" : "propane",
+      "MoleculeDefinition" : "ExampleDefinitions",
+      "TranslationProbability" : 1.0,
+      "RotationProbability" : 1.0,
+      "ReinsertionProbability" : 1.0,
+      "PartialReinsertionProbability" : 1.0,
+      "WidomProbability" : 1.0,
+      "CreateNumberOfMolecules" : 256
+    }
+  ]
+}

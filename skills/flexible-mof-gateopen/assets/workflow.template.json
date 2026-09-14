@@ -1,0 +1,48 @@
+{
+  "temperature_K": 298.15,
+  "pressure_bar": [
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    1.0,
+    3.0,
+    10.0
+  ],
+  "phases": {
+    "closed": {
+      "cif": "closed.cif",
+      "cleaning_report": "closed.cleaning.json",
+      "formula_units": null
+    },
+    "open": {
+      "cif": "open.cif",
+      "cleaning_report": "open.cleaning.json",
+      "formula_units": null
+    }
+  },
+  "guest": {
+    "name": "CO2",
+    "smiles": "O=C=O",
+    "geometry_sdf": "CO2_validated.sdf",
+    "geometry_source": "SUPPLY_SOURCE",
+    "source": "SUPPLY_ADSORPTION_MODEL_SOURCE"
+  },
+  "force_field": "force_field.json",
+  "force_field_source": "SUPPLY_FORCE_FIELD_SOURCE",
+  "host": {
+    "method": "elastic-network",
+    "relax": false,
+    "proxy_mesh": [
+      3,
+      3,
+      3
+    ]
+  },
+  "charges": {
+    "method": "pacmof"
+  },
+  "henry_review": {}
+}

@@ -1,0 +1,3 @@
+# The bundled PACMOF RF-DDEC model is intentionally versioned with Git LFS.
+# It is a trusted executable pickle and is hash-bound in MODEL_PROVENANCE.json.
+skills/flexible-mof-gateopen/vendor/pacmof/data/Model_RF_DDEC.pkl filter=lfs diff=lfs merge=lfs -text

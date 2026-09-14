@@ -18,8 +18,10 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 try:
     from flexible_mof_gateopen.preflight import load_gas_profile, pressure_gate, structure_gate
+    from flexible_mof_gateopen.reservoir import reservoir_point
 except ModuleNotFoundError:
     from preflight import load_gas_profile, pressure_gate, structure_gate
+    from reservoir import reservoir_point
 
 
 CO2_JSON = {
@@ -76,16 +78,25 @@ def main() -> None:
     parser.add_argument("--force-field", type=Path, required=True)
     parser.add_argument("--raspa-bin", type=Path, default=None)
     parser.add_argument("--run", action="store_true")
+    parser.add_argument("--cycles", type=int, default=20000)
+    parser.add_argument("--initialization-cycles", type=int, default=3000)
+    parser.add_argument("--equilibration-cycles", type=int, default=5000)
+    parser.add_argument("--seed", type=int, default=20260913)
     parser.add_argument("--cleaning-report", type=Path, required=True)
     parser.add_argument("--gas-profile", type=Path, help="Required for any guest other than bundled CO2")
+    parser.add_argument("--reservoir", choices=["ideal", "coolprop"], default="ideal")
     parser.add_argument("--molecule-json", type=Path, help="Validated RASPA guest model for a custom gas")
     parser.add_argument("--unit-cells", type=int, nargs=3, required=True)
     parser.add_argument("--cutoff", type=float, required=True, help="Largest vdW/Coulomb real-space cutoff in Angstrom")
     args = parser.parse_args()
+    if args.cycles < 10 or min(args.initialization_cycles, args.equilibration_cycles, args.seed) < 0:
+        raise ValueError("at least 10 production cycles and nonnegative warmup/seed required")
     if not args.cif.is_file() or not args.force_field.is_file():
         raise SystemExit("CIF and force-field files must exist")
     profile = load_gas_profile(args.gas_profile)
     pressure_audit = pressure_gate(profile, args.temperature, args.pressures)
+    reservoir_points = {p: reservoir_point(args.temperature, p, backend=args.reservoir,
+                        fluid=profile.get("coolprop_fluid", profile["name"])) for p in args.pressures}
     structure_audit = structure_gate(args.cif, args.cleaning_report, charges=True)
     if profile["name"] != "CO2" and args.molecule_json is None:
         raise ValueError("custom adsorbate requires --molecule-json; CO2 coordinates cannot be reused")
@@ -126,10 +137,15 @@ def main() -> None:
         (point / "force_field.json").write_text(json.dumps(ff, indent=2) + "\n")
         (point / f"{profile['name']}.json").write_text(json.dumps(molecule, indent=2) + "\n")
         sim = simulation(args.temperature, pressure, args.phase)
+        sim.update(NumberOfCycles=args.cycles, NumberOfInitializationCycles=args.initialization_cycles,
+                   NumberOfEquilibrationCycles=args.equilibration_cycles, RandomSeed=args.seed,
+                   PrintEvery=max(1, args.cycles // 5))
         sim["Systems"][0]["NumberOfUnitCells"] = args.unit_cells
         sim["Components"][0]["Name"] = profile["name"]
+        sim["Components"][0]["FugacityCoefficient"] = reservoir_points[pressure]["fugacity_coefficient"]
         (point / "simulation.json").write_text(json.dumps(sim, indent=2) + "\n", encoding="utf-8")
-        (point / "preflight.json").write_text(json.dumps({"structure": structure_audit, "reservoir": pressure_audit}, indent=2) + "\n")
+        (point / "preflight.json").write_text(json.dumps({"structure": structure_audit, "reservoir": pressure_audit,
+                                                       "reservoir_point": reservoir_points[pressure]}, indent=2) + "\n")
         if args.run:
             if args.raspa_bin is None:
                 raise SystemExit("--raspa-bin is required with --run")

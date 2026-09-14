@@ -1,0 +1,9 @@
+{
+  "slices": [{
+    "phase": "synthetic_basin", "temperature_K": 300, "pressure_bar": 1,
+    "volume_A3_fu": [90, 95, 100, 105, 110],
+    "F_total_kJ_mol_fu": [1, 0.25, 0, 0.25, 1],
+    "all_phonons_stable": true,
+    "source": "SYNTHETIC demonstration, not material phonons"
+  }]
+}

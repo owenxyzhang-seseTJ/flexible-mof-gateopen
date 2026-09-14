@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flexible-mof-gateopen"
-version = "0.2.0"
+version = "0.4.0"
 description = "Auditable fixed-host GCMC and osmotic gate-opening screening utilities"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,6 +14,11 @@ dependencies = []
 cif = ["gemmi>=0.6"]
 structure = ["gemmi>=0.6", "ase>=3.22", "pymatgen>=2023.8", "spglib>=2"]
 guest = ["rdkit>=2023.9"]
+ui = ["streamlit>=1.40"]
+xtb = ["tblite>=0.5"]
+advanced = ["numpy>=1.24", "scipy>=1.10", "CoolProp>=7", "ase>=3.22", "phonopy>=2.30"]
+ml = ["chgnet>=0.4.2"]
+mace = ["mace-torch>=0.3.10"]
 plot = ["matplotlib>=3.7"]
 dev = ["pytest>=8", "PyYAML>=6"]
 

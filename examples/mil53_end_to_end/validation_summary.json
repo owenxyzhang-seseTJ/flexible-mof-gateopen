@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "classification": "real_backend_end_to_end_smoke_test_prediction_blocked",
+  "material": "MIL-53(Al), ordered activated H-reconstructed model",
+  "temperature_K": 268.0,
+  "formula_unit": "AlC8H5O5",
+  "source_repository": "https://github.com/hnbabaei/Flexible-MOFs",
+  "source_commit": "d8c445037b3f4be1a60e86fd2caf2ef71dcaff87",
+  "source_sha256": {
+    "closed": "716d31972e28e6a46b050ee2228fb561414bdedd8ec52b6b238526259666a9e6",
+    "open": "7f9357e9edd293fcced47898e90943bf71383f475dba5a28bad8c85fa3df300a"
+  },
+  "preparation": "Verified 64 translational repetitions; Al4C32O20 reduced cell; 16 aromatic and 4 OH hydrogens added; fixed-cell FIRE; material-specific coordination/connectivity and independent parser checks; not a refinement",
+  "host_model": {
+    "name": "MACE-MOF0-v2",
+    "head": "pbe_d3",
+    "additional_D3": false,
+    "checkpoint_sha256": "04113c54cb5f8e1f30babbbda12cd97df401a65c1424f24c4cf1bcce247f12db",
+    "source_doi": "10.1038/s41524-025-01611-8"
+  },
+  "host_static": {
+    "closed_E_eV_cell": -542.0612265577154,
+    "open_E_eV_cell": -541.5032528373856,
+    "formula_units_per_cell": 4,
+    "delta_E_open_minus_closed_kJ_mol_fu": 13.459069930525,
+    "closed_volume_A3_fu": 236.6852186875513,
+    "open_volume_A3_fu": 352.9876993968749,
+    "closed_max_force_eV_A": 0.019497613730475007,
+    "open_max_force_eV_A": 0.015203420197155149
+  },
+  "phonons": {
+    "supercell": [1, 1, 1],
+    "q_mesh": [2, 2, 2],
+    "closed_min_frequency_THz": -3.1777032046576785,
+    "open_min_frequency_THz": -5.449307633910039,
+    "open_Gamma_min_frequency_THz": -5.07878298572403,
+    "delta_F_host_kJ_mol_fu": null,
+    "status": "blocked_unstable_phonons"
+  },
+  "charges": {
+    "method": "PACMOF RF-DDEC",
+    "sklearn_version": "1.8.0",
+    "model_sha256": "e749a9c276f1e12d8fe9ae0c14a99a8628e4d17595d22e74437dfa49a5d2dfa6",
+    "geometry_policy": "insert charge column only, no coordinate rounding",
+    "neutrality_gate_e": 0.000001
+  },
+  "guest": {
+    "name": "CO2",
+    "geometry_route": "RDKit conformer then GFN2-xTB refinement, independent geometry gate",
+    "C_O_bond_A": 1.1436813236212262,
+    "rejected_first_run": "MMFF converged but gave unphysical 1.405 A C-O; those isotherms are not used in this summary"
+  },
+  "raspa": {
+    "version": "3.1.0",
+    "reservoir": "CoolProp pure vapor",
+    "pressure_bar": [0.001, 0.003, 0.03, 0.3, 3, 20],
+    "seeds": [417, 941],
+    "cycles": 200,
+    "initialization_cycles": 200,
+    "equilibration_cycles": 300,
+    "cutoff_A": 8.0,
+    "closed_unit_cells": [1, 3, 3],
+    "open_unit_cells": [3, 1, 2],
+    "native_runs": 24,
+    "closed_mean_loading_molecules_fu": [0, 0, 0, 0, 0, 0],
+    "open_mean_loading_molecules_fu": [0.003125, 0.008645833333333333, 0.08197916666666666, 0.953125, 1.9180208333333333, 2.249375]
+  },
+  "open_descriptive_fits": {
+    "Langmuir_n_sat_molecules_fu": 2.2693759177497137,
+    "Langmuir_b_per_bar": 2.2597307334415393,
+    "loading_RMSE_molecules_fu": 0.03999020946846935,
+    "host_guest_energy_model": "U=a*N+b*N^2, U in kJ/mol framework f.u., N in molecules/f.u.",
+    "energy_a": -20.32221131893628,
+    "energy_b": 0.3209865194816848,
+    "energy_RMSE_kJ_mol_fu": 0.05050576615104503
+  },
+  "equilibrium_pressure_bar": null,
+  "experimental_gateopen_pressure_bar": null,
+  "limitations": [
+    "No stable harmonic host free energy; do not substitute static delta E",
+    "Closed-phase zero loading lacks accepted insertions; not a precise zero-uncertainty isotherm",
+    "Low-pressure Henry regime and convergence not verified",
+    "Small phonon supercell, 8 A adsorption cutoff and 200 production cycles are smoke settings",
+    "UFF-like host LJ and transferred guest geometry are not material-validated adsorption parameters",
+    "No landscape, barriers or kinetic opening/closing pressure",
+    "All eleven software stages completed; scientific release gates blocked the prediction"
+  ]
+}

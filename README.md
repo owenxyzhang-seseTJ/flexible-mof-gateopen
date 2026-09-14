@@ -1,62 +1,84 @@
-# Flexible MOF Gate Opening
+# flexible-mof-gateopen | Agent execution contract
 
-[中文](README.zh-CN.md) | English
+[中文](README.zh-CN.md)
 
-A Codex skill for preparing flexible-MOF adsorption calculations and screening equilibrium transition pressures.
+Purpose: fast, auditable **conditional equilibrium opening pressure P_eq**.
+No web application, MD, DFT or finite-displacement phonons in the packaged route.
 
-**Clean CIF → charges → guest model → RASPA → adsorption + host free energy → P_eq**
+`closed/open CIF + clean-cif reviews + gas/T + force field + pressure grid`
+→ `source charges/PACMOF + RDKit/sourced guest geometry`
+→ `static MACE + elastic-network entropy proxy + two RASPA isotherms`
+→ `osmotic integration + PΔV → P_eq and sensitivity`.
 
-## Install
+## Execute
+
+Run inside the skill directory with a configured Python environment:
 
 ```bash
-git clone https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen.git
-cd flexible-mof-gateopen
-python -m pip install -e '.[dev,structure,guest]'
-cp -R skills/flexible-mof-gateopen ~/.codex/skills/
+python -m pip install -r requirements.txt
+python scripts/verify_bundle.py
+python scripts/self_test.py
+python scripts/run_fast_screen.py --spec /absolute/job.json --output-dir /absolute/new_run
 ```
 
-Also install **clean-cif**. RASPA3 and PACMOF are separate installations. Core free-energy analysis needs only Python 3.10+.
+Fill `assets/workflow.template.json` using [agent_contract.md](references/agent_contract.md).
+Paths in a job are relative to that JSON; bundled model defaults resolve from
+the skill root. Override `raspa.binary` on a different platform. Never run an
+unfilled template or fabricate chemistry evidence. The source repository's
+curated skill is under `skills/flexible-mof-gateopen`.
 
-## Use in Codex
-
-> Use $flexible-mof-gateopen for my open/closed CIFs and ethanol adsorption at 298.15 K. First use $clean-cif to resolve disorder and solvent, assign PACMOF charges, prepare the guest with RDKit, and scan only up to sourced Psat(T). Report P_eq for my supplied host free-energy range.
-
-Provide both structures, gas, temperature, a validated guest/force-field model, and host free energy or a clearly labeled range to test.
-
-| Step | Requirement / output |
+| Need | Script |
 |---|---|
-| Framework | Mandatory disorder/solvent review, P1 CIF, dual-parser audit and hash-bound record |
-| Charges | Source charges or PACMOF; neutral cell and preserved geometry |
-| Guest | RDKit conformers → MMFF94s/UFF → SDF, XYZ and convergence record |
-| VOC pressure | Sourced Psat at the actual temperature; reject P > Psat |
-| GCMC | Explicit supercell/cutoff, Ewald and CIF charges; matching model for custom guests |
-| Free energy | Formula-unit-normalized absolute loading → required host penalty and conditional P_eq |
+| Full workflow | `run_fast_screen.py` |
+| Host ΔE + entropy/free-energy proxy | `quick_host_free_energy.py` |
+| Clean-CIF gate | `check_cleaning.py` |
+| Charge assignment | `run_pacmof.py` |
+| Guest geometry | `prepare_guest_rdkit.py` |
+| GCMC input/run | `prepare_raspa_inputs.py` |
+| Empty-host dilute uptake audit | `run_empty_widom.py` |
+| Bundle/runtime checks | `verify_bundle.py` |
+| Analytic regressions without material simulation | `self_test.py` |
 
-Preparation stops if the cleaning record is missing, stale or unresolved. RDKit geometry still requires separate RASPA force-field parameters.
+## Mandatory decisions
 
-## Try the bundled analysis
+- Use bundled clean-cif instructions/auditor. Chemistry decisions remain reviewed;
+  do not blindly remove disorder/solvent. Phases need identical composition and
+  activation per formula unit; Z refers to the CIF cell, not the simulation box.
+- PACMOF RF-DDEC requires **scikit-learn 1.8.0** for the bundled serialized model.
+  Source charges require neutrality, valid atom mapping and provenance.
+- RDKit geometry does not provide adsorption LJ/charges. Custom rigid guests need
+  explicit atom-type mapping, molecule JSON and model/geometry provenance.
+- VOCs require sourced Psat(T); never exceed it. GCMC and analysis must use the
+  same actual fugacity. Do not extrapolate above simulated pressure.
+- A closed zero-uptake scenario is legitimate but explicit, with residual-uptake
+  sensitivity. No accepted swaps is not exclusion; Widom is dilute evidence,
+  not a rigorous finite-pressure upper bound.
 
-```bash
-python scripts/quick_free_energy_screen.py \
-  --csv examples/xpcu5zn_co2_268K/data/fixed_host_isotherms_268K.csv \
-  --temperature 268 --open-formula-units 2 --closed-formula-units 4 \
-  --target-pressure 19 --host-penalty 67.9
-```
+## Outputs and status
 
-The archived X-pcu-5-Zn/CO2 data give a required host penalty of **67.93 kJ/mol of framework formula units** at 19 bar and **P_eq ≈ 18.96 bar** for an assumed 67.9 kJ/mol penalty. This legacy analysis example has not been certified by the new mandatory cleaning gate. See [numerical corrections](references/method_boundaries.md).
+`run/workflow_summary.json` contains status/failures/analysis; stages retain
+immutable attempts, hashes and native outputs. Exit 0 means a conditional screen
+was produced; exit 2 means unresolved execution/scientific gates. A completed run
+with no opening roots means no predicted equilibrium opening **within the sampled
+range**, not at every pressure. Dense evaluation nodes do not replace GCMC.
 
-Experimental opening/closing pressures require a validated framework free-energy landscape and barrier or instability criterion. Two rigid structures alone do not determine hysteresis or switching rates.
+`ΔF_screen=ΔE_static+ΔU_vib,proxy−TΔS_proxy` combines **different models**.
+The entropy proxy has no calibrated MOF free-energy accuracy. Scenario ranges
+are not confidence intervals; do not infer hysteresis, barriers or experimental
+accuracy. Report calibration and independent validation separately.
 
-## Details
+## Included / external
 
-- [Detailed free-energy methods (Chinese)](references/free_energy_methods.zh-CN.md)
-- [Structure and solvent preparation](references/cleaning_gate.md)
-- [VOC saturation and RDKit](references/vapor_and_guest.md)
-- [RASPA commands](references/raspa_input.md)
-- [Skill instructions](skills/flexible-mof-gateopen/SKILL.md)
+Included: required project source; MACE-MOF0-v2 and PACMOF RF-DDEC weights;
+PACMOF source; clean-cif instructions/auditor; RASPA 3.1.0 and MACE runtime source
+archives; macOS arm64 RASPA executable/share tree; pinned requirements/runtime
+record; licenses; model provenance; manifest; JSON template; detailed theory PDF
+and Markdown. No development trial records, training datasets or application UI.
 
-```bash
-python -m pytest -q
-python scripts/validate_example.py
-python skills/flexible-mof-gateopen/scripts/quick_validate.py skills/flexible-mof-gateopen
-```
+Python packages and OS shared libraries remain dependencies, not an offline OS
+distribution. The native binary may need the recorded native libraries; build the
+supplied source elsewhere. No web service is needed after installing dependencies.
+Review third-party licenses before redistribution. Only load trusted pickle/Torch
+files. The [Theory PDF](assets/principles.pdf) explains derivations and limitations;
+its reproducible [XeLaTeX source](references/principles.tex) is included for
+text/formula inspection and rebuilding.
