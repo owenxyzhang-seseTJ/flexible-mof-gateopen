@@ -5,6 +5,27 @@
 目标：从闭孔/开孔 CIF 快速估算条件性平衡开孔压力 P_eq。纯 Agent/CLI 技能，
 不含网页服务；快速入口不执行 MD、DFT、框架优化或有限位移声子。
 
+## 安装
+
+从 PyPI 安装筛选库：
+
+```bash
+python -m pip install flexible-mof-gateopen
+```
+
+核心包不依赖第三方库。按路线需要加装 extra，例如
+`flexible-mof-gateopen[structure,advanced]` 或 `flexible-mof-gateopen[ml]`，
+完整列表见 [pyproject.toml](pyproject.toml)。
+
+工作流**脚本**和 Codex skill 包不在 wheel 内。需要完整流程时，克隆仓库，并在
+下一节中从仓库根目录执行命令：
+
+```bash
+git clone https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen.git
+cd flexible-mof-gateopen
+python -m pip install -r requirements.txt
+```
+
 ## 输入、执行与输出
 
 输入：两相已审核 CIF、clean-cif 记录、每个 CIF 的 Z、气体及温度、吸附力场及

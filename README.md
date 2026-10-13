@@ -10,6 +10,29 @@ No web application, MD, DFT or finite-displacement phonons in the packaged route
 → `static MACE + elastic-network entropy proxy + two RASPA isotherms`
 → `osmotic integration + PΔV → P_eq and sensitivity`.
 
+## Install
+
+Install the screening library from PyPI:
+
+```bash
+python -m pip install flexible-mof-gateopen
+```
+
+Core has no third-party dependencies. Install only the extras a route needs, for
+example `flexible-mof-gateopen[structure,advanced]` or
+`flexible-mof-gateopen[ml]`. Every extra is declared in
+[pyproject.toml](pyproject.toml).
+
+The workflow **scripts** and the Codex skill bundle are not shipped in the
+wheel. For the full workflow, clone the repository and run the commands in the
+next section from the checkout:
+
+```bash
+git clone https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen.git
+cd flexible-mof-gateopen
+python -m pip install -r requirements.txt
+```
+
 ## Execute
 
 Run inside the skill directory with a configured Python environment:

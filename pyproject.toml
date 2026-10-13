@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,6 +7,25 @@ name = "flexible-mof-gateopen"
 version = "0.4.0"
 description = "Auditable fixed-host GCMC and osmotic gate-opening screening utilities"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Xiaoyu Zhang", email = "owenxyzhang@gmail.com" }]
+keywords = [
+  "MOF", "flexible-framework", "gate-opening", "GCMC", "RASPA", "adsorption",
+  "osmotic-integration", "free-energy", "porous-materials",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Scientific/Engineering :: Physics",
+]
 requires-python = ">=3.10"
 dependencies = []
 
@@ -21,6 +40,12 @@ ml = ["chgnet>=0.4.2"]
 mace = ["mace-torch>=0.3.10"]
 plot = ["matplotlib>=3.7"]
 dev = ["pytest>=8", "PyYAML>=6"]
+
+[project.urls]
+Homepage = "https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen"
+Repository = "https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen"
+Issues = "https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen/issues"
+Changelog = "https://github.com/owenxyzhang-seseTJ/flexible-mof-gateopen/releases"
 
 [tool.setuptools.packages.find]
 where = ["src"]
